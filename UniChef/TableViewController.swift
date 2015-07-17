@@ -65,7 +65,7 @@ class TableViewController: PFQueryTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
-        if let object = object {
+        if let object = object, id = object.objectId {
             cell.yakText.text = object.valueForKey("text") as? String
             cell.yakText.numberOfLines = 0
             let score = object.valueForKey("count")!.intValue
@@ -75,6 +75,18 @@ class TableViewController: PFQueryTableViewController {
             cell.indexPath = indexPath
             cell.tableView = self.tableView
             cell.object = object
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if defaults.integerForKey(id) == -1 {
+                cell.topButton.selected = false
+                cell.bottomButton.selected = true
+            } else if defaults.integerForKey(id) == 1 {
+                cell.topButton.selected = true
+                cell.bottomButton.selected = false
+            } else {
+                cell.topButton.selected = false
+                cell.bottomButton.selected = false
+            }
+            
             /*if cell.topButton.selected == true{
                 cell.topButton.selected = false
             }
