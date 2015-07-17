@@ -9,6 +9,7 @@
 import UIKit
 
 class PostViewController: UIViewController, UITextFieldDelegate {
+    var scoreArray = []
     
     @IBOutlet weak var postView: UITextField!
     
@@ -37,11 +38,10 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         let testObject = PFObject(className: "Yak")
         
         testObject["text"] = self.postView.text
-        
         testObject["count"] = 0
         testObject["replies"] = 0
-        
         testObject.saveInBackground()
+        
         
         self.navigationController?.popViewControllerAnimated(true)
     }
