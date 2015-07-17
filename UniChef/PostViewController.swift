@@ -28,24 +28,27 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true , completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func postPressed(sender: AnyObject) {
         
         
         let testObject = PFObject(className: "Yak")
+        
         testObject["text"] = self.postView.text
+        
         testObject["count"] = 0
         testObject["replies"] = 0
         
         testObject.saveInBackground()
-        self.dismissViewControllerAnimated(true , completion: nil)
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(textView: UITextField) {
         if(reset == false){
             self.postView.text = String(Array(self.postView.text)[0])
             reset = true

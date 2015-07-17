@@ -14,7 +14,7 @@ class TableViewController: PFQueryTableViewController {
     
     
     override init(style: UITableViewStyle, className: String!) {
-    super.init(style: style, className: className)
+        super.init(style: style, className: className)
     }
     
     
@@ -51,7 +51,7 @@ class TableViewController: PFQueryTableViewController {
         super.didReceiveMemoryWarning()
     }
     
- 
+    
     
     
     override func queryForTable() -> PFQuery {
@@ -63,46 +63,35 @@ class TableViewController: PFQueryTableViewController {
         return query
     }
     
-    
-    
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
-        if let object = self.objectAtIndexPath(indexPath) {
+        if let object = object {
             cell.yakText.text = object.valueForKey("text") as? String
             cell.yakText.numberOfLines = 0
             let score = object.valueForKey("count")!.intValue
             cell.count.text = "\(score)"
             cell.time.text = "\((indexPath.row + 1) * 3)m ago"
             cell.replies.text = "\((indexPath.row + 1) * 1) replies"
+            cell.indexPath = indexPath
+            cell.tableView = self.tableView
+            cell.object = object
+            /*if cell.topButton.selected == true{
+                cell.topButton.selected = false
+            }
+            if cell.bottomButton.selected == true{
+                cell.bottomButton.selected = false
+            }*/
+
         }
         return cell
     }
-
-    @IBAction func topButton(sender: AnyObject) {
-        let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
-        let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
-        if let object = objectAtIndexPath(hitIndex) {
-            object.incrementKey("count")
-            object.saveInBackground()
-            self.tableView.reloadData()
-            NSLog("Top Index Path \(hitIndex?.row)")
-            
-            
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let vc = segue.destinationViewController as? DetailViewController, cell = sender as? TableViewCell {
+                let yak = objectAtIndexPath(cell.indexPath)
+                vc.yak = yak
+            }
         }
     }
-    
-    @IBAction func bottomButton(sender: AnyObject) {
-        let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
-        let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
-        if let object = objectAtIndexPath(hitIndex) {
-            object.incrementKey("count", byAmount: -1)
-            object.saveInBackground()
-            self.tableView.reloadData()
-            NSLog("Bottom Index Path \(hitIndex?.row)")
-            
-        }
-    }
-    
 }
