@@ -1,13 +1,5 @@
 //
 //  NSDate+Extension.swift
-//  UniChef
-//
-//  Created by Leena Annamraju on 7/17/15.
-//  Copyright (c) 2015 Andrew/Leena. All rights reserved.
-//
-
-//
-//  NSDate+Extension.swift
 //  Tasty
 //
 //  Created by Vitaliy Kuzmenko on 17/10/14.
@@ -73,7 +65,7 @@ extension NSDate {
         value = Int(floor(Float(deltaMinutes / kYear)))
         return stringFromFormat("%%d%@yr", withValue: value)
     }
-    
+
     var timeAgo: String {
         
         let now = NSDate()
@@ -165,3 +157,4 @@ extension NSDate {
     }
     
 }
+

@@ -1,17 +1,26 @@
 PODS:
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
   - Bolts/Tasks (1.2.0)
   - Parse (1.7.5):
     - Bolts/Tasks (>= 1.2.0)
   - ParseUI (1.1.4):
     - Parse (~> 1.7)
+  - SlackTextViewController (1.5.2)
 
 DEPENDENCIES:
+  - Bolts
   - Parse
   - ParseUI
+  - SlackTextViewController
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   Parse: 7c0f115eff3e0cea3fac08d50bda47154edb8832
   ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
+  SlackTextViewController: ab240cda4c7fe1f70f6c6cf64578f3fea495ce99
 
 COCOAPODS: 0.37.2

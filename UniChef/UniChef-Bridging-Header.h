@@ -10,3 +10,5 @@
 #import <Bolts/Bolts.h>
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "SLKTextView.h"
+#import "SLKTextViewController.h"

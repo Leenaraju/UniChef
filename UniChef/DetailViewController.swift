@@ -170,6 +170,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showComments" {
+            if let vc = segue.destinationViewController as? CommentsTableViewController {
+                vc.yak = yak
+            }
+        }
+    }
+    
     func reply() {
         yak?.addObject(commentView!.text, forKey: "comments")
         yak?.saveInBackground()

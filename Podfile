@@ -4,6 +4,8 @@
 target 'UniChef' do
 pod 'Parse'
 pod 'ParseUI'
+pod 'Bolts'
+pod 'SlackTextViewController'
 end
 
 target 'UniChefTests' do

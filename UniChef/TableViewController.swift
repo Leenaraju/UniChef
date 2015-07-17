@@ -11,14 +11,12 @@ import CoreLocation
 
 class TableViewController: PFQueryTableViewController {
     var yaks = ["Yo"]
-
+    
     @IBOutlet weak var segControl: UISegmentedControl!
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
     }
-    
-
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,6 +26,10 @@ class TableViewController: PFQueryTableViewController {
         self.pullToRefreshEnabled = true
         self.objectsPerPage = 200
         
+    }
+    
+    @IBAction func segControlChanged(sender: AnyObject) {
+        loadObjects()
     }
     
     private func alert(message : String) {
@@ -52,51 +54,40 @@ class TableViewController: PFQueryTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
-    
-    
+  
     override func queryForTable() -> PFQuery {
         
         let query = PFQuery(className: "Yak")
-        query.limit = 200;
-    
-        if segControl.selectedSegmentIndex == 0
-        {
-        query.orderByDescending("createdAt")
+        query.limit = 200
         
-        }
-        else{
+        if segControl.selectedSegmentIndex == 0 {
+            query.orderByDescending("createdAt")
+        } else {
             query.orderByDescending("count")
-            
-
-
         }
+        
+        query.cachePolicy = PFCachePolicy.CacheThenNetwork
         
         
         return query
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        let query = PFQuery(className: "Yak")
-        
-        let date = NSDate()
-        var formatter = NSDateFormatter();
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ";
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         if let object = object, id = object.objectId {
             cell.yakText.text = object.valueForKey("text") as? String
             cell.yakText.numberOfLines = 0
             let score = object.valueForKey("count")!.intValue
             cell.count.text = "\(score)"
-            cell.time.text = "\(())m ago"
+            if let timeAgo = object.createdAt?.timeAgoSimple {
+                cell.time.text = timeAgo + " ago"
+            }
             cell.replies.text = "\((indexPath.row + 1) * 1) replies"
             cell.indexPath = indexPath
             cell.tableView = self.tableView
             cell.object = object
             
-        
+            
             let defaults = NSUserDefaults.standardUserDefaults()
             if defaults.integerForKey(id) == -1 {
                 cell.topButton.selected = false
@@ -108,7 +99,7 @@ class TableViewController: PFQueryTableViewController {
                 cell.topButton.selected = false
                 cell.bottomButton.selected = false
             }
-
+            
         }
         return cell
     }

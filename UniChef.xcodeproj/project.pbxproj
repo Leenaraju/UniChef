@@ -17,8 +17,13 @@
 		6303F93C1B571DDE0079DA16 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93B1B571DDD0079DA16 /* DetailViewController.swift */; };
 		6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93D1B571E0A0079DA16 /* CommentCell.swift */; };
 		6303F9401B571FEE0079DA16 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */; };
-		6331BD421B59A5BF0036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD411B59A5BF0036D13C /* NSDate+Extension.swift */; };
 		6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD431B59A64A0036D13C /* TableViewController.swift */; };
+		6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD451B59A9F10036D13C /* NSDate+Extension.swift */; };
+		6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */; };
+		63F31D6C1B59C32F007ED5E7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */; };
+		63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */; };
+		63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */; };
+		63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */; };
 		97570785278C1C942CA8777C /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E632359D04A9229495DD6E /* libPods-UniChef.a */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +56,13 @@
 		6303F93B1B571DDD0079DA16 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6303F93D1B571E0A0079DA16 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		6331BD411B59A5BF0036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
+		63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
 		72E632359D04A9229495DD6E /* libPods-UniChef.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniChef.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,14 +122,14 @@
 			isa = PBXGroup;
 			children = (
 				0EB26AAF1B56CBC80018C41F /* AppDelegate.swift */,
-				6331BD411B59A5BF0036D13C /* NSDate+Extension.swift */,
+				6303F93B1B571DDD0079DA16 /* DetailViewController.swift */,
 				6331BD431B59A64A0036D13C /* TableViewController.swift */,
 				6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */,
 				0EDAFD241B56E601009A2513 /* PostViewController.swift */,
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
+				63F31D731B59C3C9007ED5E7 /* CommentsViewController */,
+				6331BD491B59AA6F0036D13C /* NSDate */,
 				0EB26AB31B56CBC80018C41F /* Main.storyboard */,
-				6303F93B1B571DDD0079DA16 /* DetailViewController.swift */,
-				6303F93D1B571E0A0079DA16 /* CommentCell.swift */,
 				0EB26AB61B56CBC80018C41F /* Images.xcassets */,
 				0EB26AB81B56CBC80018C41F /* LaunchScreen.xib */,
 				6303F93A1B571AC40079DA16 /* UniChef-Bridging-Header.h */,
@@ -160,6 +170,27 @@
 				AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6331BD491B59AA6F0036D13C /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				6331BD451B59A9F10036D13C /* NSDate+Extension.swift */,
+				6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */,
+			);
+			name = NSDate;
+			sourceTree = "<group>";
+		};
+		63F31D731B59C3C9007ED5E7 /* CommentsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */,
+				63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */,
+				63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */,
+				63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */,
+				6303F93D1B571E0A0079DA16 /* CommentCell.swift */,
+			);
+			name = CommentsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +276,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */,
+				63F31D6C1B59C32F007ED5E7 /* CommentCell.xib in Resources */,
 				0EB26AB51B56CBC80018C41F /* Main.storyboard in Resources */,
+				6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */,
 				0EB26ABA1B56CBC80018C41F /* LaunchScreen.xib in Resources */,
 				0EB26AB71B56CBC80018C41F /* Images.xcassets in Resources */,
 			);
@@ -298,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6331BD421B59A5BF0036D13C /* NSDate+Extension.swift in Sources */,
+				6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */,
 				0EDAFD091B56D36F009A2513 /* TableViewCell.swift in Sources */,
 				6303F9401B571FEE0079DA16 /* CommentsTableViewController.swift in Sources */,
 				6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */,
@@ -306,6 +340,8 @@
 				0EB26AB01B56CBC80018C41F /* AppDelegate.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
 				6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */,
+				63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */,
+				63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

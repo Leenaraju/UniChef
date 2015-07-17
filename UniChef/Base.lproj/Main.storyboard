@@ -121,6 +121,9 @@
                                 <segment title="New"/>
                                 <segment title="Hot"/>
                             </segments>
+                            <connections>
+                                <action selector="segControlChanged:" destination="fiq-0V-YuK" eventType="valueChanged" id="eLb-aW-VoH"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xUU-TZ-p8F">
                             <connections>
@@ -219,6 +222,24 @@
             </objects>
             <point key="canvasLocation" x="589" y="369"/>
         </scene>
+        <!--Comments Table View Controller-->
+        <scene sceneID="nxF-jb-jQA">
+            <objects>
+                <viewController id="R0E-7U-vTY" customClass="CommentsTableViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RbW-5s-7fe"/>
+                        <viewControllerLayoutGuide type="bottom" id="HXc-jo-VDp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4lY-UA-gDd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgy-QB-BNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469" y="1121"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="JAD-CB-p1E">
             <objects>
@@ -277,6 +298,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-ch-NOb">
+                                <rect key="frame" x="27" y="217" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="R0E-7U-vTY" kind="show" identifier="showComments" id="fxg-Yx-w2c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
