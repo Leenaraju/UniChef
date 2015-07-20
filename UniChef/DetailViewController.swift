@@ -11,7 +11,7 @@ import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
-    var yak: PFObject?
+    var recipe: PFObject?
     var commentView: UITextView?
     var footerView: UIView?
     var contentHeight: CGFloat = 0
@@ -21,7 +21,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var yakLabel: UILabel!
+    @IBOutlet weak var recipeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +48,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         
-        if(yak?.objectForKey("comments") != nil) {
-            comments = yak?.objectForKey("comments") as? [String]
+        if(recipe?.objectForKey("comments") != nil) {
+            comments = recipe?.objectForKey("comments") as? [String]
         }
-        println(yak)
-        println(yak?.objectForKey("text"))
-        self.yakLabel.text = yak?.objectForKey("text") as? String
+        println(recipe)
+        println(recipe?.objectForKey("text"))
+        self.recipeLabel.text = recipe?.objectForKey("text") as? String
         
     }
     func keyBoardWillShow(notification: NSNotification) {
@@ -173,14 +173,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showComments" {
             if let vc = segue.destinationViewController as? CommentsTableViewController {
-                vc.yak = yak
+              //  vc.recipe = recipe
             }
         }
     }
     
     func reply() {
-        yak?.addObject(commentView!.text, forKey: "comments")
-        yak?.saveInBackground()
+        recipe?.addObject(commentView!.text, forKey: "comments")
+        recipe?.saveInBackground()
         if let tmpText = commentView?.text {
             comments?.append(tmpText)
         }

@@ -1,6 +1,6 @@
 //
 //  CommentsTableViewController.swift
-//  YikYak
+//  Yikrecipe
 //
 //  Created by Shrikar Archak on 1/6/15.
 //  Copyright (c) 2015 Shrikar Archak. All rights reserved.
@@ -13,15 +13,15 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     var commentView: UITextView?
     var footerView: UIView?
     var contentHeight: CGFloat = 0
-    var yak: PFObject?
+    var recipe: PFObject?
     var comments: [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.None
-        println(yak?.objectForKey("comments"))
+        println(recipe?.objectForKey("comments"))
         
-        if(yak?.objectForKey("comments") != nil) {
-            comments = yak?.objectForKey("comments") as? [String]
+        if(recipe?.objectForKey("comments") != nil) {
+            comments = recipe?.objectForKey("comments") as? [String]
         }
 
     }
@@ -164,7 +164,7 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
 
     func reply() {
         println(commentView?.text)
-        yak?.addObject(commentView!.text, forKey: "comments")
+        recipe?.addObject(commentView!.text, forKey: "comments")
         commentView?.text = ""
         self.commentView?.resignFirstResponder()
         self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)

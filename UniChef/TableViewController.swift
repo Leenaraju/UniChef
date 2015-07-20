@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class TableViewController: PFQueryTableViewController {
-    var yaks = ["Yo"]
+    var recipes = ["Yo"]
     
     @IBOutlet weak var segControl: UISegmentedControl!
     
@@ -21,7 +21,7 @@ class TableViewController: PFQueryTableViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.parseClassName = "Yak"
+        self.parseClassName = "recipe"
         self.textKey = "text"
         self.pullToRefreshEnabled = true
         self.objectsPerPage = 200
@@ -57,7 +57,7 @@ class TableViewController: PFQueryTableViewController {
   
     override func queryForTable() -> PFQuery {
         
-        let query = PFQuery(className: "Yak")
+        let query = PFQuery(className: "recipe")
         query.limit = 200
         
         if segControl.selectedSegmentIndex == 0 {
@@ -75,8 +75,8 @@ class TableViewController: PFQueryTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         if let object = object, id = object.objectId {
-            cell.yakText.text = object.valueForKey("text") as? String
-            cell.yakText.numberOfLines = 0
+            cell.recipeText.text = object.valueForKey("text") as? String
+            cell.recipeText.numberOfLines = 0
             let score = object.valueForKey("count")!.intValue
             cell.count.text = "\(score)"
             if let timeAgo = object.createdAt?.timeAgoSimple {
@@ -107,8 +107,8 @@ class TableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let vc = segue.destinationViewController as? DetailViewController, cell = sender as? TableViewCell {
-                let yak = objectAtIndexPath(cell.indexPath)
-                vc.yak = yak
+                let recipe = objectAtIndexPath(cell.indexPath)
+                vc.recipe = recipe
             }
         }
     }

@@ -5,7 +5,6 @@
 //  Created by Abdulrahman AlZanki on 7/5/15.
 //  Copyright (c) 2015 Abdulrahman AlZanki. All rights reserved.
 //
-
 import Foundation
 
 class CommentsViewController: SLKTextViewController {
@@ -43,12 +42,12 @@ class CommentsViewController: SLKTextViewController {
     
     func loadObjects() {
         //let query = PFQuery(className: parseClassName ?? "")
-        let query = PFQuery(className: "Yak")
+        let query = PFQuery(className: "recipe")
 
-        query.whereKey("sport", equalTo: App.type)
+       // query.whereKey("sport", equalTo: App.type)
         
-        if let video = video {
-            query.whereKey("toVideo", equalTo: video)
+        if let recipe = recipe {
+            query.whereKey("torecipe", equalTo: recipe)
         } else {
             // IF we have no owner, we don't wanna load anything
             query.whereKey("sport", equalTo: "nothing")
@@ -81,7 +80,7 @@ class CommentsViewController: SLKTextViewController {
                     
                     
                     self.tableView.reloadData()
-                    //                    self.refreshControl?.endRefreshing()
+                   // self.refreshControl?.endRefreshing()
                     if self.curPage == 0 {
                         self.scrollToBottom()
                     } else {
@@ -145,8 +144,8 @@ class CommentsViewController: SLKTextViewController {
         let object = PFObject(className: "Comment")
         
         object["fromUser"] = PFUser.currentUser()
-        object["toVideo"] = video
-        object["sport"] = video?["sport"]
+        //object["torecipe"] = recipe
+      //  object["sport"] = recipe?["sport"]
         object["text"] = self.textView.text
         object["postedAt"] = NSDate()
         
@@ -157,8 +156,8 @@ class CommentsViewController: SLKTextViewController {
         self.textView.text = ""
         self.scrollToBottom()
         
-        video?.incrementKey("commentsCount")
-        video?.saveInBackground()
+        object.incrementKey("commentsCount")
+        object.saveInBackground()
     }
 }
 
@@ -217,8 +216,8 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
                 tableView.endUpdates()
                 row.deleteInBackground()
                 
-                video?.incrementKey("commentsCount", byAmount: -1)
-                video?.saveInBackground()
+                recipe?.incrementKey("commentsCount", byAmount: -1)
+                recipe?.saveInBackground()
             }
         }
     }

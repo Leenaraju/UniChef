@@ -12,7 +12,7 @@ class TableViewCell: PFTableViewCell {
     
     weak var object : PFObject?
     
-    @IBOutlet weak var yakText: UILabel!
+    @IBOutlet weak var recipeText: UILabel!
     @IBOutlet weak var count: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var replies: UILabel!
@@ -36,6 +36,19 @@ class TableViewCell: PFTableViewCell {
     }
     
     @IBAction func topButton(sender: AnyObject) {
+        if topButton.selected == true {
+            topButton.selected = false
+            bottomButton.selected = false
+              let countTotal = count.text?.toInt()
+                if countTotal < 0
+            {
+                object?.incrementKey("count", byAmount: 1)
+
+            }
+            else{
+                object?.incrementKey("count", byAmount: -1)
+            }
+        }
         if let object = object, id = object.objectId {
             let defaults = NSUserDefaults.standardUserDefaults()
             bottomButton.selected = false
@@ -54,10 +67,23 @@ class TableViewCell: PFTableViewCell {
             
             NSLog("Top Index Path \(indexPath?.row)")
         }
+        
     }
     
     
     @IBAction func bottomButton(sender: AnyObject) {
+        if bottomButton.selected == true{
+            bottomButton.selected = false
+            let countTotal = count.text?.toInt()
+            if countTotal < 0
+    
+                {
+                    object?.incrementKey("count", byAmount: 1)
+                    
+            }
+            else{
+                object?.incrementKey("count", byAmount: -1)
+            }        }
         if let object = object, id = object.objectId {
             let defaults = NSUserDefaults.standardUserDefaults()
             bottomButton.selected = true

@@ -35,7 +35,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     @IBAction func postPressed(sender: AnyObject) {
         
         
-        let testObject = PFObject(className: "Yak")
+        let testObject = PFObject(className: "recipe")
         
         testObject["text"] = self.postView.text
         testObject["count"] = 0
