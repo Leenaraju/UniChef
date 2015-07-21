@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UniChef-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UniChef-SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>014A2D0D986E5F18A0614080</key>
+		<key>4EF29DFE5A3BB666F091D411</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>07B290829FA4222A98FE345D</key>
+		<key>C17929BB48DC603A36E028DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F471EFC2F2A134246943D6A</key>
+		<key>D35E7DA4CB82963CBA80DEE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A718E7A679101D5DD3B0E4E1</key>
+		<key>D70C6EC1CECA67D97C6EF96A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB8C73935E1DB4CC040A4338</key>
+		<key>F3312BE766D8525D9BD9A930</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6162441F48F11D2FCF15B86</key>
 		<dict>
 			<key>primary</key>
 			<true/>

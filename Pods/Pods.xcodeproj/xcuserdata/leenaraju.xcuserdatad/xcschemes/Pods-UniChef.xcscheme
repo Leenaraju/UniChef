@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F471EFC2F2A134246943D6A"
+               BlueprintIdentifier = "D70C6EC1CECA67D97C6EF96A"
                BuildableName = "libPods-UniChef.a"
                BlueprintName = "Pods-UniChef"
                ReferencedContainer = "container:Pods.xcodeproj">

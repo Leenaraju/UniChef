@@ -6,6 +6,7 @@ pod 'Parse'
 pod 'ParseUI'
 pod 'Bolts'
 pod 'SlackTextViewController'
+pod 'SDWebImage'
 end
 
 target 'UniChefTests' do

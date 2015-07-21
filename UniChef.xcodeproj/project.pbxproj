@@ -14,12 +14,14 @@
 		0EB26AC61B56CBC80018C41F /* UniChefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB26AC51B56CBC80018C41F /* UniChefTests.swift */; };
 		0EDAFD091B56D36F009A2513 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDAFD081B56D36F009A2513 /* TableViewCell.swift */; };
 		0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDAFD241B56E601009A2513 /* PostViewController.swift */; };
-		6303F93C1B571DDE0079DA16 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93B1B571DDD0079DA16 /* DetailViewController.swift */; };
+		6303F93C1B571DDE0079DA16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93B1B571DDD0079DA16 /* DetailView.swift */; };
 		6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93D1B571E0A0079DA16 /* CommentCell.swift */; };
-		6303F9401B571FEE0079DA16 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */; };
+		630512BD1B5DBCC500A86FBF /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630512BC1B5DBCC500A86FBF /* SearchController.swift */; };
+		630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */; };
 		6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD431B59A64A0036D13C /* TableViewController.swift */; };
 		6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD451B59A9F10036D13C /* NSDate+Extension.swift */; };
 		6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */; };
+		63D204541B5DACF80042A095 /* RecipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D204531B5DACF80042A095 /* RecipeView.xib */; };
 		63F31D6C1B59C32F007ED5E7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */; };
 		63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */; };
 		63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */; };
@@ -53,12 +55,14 @@
 		6303F9361B5717D60079DA16 /* libPods-UniChef-ParseUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UniChef-ParseUI.a"; path = "Pods/../build/Debug-iphoneos/libPods-UniChef-ParseUI.a"; sourceTree = "<group>"; };
 		6303F9381B5717DA0079DA16 /* libPods-UniChef-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UniChef-Bolts.a"; path = "Pods/../build/Debug-iphoneos/libPods-UniChef-Bolts.a"; sourceTree = "<group>"; };
 		6303F93A1B571AC40079DA16 /* UniChef-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniChef-Bridging-Header.h"; sourceTree = "<group>"; };
-		6303F93B1B571DDD0079DA16 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6303F93B1B571DDD0079DA16 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6303F93D1B571E0A0079DA16 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
-		6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		630512BC1B5DBCC500A86FBF /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		63D204531B5DACF80042A095 /* RecipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeView.xib; sourceTree = "<group>"; };
 		63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
@@ -122,12 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				0EB26AAF1B56CBC80018C41F /* AppDelegate.swift */,
-				6303F93B1B571DDD0079DA16 /* DetailViewController.swift */,
 				6331BD431B59A64A0036D13C /* TableViewController.swift */,
-				6303F93F1B571FEE0079DA16 /* CommentsTableViewController.swift */,
 				0EDAFD241B56E601009A2513 /* PostViewController.swift */,
+				630512BC1B5DBCC500A86FBF /* SearchController.swift */,
+				630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */,
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
-				63F31D731B59C3C9007ED5E7 /* CommentsViewController */,
+				63F31D731B59C3C9007ED5E7 /* DetailView */,
 				6331BD491B59AA6F0036D13C /* NSDate */,
 				0EB26AB31B56CBC80018C41F /* Main.storyboard */,
 				0EB26AB61B56CBC80018C41F /* Images.xcassets */,
@@ -181,16 +185,18 @@
 			name = NSDate;
 			sourceTree = "<group>";
 		};
-		63F31D731B59C3C9007ED5E7 /* CommentsViewController */ = {
+		63F31D731B59C3C9007ED5E7 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				6303F93B1B571DDD0079DA16 /* DetailView.swift */,
 				63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */,
 				63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */,
 				63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */,
+				63D204531B5DACF80042A095 /* RecipeView.xib */,
 				63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */,
 				6303F93D1B571E0A0079DA16 /* CommentCell.swift */,
 			);
-			name = CommentsViewController;
+			name = DetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */,
+				63D204541B5DACF80042A095 /* RecipeView.xib in Resources */,
 				63F31D6C1B59C32F007ED5E7 /* CommentCell.xib in Resources */,
 				0EB26AB51B56CBC80018C41F /* Main.storyboard in Resources */,
 				6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */,
@@ -333,11 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */,
+				630512BD1B5DBCC500A86FBF /* SearchController.swift in Sources */,
 				0EDAFD091B56D36F009A2513 /* TableViewCell.swift in Sources */,
-				6303F9401B571FEE0079DA16 /* CommentsTableViewController.swift in Sources */,
 				6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */,
-				6303F93C1B571DDE0079DA16 /* DetailViewController.swift in Sources */,
+				6303F93C1B571DDE0079DA16 /* DetailView.swift in Sources */,
 				0EB26AB01B56CBC80018C41F /* AppDelegate.swift in Sources */,
+				630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
 				6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */,
 				63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */,

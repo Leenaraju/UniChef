@@ -35,22 +35,21 @@ class CommentsViewController: SLKTextViewController {
         inverted = false
         shouldScrollToBottomAfterKeyboardShows = true
         
+        if let detailView = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
+            detailView.recipe = recipe
+            self.tableView.tableHeaderView = detailView
+        }
+        
         self.refreshControl = UIRefreshControl()
         self.tableView.addSubview(refreshControl!)
         self.refreshControl?.beginRefreshing()
     }
     
     func loadObjects() {
-        //let query = PFQuery(className: parseClassName ?? "")
-        let query = PFQuery(className: "recipe")
-
-       // query.whereKey("sport", equalTo: App.type)
+        let query = PFQuery(className: parseClassName ?? "")
         
         if let recipe = recipe {
-            query.whereKey("torecipe", equalTo: recipe)
-        } else {
-            // IF we have no owner, we don't wanna load anything
-            query.whereKey("sport", equalTo: "nothing")
+            query.whereKey("toRecipe", equalTo: recipe)
         }
         
         query.includeKey("fromUser")
@@ -80,7 +79,7 @@ class CommentsViewController: SLKTextViewController {
                     
                     
                     self.tableView.reloadData()
-                   // self.refreshControl?.endRefreshing()
+                    // self.refreshControl?.endRefreshing()
                     if self.curPage == 0 {
                         self.scrollToBottom()
                     } else {
@@ -144,8 +143,8 @@ class CommentsViewController: SLKTextViewController {
         let object = PFObject(className: "Comment")
         
         object["fromUser"] = PFUser.currentUser()
-        //object["torecipe"] = recipe
-      //  object["sport"] = recipe?["sport"]
+        object["toRecipe"] = recipe
+        //  object["sport"] = recipe?["sport"]
         object["text"] = self.textView.text
         object["postedAt"] = NSDate()
         
@@ -230,5 +229,14 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
         }
         
         return false
+    }
+}
+
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle? = nil) -> UIView? {
+        return UINib(
+            nibName: nibNamed,
+            bundle: bundle
+            ).instantiateWithOwner(nil, options: nil)[0] as? UIView
     }
 }

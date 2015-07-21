@@ -106,7 +106,7 @@ class TableViewController: PFQueryTableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let vc = segue.destinationViewController as? DetailViewController, cell = sender as? TableViewCell {
+            if let vc = segue.destinationViewController as? CommentsViewController, cell = sender as? TableViewCell {
                 let recipe = objectAtIndexPath(cell.indexPath)
                 vc.recipe = recipe
             }

@@ -16,13 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let navbar = UINavigationBar.appearance()
-        navbar.barTintColor = UIColor(red: 168.0/255, green: 215.0/255, blue: 111.0/255, alpha: 1)
+        navbar.barTintColor = UIColor(red: 14.0/255, green: 134.0/255, blue: 171.0/255, alpha: 1)
         
         let tabbar = UITabBar.appearance()
-        tabbar.barTintColor = UIColor(red: 168.0/255, green: 215.0/255, blue: 111.0/255, alpha: 1)
+        tabbar.barTintColor = UIColor(red: 14.0/255, green: 134.0/255, blue: 171.0/255, alpha: 1)
         tabbar.tintColor = UIColor.whiteColor()
         Parse.setApplicationId("BrD0JFbqvvFnpCkC2THrrzF6moXHf0CAYSZaeGO4",clientKey: "IE9UjUtCoUE2gm9jLkvZSIJfOwgx8l5TLGMW6Dug")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        PFUser.enableAutomaticUser()
+        
         return true
     }
 

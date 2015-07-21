@@ -1,26 +1,58 @@
-//
-//  CommentCell.swift
-//  UniChef
-//
-//  Created by Leena Annamraju on 7/15/15.
-//  Copyright (c) 2015 Andrew/Leena. All rights reserved.
-//
-
-import UIKit
-
-class CommentTableViewCell: UITableViewCell {
+class CommentCell: PFTableViewCell {
+    weak var viewController : CommentsViewController?
     
-    @IBOutlet weak var commentText: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var username: UIButton!
+    @IBOutlet weak var profilePic: UIImageView!
+    
+    var data : PFObject? {
+        didSet {
+            loadContentLabel()
+            loadTimeLabel()
+            loadUsername()
+            loadProfilePic()
+            
+            var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
+            profilePic.addGestureRecognizer(tgr)
+        }
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func loadContentLabel() {
+        if let text = data?["text"] as? String {
+            contentLabel.text = text
+        }
+    }
+    
+    private func loadTimeLabel() {
+        if let date = data?["postedAt"] as? NSDate {
+            timeLabel.text = date.timeAgoSimple
+        }
+    }
+    
+    private func loadUsername() {
+        if let usernameString = data?["fromUser"]?["username"] as? String {
+            username.setTitle(usernameString, forState: UIControlState.Normal)
+        }
+    }
+    
+    private func loadProfilePic() {
+        let imageName = "defaultProfilePic.png"
         
-        // Configure the view for the selected state
-    }
-    
+        profilePic.image = UIImage(named: imageName)
+        profilePic.layer.cornerRadius = profilePic.frame.width / 2
+        
+        if let profilePicThumb = data?["fromUser"]?["profilePicThumb"] as? PFFile {
+            if let url = profilePicThumb.url {
+                profilePic.sd_setImageWithURL(NSURL(string: url), placeholderImage: UIImage(named: imageName))
+            }
+        } else {
+            if let profilePicStringUrl = data?["fromUser"]?["profilePic"] as? String {
+                if let url = NSURL(string: profilePicStringUrl) {
+                    profilePic.sd_setImageWithURL(url, placeholderImage: UIImage(named: imageName))
+                }
+            }
+        }
 }
 
+}

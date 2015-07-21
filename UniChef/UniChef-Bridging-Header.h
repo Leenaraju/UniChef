@@ -12,3 +12,4 @@
 #import <ParseUI/ParseUI.h>
 #import "SLKTextView.h"
 #import "SLKTextViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>

@@ -20,8 +20,16 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.postView.delegate = self
         self.postView.becomeFirstResponder()
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
