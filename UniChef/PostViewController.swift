@@ -8,10 +8,11 @@
 
 import UIKit
 
-class PostViewController: UIViewController, UITextFieldDelegate {
+class PostViewController: UITableViewController, UITextFieldDelegate {
     var scoreArray = []
     
     @IBOutlet weak var postView: UITextField!
+    @IBOutlet weak var directions: UITextView!
     
     var reset:Bool = false
     
@@ -20,7 +21,6 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.postView.delegate = self
         self.postView.becomeFirstResponder()
-        
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
     }
@@ -44,7 +44,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         
         
         let testObject = PFObject(className: "recipe")
-        
+        testObject["directions"] = self.directions.text
         testObject["text"] = self.postView.text
         testObject["count"] = 0
         testObject["replies"] = 0

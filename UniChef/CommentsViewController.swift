@@ -47,7 +47,7 @@ class CommentsViewController: SLKTextViewController {
                 header.recipe = recipe
                 
                 header.setNeedsUpdateConstraints()
-                header.updateConstraintsIfNeeded()
+//                header.updateConstraintsIfNeeded()
                 header.frame = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGFloat.max)
                 var newFrame = header.frame
                 header.setNeedsLayout()

@@ -26,6 +26,7 @@
 		63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */; };
 		63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */; };
 		63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */; };
+		63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */; };
 		97570785278C1C942CA8777C /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E632359D04A9229495DD6E /* libPods-UniChef.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 		63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
+		63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		72E632359D04A9229495DD6E /* libPods-UniChef.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniChef.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				0EDAFD241B56E601009A2513 /* PostViewController.swift */,
 				630512BC1B5DBCC500A86FBF /* SearchController.swift */,
 				630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */,
+				63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */,
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
 				63F31D731B59C3C9007ED5E7 /* DetailView */,
 				6331BD491B59AA6F0036D13C /* NSDate */,
@@ -347,6 +350,7 @@
 				0EB26AB01B56CBC80018C41F /* AppDelegate.swift in Sources */,
 				630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
+				63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */,
 				6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */,
 				63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */,
 				63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */,

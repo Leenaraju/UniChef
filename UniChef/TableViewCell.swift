@@ -22,7 +22,7 @@ class TableViewCell: PFTableViewCell {
     weak var tableView: UITableView!
     
     var indexPath: NSIndexPath?
-    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         
