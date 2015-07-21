@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m2i-0d-5xH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdH-Oj-DBe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,16 +27,18 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-id-BDI">
                                             <rect key="frame" x="547" y="67" width="53" height="41"/>
-                                            <state key="normal" image="chevron-down"/>
+                                            <state key="normal" image="DownDeselected"/>
+                                            <state key="selected" image="DownSelected"/>
                                             <connections>
                                                 <action selector="bottomButton:" destination="dVh-hj-Sed" eventType="touchUpInside" id="NIK-rX-rX9"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iA-7H-raO">
                                             <rect key="frame" x="547" y="3" width="53" height="39"/>
-                                            <state key="normal" image="chevron-up">
+                                            <state key="normal" image="UpDeselected">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="UpSelected"/>
                                             <connections>
                                                 <action selector="topButton:" destination="dVh-hj-Sed" eventType="touchUpInside" id="zMJ-F2-DoV"/>
                                             </connections>
@@ -180,38 +182,38 @@
                                 <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-No-ViW">
-                                <rect key="frame" x="21" y="265" width="96" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-No-ViW">
+                                <rect key="frame" x="21" y="216" width="96" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJg-V3-Ooq">
-                                <rect key="frame" x="16" y="288" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJg-V3-Ooq">
+                                <rect key="frame" x="16" y="239" width="30" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-uX-MwL">
-                                <rect key="frame" x="49" y="301" width="113" height="22"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-uX-MwL">
+                                <rect key="frame" x="49" y="252" width="113" height="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8L-2L-rn6">
-                                <rect key="frame" x="25" y="339" width="548" height="3"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8L-2L-rn6">
+                                <rect key="frame" x="25" y="290" width="548" height="3"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUs-hE-aGB">
-                                <rect key="frame" x="21" y="356" width="86" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUs-hE-aGB">
+                                <rect key="frame" x="21" y="307" width="86" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="How is this made?" translatesAutoresizingMaskIntoConstraints="NO" id="DES-Xn-F01">
-                                <rect key="frame" x="25" y="389" width="548" height="153"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="How is this made?" translatesAutoresizingMaskIntoConstraints="NO" id="DES-Xn-F01">
+                                <rect key="frame" x="25" y="340" width="548" height="153"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="153" id="PA6-GB-ryi"/>
@@ -302,31 +304,11 @@
             </objects>
             <point key="canvasLocation" x="1426" y="1141"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="VGw-7n-ALi">
-            <objects>
-                <tabBarController id="m2i-0d-5xH" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="bvL-PB-VWD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="kQJ-rV-skM" kind="relationship" relationship="viewControllers" id="JZD-Tr-uQP"/>
-                        <segue destination="a3M-HZ-QtU" kind="relationship" relationship="viewControllers" id="u0u-rc-KLM"/>
-                        <segue destination="cXs-fG-k6i" kind="relationship" relationship="viewControllers" id="2t3-6c-kTg"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VYh-Z5-1aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-236" y="369"/>
-        </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="SLf-3L-2Fu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQJ-rV-skM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="azB-UN-bEF"/>
+                    <tabBarItem key="tabBarItem" image="Home" selectedImage="Home" id="azB-UN-bEF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9yp-1m-3rz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -378,11 +360,31 @@
             </objects>
             <point key="canvasLocation" x="1426" y="1905"/>
         </scene>
-        <!--Search-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="hWE-YN-tuV">
+            <objects>
+                <tabBarController id="qdH-Oj-DBe" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="jcN-iu-kdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kQJ-rV-skM" kind="relationship" relationship="viewControllers" id="Fpy-y5-cNt"/>
+                        <segue destination="a3M-HZ-QtU" kind="relationship" relationship="viewControllers" id="frV-E5-nMq"/>
+                        <segue destination="cXs-fG-k6i" kind="relationship" relationship="viewControllers" id="F6o-CW-50k"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lg7-W7-kUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-379" y="1082"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="KTs-mX-SNw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3M-HZ-QtU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="9yd-Rd-nUs"/>
+                    <tabBarItem key="tabBarItem" image="Search" selectedImage="Search" id="9yd-Rd-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hGt-Vb-nPz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -397,11 +399,11 @@
             </objects>
             <point key="canvasLocation" x="598" y="1121"/>
         </scene>
-        <!--Recipes-->
+        <!--Navigation Controller-->
         <scene sceneID="MAQ-Ek-PGB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cXs-fG-k6i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" id="2bf-3E-jHK"/>
+                    <tabBarItem key="tabBarItem" image="Profile" selectedImage="Profile" id="2bf-3E-jHK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a0U-pD-KH6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -416,26 +418,14 @@
             </objects>
             <point key="canvasLocation" x="589" y="1897"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="IJt-kZ-2f1">
-            <objects>
-                <viewController id="l2X-DZ-LRV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wLQ-Az-aVY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bla-B8-GKQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="97O-Hu-zzp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qYQ-93-Qz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
-        <image name="chevron-down" width="20" height="12"/>
-        <image name="chevron-up" width="20" height="12"/>
+        <image name="DownDeselected" width="20" height="12"/>
+        <image name="DownSelected" width="20" height="12"/>
+        <image name="Home" width="28" height="26"/>
+        <image name="Profile" width="23" height="26"/>
+        <image name="Search" width="23" height="25"/>
+        <image name="UpDeselected" width="20" height="12"/>
+        <image name="UpSelected" width="20" height="12"/>
     </resources>
 </document>

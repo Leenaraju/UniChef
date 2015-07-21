@@ -94,7 +94,7 @@ class CommentsViewController: SLKTextViewController {
     }
     
     func scrollToBottom() {
-        if tableView.contentSize.height > tableView.frame.size.height {
+        if tableView.contentSize.height > tableView.frame.size.height && !objects.isEmpty {
             //            let offset = CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height)
             //            tableView.setContentOffset(offset, animated: false)
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: tableView(tableView, numberOfRowsInSection: 0) - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
