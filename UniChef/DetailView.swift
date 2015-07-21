@@ -10,10 +10,20 @@ import UIKit
 
 
 class DetailView: UIView {
+
+    @IBOutlet weak var recipeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
+
     
     var recipe: PFObject? {
         didSet {
-            // set up all UI here
+            recipeLabel.text = recipe?["text"] as? String
+            descriptionLabel.text = recipe?["description"] as? String
+            if let file = recipe?["photo"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
+                recipeImage.sd_setImageWithURL(url)
+            }
+          
         }
     }
 }

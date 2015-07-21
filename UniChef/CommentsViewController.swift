@@ -35,14 +35,29 @@ class CommentsViewController: SLKTextViewController {
         inverted = false
         shouldScrollToBottomAfterKeyboardShows = true
         
-        if let detailView = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
-            detailView.recipe = recipe
-            self.tableView.tableHeaderView = detailView
-        }
-        
         self.refreshControl = UIRefreshControl()
         self.tableView.addSubview(refreshControl!)
         self.refreshControl?.beginRefreshing()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if tableView.tableHeaderView == nil {
+            if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
+                header.recipe = recipe
+                
+                header.setNeedsUpdateConstraints()
+                header.updateConstraintsIfNeeded()
+                header.frame = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGFloat.max)
+                var newFrame = header.frame
+                header.setNeedsLayout()
+                header.layoutIfNeeded()
+                let newSize = header.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+                newFrame.size.height = newSize.height
+                header.frame = newFrame
+                self.tableView.tableHeaderView = header
+            }
+        }
     }
     
     func loadObjects() {

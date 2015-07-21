@@ -52,6 +52,11 @@
                 <constraint firstItem="b4H-2Y-t9z" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="19" id="eNU-jJ-0XF"/>
                 <constraint firstItem="OPB-wm-Owg" firstAttribute="top" secondItem="iSY-kc-af8" secondAttribute="bottom" constant="1" id="wIz-tr-hEZ"/>
             </constraints>
+            <connections>
+                <outlet property="descriptionLabel" destination="iSY-kc-af8" id="h53-SU-Uyo"/>
+                <outlet property="recipeImage" destination="OPB-wm-Owg" id="o6y-JX-ZAE"/>
+                <outlet property="recipeLabel" destination="b4H-2Y-t9z" id="XY6-cB-zIp"/>
+            </connections>
         </view>
     </objects>
     <resources>
