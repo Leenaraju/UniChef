@@ -161,7 +161,6 @@ class CommentsViewController: SLKTextViewController {
         object["toRecipe"] = recipe
         object["text"] = self.textView.text
         object["postedAt"] = NSDate()
-        
         object.saveInBackground()
         
         objects.insert(object, atIndex: 0)
@@ -170,6 +169,8 @@ class CommentsViewController: SLKTextViewController {
         self.scrollToBottom()
         
         object.incrementKey("commentsCount")
+//        let yomama = PFObject(className: "recipe")
+//        yomama.incrementKey("commentsCount")
         object.saveInBackground()
     }
 }
@@ -184,6 +185,7 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
         
         if showLoadMoreButton {
             return objects.count + 1
+            
         }
         
         return objects.count

@@ -9,6 +9,23 @@
 import UIKit
 
 class SearchController: UIViewController {
+    
+    
+//    
+//    NSDictionary *headers = @{@"X-Mashape-Key": @"<required>", @"Accept": @"application/json"};
+//    UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
+//    [request setUrl:@"https://nutritionix-api.p.mashape.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat"];
+//    [request setHeaders:headers];
+//    }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
+//    NSInteger code = response.code;
+//    NSDictionary *responseHeaders = response.headers;
+//    UNIJsonNode *body = response.body;
+//    NSData *rawBody = response.rawBody;
+//    }];
+//    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

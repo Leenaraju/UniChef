@@ -76,14 +76,13 @@ class TableViewController: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         if let object = object, id = object.objectId {
             cell.recipeText.text = object.valueForKey("text") as? String
-    
             cell.recipeText.numberOfLines = 0
             let score = object.valueForKey("count")!.intValue
-            cell.count.text = "\(score)"
             if let timeAgo = object.createdAt?.timeAgoSimple {
                 cell.time.text = timeAgo + " ago"
             }
-            cell.replies.text = "\((indexPath.row + 1) * 1) replies"
+           // cell.replies.text = "0"
+          //  cell.replies.text = object.valueForKey("commentsCount") as? String
             cell.indexPath = indexPath
             cell.tableView = self.tableView
             cell.object = object

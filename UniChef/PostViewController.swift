@@ -15,8 +15,9 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var directions: UITextView!
     
     @IBAction func addIngredient(sender: AnyObject) {
-        ingredients.append("abdul")
-        tableView.reloadData()
+        ingredients.append("")
+        var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
     }
     var reset:Bool = false
     
@@ -61,9 +62,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
-        
-       //cell.indexPath = ingredients[indexPath.row]
-        
+            
         cell.ingredientField.text = ingredients[indexPath.row]
         
         return cell
