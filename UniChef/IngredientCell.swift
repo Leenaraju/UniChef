@@ -9,7 +9,9 @@
 import UIKit
 
 class IngredientCell: UITableViewCell {
+    var indexPath: NSIndexPath?
 
+    @IBOutlet weak var ingredientField: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

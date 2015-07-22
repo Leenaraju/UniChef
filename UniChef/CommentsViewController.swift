@@ -159,7 +159,6 @@ class CommentsViewController: SLKTextViewController {
         
         object["fromUser"] = PFUser.currentUser()
         object["toRecipe"] = recipe
-        //  object["sport"] = recipe?["sport"]
         object["text"] = self.textView.text
         object["postedAt"] = NSDate()
         

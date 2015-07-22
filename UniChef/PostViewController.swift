@@ -9,11 +9,15 @@
 import UIKit
 
 class PostViewController: UITableViewController, UITextFieldDelegate {
-    var scoreArray = []
+    var ingredients: [String] = []
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     
+    @IBAction func addIngredient(sender: AnyObject) {
+        ingredients.append("abdul")
+        tableView.reloadData()
+    }
     var reset:Bool = false
     
     
@@ -23,6 +27,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         self.postView.becomeFirstResponder()
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
+        tableView.reloadData()
     }
     
     func DismissKeyboard(){
@@ -54,6 +59,19 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
+        
+       //cell.indexPath = ingredients[indexPath.row]
+        
+        cell.ingredientField.text = ingredients[indexPath.row]
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
     
     
     func textViewDidChange(textView: UITextField) {
