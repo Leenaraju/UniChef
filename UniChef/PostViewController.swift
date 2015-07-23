@@ -16,8 +16,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var directions: UITextView!
     
     @IBAction func addIngredient(sender: AnyObject) {
-
         ingredients.append("")
+        
         var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
@@ -57,11 +57,19 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func postPressed(sender: AnyObject) {
+        var arrayOfIngredients = [String]()
+        let count = tableView.numberOfRowsInSection(0)
         
+        for i in 0..<count {
+            let indexPath = NSIndexPath(forRow: i, inSection: 0)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
+            
+            arrayOfIngredients.append(cell.ingredientField.text)
+        }
         
         let testObject = PFObject(className: "recipe")
         testObject["directions"] = self.directions.text
-        testObject["ingredients"] = self.ingredients
+        testObject["ingredients"] = arrayOfIngredients
         testObject["text"] = self.postView.text
         testObject["count"] = 0
         testObject["replies"] = 0

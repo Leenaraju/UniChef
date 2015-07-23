@@ -14,6 +14,28 @@ class CommentsViewController: SLKTextViewController {
         }
     }
     
+    @IBOutlet weak var segControl: UISegmentedControl!
+    
+    @IBAction func segControl(sender: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            self.view.viewWithTag(2)?.hidden = false
+            self.view.viewWithTag(3)?.hidden = true
+        case 1:
+            self.view.viewWithTag(2)?.hidden = true
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+          let vc = self.storyboard?.instantiateViewControllerWithIdentifier("showIns") as! UINavigationController
+          self.presentViewController(vc, animated: true, completion: nil)
+        default:
+            break;
+        }
+    }
+    
+
+    
+    
     let parseClassName = "Comment"
     var curPage = 0
     var perPage = 15
@@ -169,6 +191,14 @@ class CommentsViewController: SLKTextViewController {
         self.scrollToBottom()
         
         object.saveInBackground()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showIngredients" {
+            if let vc = segue.destinationViewController as? InstructionsViewController {
+                vc.recipe = recipe
+            }
+        }
     }
 }
 

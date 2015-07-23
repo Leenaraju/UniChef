@@ -107,7 +107,7 @@
                                     <outlet property="replies" destination="fTb-le-icM" id="3jv-Be-3Ed"/>
                                     <outlet property="time" destination="DLg-cC-H2J" id="RIX-hn-e2q"/>
                                     <outlet property="topButton" destination="8iA-7H-raO" id="qhA-73-QEZ"/>
-                                    <segue destination="cyn-IP-8xY" kind="show" id="Hrh-HP-rq1"/>
+                                    <segue destination="cyn-IP-8xY" kind="show" identifier="showDetail" id="Hrh-HP-rq1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -486,49 +486,44 @@
                         <viewControllerLayoutGuide type="top" id="KgZ-FR-4R1"/>
                         <viewControllerLayoutGuide type="bottom" id="SV2-R3-j4a"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9sj-9l-p1Q">
+                    <view key="view" tag="2" contentMode="scaleToFill" id="9sj-9l-p1Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z75-d9-g6W">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <items>
-                                    <navigationItem id="dCS-Kw-EKf">
-                                        <nil key="title"/>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="E8v-Hs-YGZ">
-                                            <rect key="frame" x="138" y="7" width="324" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Overview"/>
-                                                <segment title="Directions"/>
-                                            </segments>
-                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="segControlChanged:" destination="fiq-0V-YuK" eventType="valueChanged" id="ZXD-3K-eqJ"/>
-                                                <segue destination="Ldd-we-SHm" kind="show" id="GQW-71-6DI"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PaG-0j-FbN">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="dP6-M6-juN">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="New"/>
+                                <segment title="Hot"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segControl:" destination="cyn-IP-8xY" eventType="valueChanged" id="XzS-1j-LTM"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segControl" destination="dP6-M6-juN" id="8EV-38-3Bg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ysf-XV-sgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="459"/>
+            <point key="canvasLocation" x="2282" y="511"/>
         </scene>
-        <!--Instructions View Controller-->
+        <!--InstructionVC-->
         <scene sceneID="KMk-xP-ITE">
             <objects>
-                <tableViewController id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                <tableViewController storyboardIdentifier="showIns" title="InstructionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="7qR-ft-dgh">
-                            <rect key="frame" x="0.0" y="64" width="600" height="83"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="132"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-fB-g5K">
@@ -540,8 +535,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="Dvj-Wr-VqI">
-                            <rect key="frame" x="0.0" y="213" width="600" height="340"/>
+                        <view key="tableFooterView" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="Dvj-Wr-VqI">
+                            <rect key="frame" x="0.0" y="213" width="600" height="388"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-bo-LWZ">
@@ -560,14 +555,14 @@
                             <color key="backgroundColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3Vr-ZY-Sr6" customClass="IngredientCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingCell" textLabel="9K4-pd-TfR" style="IBUITableViewCellStyleDefault" id="3Vr-ZY-Sr6">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Vr-ZY-Sr6" id="rnY-cX-x2Q">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEm-ii-9f6">
-                                            <rect key="frame" x="33" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9K4-pd-TfR">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -580,13 +575,25 @@
                             <outlet property="delegate" destination="Ldd-we-SHm" id="1kX-ly-TZl"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="TKN-ep-J70">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AxH-uH-vfJ">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Overview"/>
+                                <segment title="Instructions"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="directions" destination="vNw-NL-Xgo" id="MWf-kA-QE0"/>
+                        <outlet property="instructionsViewController" destination="vNw-NL-Xgo" id="SX1-mk-Sx7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fY5-11-Gg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3003" y="459"/>
+            <point key="canvasLocation" x="3099" y="525"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="1sZ-K2-jC3">
