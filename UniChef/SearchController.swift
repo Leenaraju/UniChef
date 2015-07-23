@@ -9,24 +9,27 @@
 import UIKit
 
 class SearchController: UIViewController {
+ 
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
-//    
-//    NSDictionary *headers = @{@"X-Mashape-Key": @"<required>", @"Accept": @"application/json"};
-//    UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
-//    [request setUrl:@"https://nutritionix-api.p.mashape.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat"];
-//    [request setHeaders:headers];
-//    }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
-//    NSInteger code = response.code;
-//    NSDictionary *responseHeaders = response.headers;
-//    UNIJsonNode *body = response.body;
-//    NSData *rawBody = response.rawBody;
-//    }];
-//    
+    enum State {
+        case DefaultMode
+        case SearchMode
+    }
     
+    var searchText = ""
     
-    
+    var state: State = .DefaultMode
+    private func loadObjects() {
+        
+        let object = PFObject(className: "recipe")
+        let ingredientList: AnyObject? = object["ingredients"]
+      //  return ingredientList
 
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,16 +40,15 @@ class SearchController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+extension SearchController: UISearchBarDelegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        println(searchText)
+        self.searchText = searchText
+        loadObjects()
     }
-    */
-
+    
 }

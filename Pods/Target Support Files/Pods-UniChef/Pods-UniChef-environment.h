@@ -54,3 +54,9 @@
 #define COCOAPODS_VERSION_MINOR_SlackTextViewController 5
 #define COCOAPODS_VERSION_PATCH_SlackTextViewController 2
 
+// Unirest
+#define COCOAPODS_POD_AVAILABLE_Unirest
+#define COCOAPODS_VERSION_MAJOR_Unirest 1
+#define COCOAPODS_VERSION_MINOR_Unirest 1
+#define COCOAPODS_VERSION_PATCH_Unirest 4
+

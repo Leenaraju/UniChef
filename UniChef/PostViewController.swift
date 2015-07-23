@@ -9,23 +9,33 @@
 import UIKit
 
 class PostViewController: UITableViewController, UITextFieldDelegate {
+    
     var ingredients: [String] = []
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     
     @IBAction func addIngredient(sender: AnyObject) {
+
         ingredients.append("")
         var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        
+//        tableView.reloadData()
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("popUpVC") as! UIViewController
+//        vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+//        self.presentViewController(vc, animated: true, completion: nil)
     }
-    var reset:Bool = false
     
+    var reset:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postView.delegate = self
-        self.postView.becomeFirstResponder()
+      //  self.postView.becomeFirstResponder()
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
@@ -51,6 +61,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         
         let testObject = PFObject(className: "recipe")
         testObject["directions"] = self.directions.text
+        testObject["ingredients"] = self.ingredients
         testObject["text"] = self.postView.text
         testObject["count"] = 0
         testObject["replies"] = 0
@@ -64,7 +75,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
             
         cell.ingredientField.text = ingredients[indexPath.row]
-        
         return cell
     }
     

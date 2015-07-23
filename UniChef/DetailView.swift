@@ -13,13 +13,22 @@ class DetailView: UIView {
 
     @IBOutlet weak var recipeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
-    @IBOutlet weak var directions: UITextView!
+   // @IBOutlet weak var directions: UITextView!
 
+    @IBDesignable class DetailView: UISegmentedControl{
+        
+        @IBInspectable var cornerRadius: CGFloat = 0{
+            
+            didSet{
+                self.layer.cornerRadius = cornerRadius
+            }
+        }
+    }
     
     var recipe: PFObject? {
         didSet {
             recipeLabel.text = recipe?["text"] as? String
-            directions.text = recipe?["directions"] as? String
+            //directions.text = recipe?["directions"] as? String
             if let file = recipe?["photo"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
                 recipeImage.sd_setImageWithURL(url)
             }

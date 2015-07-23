@@ -168,9 +168,6 @@ class CommentsViewController: SLKTextViewController {
         self.textView.text = ""
         self.scrollToBottom()
         
-        object.incrementKey("commentsCount")
-//        let yomama = PFObject(className: "recipe")
-//        yomama.incrementKey("commentsCount")
         object.saveInBackground()
     }
 }

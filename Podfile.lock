@@ -13,6 +13,7 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SlackTextViewController (1.5.2)
+  - Unirest (1.1.4)
 
 DEPENDENCIES:
   - Bolts
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - ParseUI
   - SDWebImage
   - SlackTextViewController
+  - Unirest
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
@@ -27,5 +29,6 @@ SPEC CHECKSUMS:
   ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SlackTextViewController: ab240cda4c7fe1f70f6c6cf64578f3fea495ce99
+  Unirest: 5e4d93eaf32463bf619a4ecd3bbc8c32acf21eac
 
 COCOAPODS: 0.37.2
