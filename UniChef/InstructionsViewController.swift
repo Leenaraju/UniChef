@@ -9,16 +9,16 @@
 import UIKit
 
 class InstructionsViewController: UITableViewController {
-    @IBOutlet weak var directions: UITextView!
     
-    @IBOutlet weak var instructionsViewController: UITextView!
+    @IBOutlet weak var directions: UITextView!
     
     var recipe: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         directions.text = recipe?["directions"] as? String
+        
+        
         tableView.reloadData()
     }
     

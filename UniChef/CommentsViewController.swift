@@ -34,8 +34,6 @@ class CommentsViewController: SLKTextViewController {
     }
     
 
-    
-    
     let parseClassName = "Comment"
     var curPage = 0
     var perPage = 15
@@ -78,6 +76,8 @@ class CommentsViewController: SLKTextViewController {
                 newFrame.size.height = newSize.height
                 header.frame = newFrame
                 self.tableView.tableHeaderView = header
+                
+                
             }
         }
     }
