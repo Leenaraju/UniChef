@@ -9,7 +9,16 @@
 import UIKit
 
 class IngredientCell: UITableViewCell {
+    
+    @IBAction func changedTextValue(sender: AnyObject) {
+        if let textField = sender as? UITextField {
+            ingredientText = textField.text
+        }
+    }
+    
     var indexPath: NSIndexPath?
+    
+    var ingredientText = ""
 
     @IBOutlet weak var ingredientField: UITextField!
     override func awakeFromNib() {

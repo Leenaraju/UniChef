@@ -31,6 +31,7 @@
 		63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */; };
 		63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */; };
 		63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */; };
+		63F83D8C1B62F7C700032B97 /* SearchRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */; };
 		C017D4076A8F9748FEE0C398 /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3976520003147355DD782C8B /* libPods-UniChef.a */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +64,8 @@
 		6303F93A1B571AC40079DA16 /* UniChef-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniChef-Bridging-Header.h"; sourceTree = "<group>"; };
 		6303F93B1B571DDD0079DA16 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6303F93D1B571E0A0079DA16 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
-		630512BC1B5DBCC500A86FBF /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		630512BC1B5DBCC500A86FBF /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = UniChef/SearchController.swift; sourceTree = "<group>"; };
+		630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = UniChef/ProfileViewController.swift; sourceTree = "<group>"; };
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		63F31D6F1B59C341007ED5E7 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 		63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
 		63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeCell.swift; sourceTree = "<group>"; };
 		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				0EB26AAC1B56CBC80018C41F /* UniChef */,
+				63DF9CF91B62BCE30017857C /* UserView */,
+				63F31D731B59C3C9007ED5E7 /* DetailView */,
+				63DF9CF61B62BC5F0017857C /* SearchView */,
 				0EB26AC21B56CBC80018C41F /* UniChefTests */,
 				0EB26AAB1B56CBC80018C41F /* Products */,
 				29BD2E7AE30328B90B1FCF6B /* Pods */,
@@ -138,11 +143,8 @@
 				0EB26AAF1B56CBC80018C41F /* AppDelegate.swift */,
 				6331BD431B59A64A0036D13C /* TableViewController.swift */,
 				0EDAFD241B56E601009A2513 /* PostViewController.swift */,
-				630512BC1B5DBCC500A86FBF /* SearchController.swift */,
-				630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */,
 				63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */,
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
-				63F31D731B59C3C9007ED5E7 /* DetailView */,
 				6331BD491B59AA6F0036D13C /* NSDate */,
 				0EB26AB31B56CBC80018C41F /* Main.storyboard */,
 				0EB26AB61B56CBC80018C41F /* Images.xcassets */,
@@ -198,6 +200,23 @@
 			name = NSDate;
 			sourceTree = "<group>";
 		};
+		63DF9CF61B62BC5F0017857C /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				630512BC1B5DBCC500A86FBF /* SearchController.swift */,
+				63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */,
+			);
+			name = SearchView;
+			sourceTree = "<group>";
+		};
+		63DF9CF91B62BCE30017857C /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */,
+			);
+			name = UserView;
+			sourceTree = "<group>";
+		};
 		63F31D731B59C3C9007ED5E7 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +231,7 @@
 				6303F93D1B571E0A0079DA16 /* CommentCell.swift */,
 			);
 			name = DetailView;
+			path = UniChef;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +376,7 @@
 			files = (
 				6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */,
 				630512BD1B5DBCC500A86FBF /* SearchController.swift in Sources */,
+				63F83D8C1B62F7C700032B97 /* SearchRecipeCell.swift in Sources */,
 				0EDAFD091B56D36F009A2513 /* TableViewCell.swift in Sources */,
 				6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */,
 				6303F93C1B571DDE0079DA16 /* DetailView.swift in Sources */,

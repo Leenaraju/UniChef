@@ -60,17 +60,22 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         var arrayOfIngredients = [String]()
         let count = tableView.numberOfRowsInSection(0)
         
+        let testObject = PFObject(className: "recipe")
+        
         for i in 0..<count {
             let indexPath = NSIndexPath(forRow: i, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
             
-            arrayOfIngredients.append(cell.ingredientField.text)
+            arrayOfIngredients.append(cell.ingredientText)
         }
         
-        let testObject = PFObject(className: "recipe")
         testObject["directions"] = self.directions.text
-        testObject["ingredients"] = arrayOfIngredients
         testObject["text"] = self.postView.text
+        
+        testObject["ingredients"] = arrayOfIngredients
+        testObject["ingredientsString"] = " ".join(arrayOfIngredients)
+        // Andrew did this
+        
         testObject["count"] = 0
         testObject["replies"] = 0
         testObject.saveInBackground()
