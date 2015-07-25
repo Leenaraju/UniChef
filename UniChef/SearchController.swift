@@ -9,7 +9,8 @@
 import UIKit
 //
 class SearchController: PFQueryTableViewController {
-//    
+    var recipe: PFObject?
+
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var segControl: UISegmentedControl!
@@ -22,9 +23,9 @@ class SearchController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        tableView.reloadData()
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,18 +34,21 @@ class SearchController: PFQueryTableViewController {
     override func queryForTable() -> PFQuery {
         let query = PFQuery(className: "recipe")
         
-        let ingredients = searchText.componentsSeparatedByString(" ")
-        
-        for ingredient in ingredients {
-             query.whereKey("ingredientsString", matchesRegex: ingredient, modifiers: "i")
+        if segControl.selectedSegmentIndex == 0 {
+            // search based on title
+            query.whereKey("text", matchesRegex: searchText, modifiers: "i")
         }
-        
-        // search based on title
-//        query.whereKey("text", matchesRegex: searchText, modifiers: "i")
+        else{
+            //search by ingredients
+            let ingredients = searchText.componentsSeparatedByString(" ")
+            for ingredient in ingredients {
+                query.whereKey("ingredientsString", matchesRegex: ingredient, modifiers: "i")
+            }
+        }
         
         return query
     }
-    
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         
@@ -58,6 +62,16 @@ class SearchController: PFQueryTableViewController {
         
         return nil
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showD" {
+            if let vc = segue.destinationViewController as? SegContainer, cell = sender as? SearchRecipeCell {
+                let recipe = objectAtIndexPath(cell.indexPath)
+                vc.recipe = recipe
+            }
+        }
+    }
+    
 }
 
 extension SearchController: UISearchBarDelegate {

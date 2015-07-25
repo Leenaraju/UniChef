@@ -353,6 +353,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="6a9-Lj-1X3" id="ata-lc-hYZ"/>
+                                    <segue destination="KHd-zW-iTA" kind="show" identifier="showD" id="NL7-3v-Bu4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -361,9 +362,23 @@
                             <outlet property="delegate" destination="CRD-4D-6Ud" id="VY4-gr-PjM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="zVN-Ir-TNw"/>
+                    <navigationItem key="navigationItem" id="zVN-Ir-TNw">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="H86-Wx-MCe">
+                            <rect key="frame" x="83" y="7" width="434" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Recipe"/>
+                                <segment title="Ingredients"/>
+                            </segments>
+                            <connections>
+                                <action selector="segControl:" destination="CRD-4D-6Ud" eventType="valueChanged" id="bKA-JJ-UMo"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="huE-jW-BeJ" id="248-g9-whM"/>
+                        <outlet property="segControl" destination="H86-Wx-MCe" id="cBz-ev-4Qz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fs-rl-0YG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -673,4 +688,7 @@
         <image name="UpDeselected" width="20" height="12"/>
         <image name="UpSelected" width="20" height="12"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NL7-3v-Bu4"/>
+    </inferredMetricsTieBreakers>
 </document>

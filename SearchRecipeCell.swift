@@ -11,5 +11,7 @@ import UIKit
 
 class SearchRecipeCell: PFTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    var indexPath: NSIndexPath?
+
     
 }
