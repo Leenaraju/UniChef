@@ -25,7 +25,25 @@ class SearchController: PFQueryTableViewController {
         super.viewDidLoad()
         tableView.reloadData()
     }
-
+    
+    enum State {
+        case DefaultMode
+        case SearchMode
+    }
+    
+    var state: State = .DefaultMode {
+    didSet {
+    // update notes and search bar whenever State changes
+    switch (state) {
+    case .DefaultMode:
+    searchBar.resignFirstResponder() // 3
+    searchBar.showsCancelButton = false
+    case .SearchMode:
+    let searchText = searchBar?.text ?? ""
+    searchBar.setShowsCancelButton(true, animated: true) //4
+    }
+    }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,9 +97,14 @@ extension SearchController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
         loadObjects()
-        
-        searchBar.returnKeyType = UIReturnKeyType.Done
-
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        state = .SearchMode
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        state = .DefaultMode
     }
     
 }

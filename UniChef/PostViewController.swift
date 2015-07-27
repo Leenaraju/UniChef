@@ -36,12 +36,14 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postView.delegate = self
+        directions.delegate = self
+    
       //  self.postView.becomeFirstResponder()
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
         
-        directions.delegate = self
+        
     }
     
     func DismissKeyboard(){
@@ -115,7 +117,6 @@ extension PostViewController: UITextViewDelegate {
             textView.font = UIFont (name: "Avenir-Book", size: 14)
             textView.text = "1.  "
         }
-        textView.returnKeyType = UIReturnKeyType.Done
 
         
     }
