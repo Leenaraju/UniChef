@@ -79,6 +79,9 @@ extension SearchController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
         loadObjects()
+        
+        searchBar.returnKeyType = UIReturnKeyType.Done
+
     }
     
 }

@@ -15,6 +15,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     
+    
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")
         
@@ -30,7 +31,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
 //        self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    var reset:Bool = false
+    //var reset:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +40,23 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
+        
+        directions.delegate = self
     }
     
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+   
+   
     @IBAction func cancelPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -96,10 +101,28 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    func textViewDidChange(textView: UITextField) {
-        if(reset == false){
-            self.postView.text = String(Array(self.postView.text)[0])
-            reset = true
+//    func textViewDidChange(textField: UITextField) {
+//        if(reset == false){
+//            self.postView.text = String(Array(self.postView.text)[0])
+//            reset = true
+//        }
+//    }
+}
+
+extension PostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "How is this made?" {
+            textView.font = UIFont (name: "Avenir-Book", size: 14)
+            textView.text = "1.  "
+        }
+        textView.returnKeyType = UIReturnKeyType.Done
+
+        
+    }
+    
+        func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "How is this made?"
         }
     }
 }

@@ -165,8 +165,8 @@
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGH-th-D7S">
-                                    <rect key="frame" x="20" y="20" width="113" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGH-th-D7S">
+                                    <rect key="frame" x="20" y="20" width="110" height="25"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -229,8 +229,8 @@
                                         <action selector="addIngredient:" destination="uxj-P1-h9w" eventType="touchUpInside" id="OeO-bS-Atc"/>
                                     </connections>
                                 </button>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="How is this made?" translatesAutoresizingMaskIntoConstraints="NO" id="kmV-nC-fS1">
-                                    <rect key="frame" x="48" y="85" width="504" height="128"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="How is this made?" translatesAutoresizingMaskIntoConstraints="NO" id="kmV-nC-fS1">
+                                    <rect key="frame" x="44" y="85" width="504" height="128"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="CA5-Vc-69v"/>
@@ -371,6 +371,7 @@
                                 <segment title="Recipe"/>
                                 <segment title="Ingredients"/>
                             </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="segControl:" destination="CRD-4D-6Ud" eventType="valueChanged" id="bKA-JJ-UMo"/>
                             </connections>
@@ -513,7 +514,7 @@
                         <color key="backgroundColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="7qR-ft-dgh">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-fB-g5K">
@@ -540,12 +541,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="yo mama" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-NL-Xgo">
-                                    <rect key="frame" x="69" y="78" width="399" height="206"/>
+                                    <rect key="frame" x="34" y="62" width="498" height="206"/>
                                     <color key="backgroundColor" red="0.10542964539999999" green="0.45729601440000001" blue="0.60566603539999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="206" id="2dO-r1-aLx"/>
-                                        <constraint firstAttribute="width" constant="399" id="A4e-1V-55T"/>
-                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -553,9 +551,11 @@
                             <color key="backgroundColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="7Jf-bo-LWZ" firstAttribute="leading" secondItem="Dvj-Wr-VqI" secondAttribute="leading" constant="21" id="7jf-OW-nK1"/>
-                                <constraint firstItem="vNw-NL-Xgo" firstAttribute="leading" secondItem="Dvj-Wr-VqI" secondAttribute="leading" constant="69" id="EZ0-Hh-CEC"/>
+                                <constraint firstAttribute="trailing" secondItem="vNw-NL-Xgo" secondAttribute="trailing" constant="68" id="7zk-b1-Y8x"/>
                                 <constraint firstItem="7Jf-bo-LWZ" firstAttribute="top" secondItem="Dvj-Wr-VqI" secondAttribute="top" constant="29" id="RSo-Rt-6rA"/>
-                                <constraint firstItem="vNw-NL-Xgo" firstAttribute="top" secondItem="Dvj-Wr-VqI" secondAttribute="top" constant="78" id="yvj-4E-piK"/>
+                                <constraint firstItem="vNw-NL-Xgo" firstAttribute="leading" secondItem="Dvj-Wr-VqI" secondAttribute="leading" constant="34" id="UXc-ZW-kga"/>
+                                <constraint firstItem="vNw-NL-Xgo" firstAttribute="top" secondItem="7Jf-bo-LWZ" secondAttribute="bottom" constant="8" id="mr7-Oz-Ruh"/>
+                                <constraint firstAttribute="bottom" secondItem="vNw-NL-Xgo" secondAttribute="bottom" constant="19" id="q3Y-1D-UpP"/>
                             </constraints>
                         </view>
                         <prototypes>
