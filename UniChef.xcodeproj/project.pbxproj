@@ -32,6 +32,9 @@
 		63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */; };
 		63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */; };
 		63F83D8C1B62F7C700032B97 /* SearchRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */; };
+		63F83D8E1B66D2DC00032B97 /* Names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63F83D8D1B66D2DC00032B97 /* Names.plist */; };
+		63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */; };
+		63F83D921B66DFA000032B97 /* SavedRecipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D911B66DFA000032B97 /* SavedRecipeTableView.swift */; };
 		C017D4076A8F9748FEE0C398 /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3976520003147355DD782C8B /* libPods-UniChef.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,9 @@
 		63F31D711B59C347007ED5E7 /* LoadMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
 		63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeCell.swift; sourceTree = "<group>"; };
+		63F83D8D1B66D2DC00032B97 /* Names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Names.plist; sourceTree = "<group>"; };
+		63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpvotedRecipeCell.swift; sourceTree = "<group>"; };
+		63F83D911B66DFA000032B97 /* SavedRecipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecipeTableView.swift; sourceTree = "<group>"; };
 		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				0EB26AAF1B56CBC80018C41F /* AppDelegate.swift */,
+				63F83D8D1B66D2DC00032B97 /* Names.plist */,
 				6331BD431B59A64A0036D13C /* TableViewController.swift */,
 				0EDAFD241B56E601009A2513 /* PostViewController.swift */,
 				63F60E7F1B5EF85300C04D4E /* IngredientCell.swift */,
@@ -213,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */,
+				63F83D911B66DFA000032B97 /* SavedRecipeTableView.swift */,
+				63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */,
 			);
 			name = UserView;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 				0EB26AB51B56CBC80018C41F /* Main.storyboard in Resources */,
 				6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */,
 				0EB26ABA1B56CBC80018C41F /* LaunchScreen.xib in Resources */,
+				63F83D8E1B66D2DC00032B97 /* Names.plist in Resources */,
 				0EB26AB71B56CBC80018C41F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,10 +391,12 @@
 				6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */,
 				6303F93C1B571DDE0079DA16 /* DetailView.swift in Sources */,
 				0EB26AB01B56CBC80018C41F /* AppDelegate.swift in Sources */,
+				63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */,
 				630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
 				63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */,
 				63A540B41B617020001AFF99 /* InstructionsViewController.swift in Sources */,
+				63F83D921B66DFA000032B97 /* SavedRecipeTableView.swift in Sources */,
 				63A540B21B604780001AFF99 /* PopUpViewController.swift in Sources */,
 				6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */,
 				63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */,
