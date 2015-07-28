@@ -31,7 +31,7 @@ class CommentCell: PFTableViewCell {
     }
     
     private func loadUsername() {
-        if let usernameString = data?["fromUser"]?["username"] as? String {
+        if let usernameString = PFUser.currentUser()?["name"] as? String {
             username.setTitle(usernameString, forState: UIControlState.Normal)
         }
     }

@@ -45,12 +45,6 @@
                                                 <action selector="topButton:" destination="dVh-hj-Sed" eventType="touchUpInside" id="zMJ-F2-DoV"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Replies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTb-le-icM">
-                                            <rect key="frame" x="160" y="76" width="52" height="15"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="5m ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLg-cC-H2J">
                                             <rect key="frame" x="18" y="76" width="42" height="15"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -76,10 +70,8 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="obY-ep-vQs" secondAttribute="trailing" constant="202" id="Li5-Xy-ySr"/>
                                         <constraint firstItem="obY-ep-vQs" firstAttribute="top" secondItem="46C-xf-66z" secondAttribute="topMargin" constant="9" id="MXW-xp-gkb"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="WyF-id-BDI" secondAttribute="bottom" constant="-4" id="Nnr-HG-ykR"/>
-                                        <constraint firstItem="fTb-le-icM" firstAttribute="top" secondItem="obY-ep-vQs" secondAttribute="bottom" constant="35" id="OEu-Ar-ri5"/>
                                         <constraint firstItem="WyF-id-BDI" firstAttribute="top" secondItem="8iA-7H-raO" secondAttribute="bottom" constant="25" id="Pv0-DS-HGv"/>
                                         <constraint firstItem="8iA-7H-raO" firstAttribute="leading" secondItem="obY-ep-vQs" secondAttribute="trailing" constant="33" id="Pyf-tz-8Qs"/>
-                                        <constraint firstItem="fTb-le-icM" firstAttribute="leading" secondItem="DLg-cC-H2J" secondAttribute="trailing" constant="100" id="Wve-Wh-0Sw"/>
                                         <constraint firstItem="DLg-cC-H2J" firstAttribute="leading" secondItem="46C-xf-66z" secondAttribute="leadingMargin" constant="10" id="YXN-y5-Q4u"/>
                                         <constraint firstItem="8iA-7H-raO" firstAttribute="leading" secondItem="WyF-id-BDI" secondAttribute="leading" id="Zn4-MJ-KvF"/>
                                         <constraint firstItem="DLg-cC-H2J" firstAttribute="top" secondItem="obY-ep-vQs" secondAttribute="bottom" constant="35" id="aK8-B0-jo3"/>
@@ -105,7 +97,6 @@
                                     <outlet property="bottomButton" destination="WyF-id-BDI" id="1Da-y5-KVp"/>
                                     <outlet property="count" destination="FXq-jx-Ba0" id="HCw-4f-J2a"/>
                                     <outlet property="recipeText" destination="obY-ep-vQs" id="LMS-Qv-8BJ"/>
-                                    <outlet property="replies" destination="fTb-le-icM" id="3jv-Be-3Ed"/>
                                     <outlet property="time" destination="DLg-cC-H2J" id="RIX-hn-e2q"/>
                                     <outlet property="topButton" destination="8iA-7H-raO" id="qhA-73-QEZ"/>
                                     <segue destination="KHd-zW-iTA" kind="show" identifier="showDetail" id="Bic-sk-2CD"/>
@@ -768,29 +759,28 @@
         <scene sceneID="eNG-p0-1fm">
             <objects>
                 <tableViewController id="Rzw-Nx-rXZ" customClass="SavedRecipeTableView" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IZc-av-ghP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="IZc-av-ghP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UpvotedRecipeCell" id="sbR-Ed-1M8" customClass="UpvotedRecipeCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UpvotedRecipeCell" rowHeight="102" id="sbR-Ed-1M8" customClass="UpvotedRecipeCell" customModule="UniChef" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbR-Ed-1M8" id="8Jn-bC-cgN">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viJ-at-A7e">
-                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viJ-at-A7e">
+                                            <rect key="frame" x="42" y="40" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="viJ-at-A7e" firstAttribute="top" secondItem="8Jn-bC-cgN" secondAttribute="topMargin" constant="3" id="CXv-sQ-3l6"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="viJ-at-A7e" secondAttribute="trailing" id="DWT-uP-c8x"/>
+                                        <constraint firstItem="viJ-at-A7e" firstAttribute="leading" secondItem="8Jn-bC-cgN" secondAttribute="leadingMargin" constant="27" id="Rll-Pi-X2U"/>
+                                        <constraint firstItem="viJ-at-A7e" firstAttribute="centerY" secondItem="8Jn-bC-cgN" secondAttribute="centerY" id="bXL-BQ-W74"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="viJ-at-A7e" secondAttribute="trailing" constant="-41" id="ja2-Qa-tos"/>
                                         <constraint firstItem="viJ-at-A7e" firstAttribute="leading" secondItem="8Jn-bC-cgN" secondAttribute="leadingMargin" constant="25" id="sS5-d5-BSU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="viJ-at-A7e" secondAttribute="bottom" constant="3" id="tx5-Jn-ZcA"/>
-                                        <constraint firstItem="viJ-at-A7e" firstAttribute="leading" secondItem="8Jn-bC-cgN" secondAttribute="leadingMargin" id="vZQ-QR-ZKI"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">

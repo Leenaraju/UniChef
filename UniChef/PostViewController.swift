@@ -78,15 +78,16 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         
         testObject["directions"] = self.directions.text
         testObject["text"] = self.postView.text
-        
+        testObject["users"] = PFUser.currentUser()
         testObject["ingredients"] = arrayOfIngredients
         testObject["ingredientsString"] = " ".join(arrayOfIngredients)
         // Andrew did this
         
         testObject["count"] = 0
-        testObject["replies"] = 0
         testObject.saveInBackground()
-        
+//        let test = PFObject(className: "UploadedRecipes")
+//        test["toRecipe"] = self.postView.text
+//        test["fromUser"] = PFUser.currentUser()
         
         self.navigationController?.popViewControllerAnimated(true)
     }

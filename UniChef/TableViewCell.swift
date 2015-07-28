@@ -15,7 +15,6 @@ class TableViewCell: PFTableViewCell {
     @IBOutlet weak var recipeText: UILabel!
     @IBOutlet weak var count: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var replies: UILabel!
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var bottomButton: UIButton!
     
@@ -36,6 +35,12 @@ class TableViewCell: PFTableViewCell {
     }
     
     @IBAction func topButton(sender: AnyObject) {
+        
+        let test = PFObject(className: "UpvotedRecipe")
+        test["toRecipe"] = object
+        test["fromUser"] = PFUser.currentUser()
+        test.saveInBackground()
+        
         if topButton.selected == true {
             topButton.selected = false
             bottomButton.selected = false
@@ -54,6 +59,7 @@ class TableViewCell: PFTableViewCell {
             bottomButton.selected = false
             topButton.selected = true
             
+
             let num = -defaults.integerForKey(id) + 1
             
             defaults.setInteger(1, forKey: id)

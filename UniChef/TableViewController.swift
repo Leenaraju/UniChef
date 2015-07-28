@@ -58,6 +58,7 @@ class TableViewController: PFQueryTableViewController {
     override func queryForTable() -> PFQuery {
         
         let query = PFQuery(className: "recipe")
+      
         query.limit = 200
         
         if segControl.selectedSegmentIndex == 0 {
@@ -76,6 +77,7 @@ class TableViewController: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         
         if let object = object, id = object.objectId {
+            
             cell.recipeText.text = object.valueForKey("text") as? String
             cell.recipeText.numberOfLines = 0
             let score = object.valueForKey("count") as! Int
