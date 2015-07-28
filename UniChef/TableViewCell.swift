@@ -21,7 +21,7 @@ class TableViewCell: PFTableViewCell {
     weak var tableView: UITableView!
     
     var indexPath: NSIndexPath?
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -35,37 +35,32 @@ class TableViewCell: PFTableViewCell {
     }
     
     @IBAction func topButton(sender: AnyObject) {
-        
-        let test = PFObject(className: "UpvotedRecipe")
-        test["toRecipe"] = object
-        test["fromUser"] = PFUser.currentUser()
-        test.saveInBackground()
-        
-       // if let upVoteIndex = find(self.recipe.upVotes, PFUser.currentUser()!.objectId!){
-    //   self.recipe.upvotes.removeatindex(upvoteINdex )
-        //}
-        if topButton.selected == true {
-            topButton.selected = false
-            bottomButton.selected = false
-              let countTotal = count.text?.toInt()
-                if countTotal < 0
-            {
-                object?.incrementKey("count", byAmount: 1)
-
-            }
-            else{
-                object?.incrementKey("count", byAmount: -1)
-            }
-        }
         if let object = object, id = object.objectId {
+            
+            let test = PFObject(className: "UpvotedRecipe")
+            test["toRecipe"] = object
+            test["fromUser"] = PFUser.currentUser()
+            test.saveInBackground()
+            
+            var increment = 1
+            
             let defaults = NSUserDefaults.standardUserDefaults()
-            bottomButton.selected = false
-            topButton.selected = true
             
-
-            let num = -defaults.integerForKey(id) + 1
+            if topButton.selected == true {
+                bottomButton.selected = false
+                topButton.selected = false
+                increment = 0
+                
+                deleteUpvoteByUser(PFUser.currentUser()!, toRecipe: object)
+                
+            } else {
+                bottomButton.selected = false
+                topButton.selected = true
+            }
             
-            defaults.setInteger(1, forKey: id)
+            let num = -defaults.integerForKey(id) + increment
+            
+            defaults.setInteger(increment, forKey: id)
             
             object.incrementKey("count", byAmount: num)
             object.saveInBackground()
@@ -76,34 +71,31 @@ class TableViewCell: PFTableViewCell {
             
             NSLog("Top Index Path \(indexPath?.row)")
         }
-        
     }
     
     
     @IBAction func bottomButton(sender: AnyObject) {
-        if bottomButton.selected == true{
-            bottomButton.selected = false
-            println(bottomButton.selected)
-            
-            
-            let countTotal = count.text?.toInt()
-            if countTotal < 0
-    
-                {
-                    object?.incrementKey("count", byAmount: 1)
-                    
-            }
-            else{
-                object?.incrementKey("count", byAmount: -1)
-            }        }
         if let object = object, id = object.objectId {
+            var increment = 1
+            
             let defaults = NSUserDefaults.standardUserDefaults()
-            bottomButton.selected = true
-            topButton.selected = false
             
-            let num = -defaults.integerForKey(id) - 1
+            if bottomButton.selected == true {
+                bottomButton.selected = false
+                topButton.selected = false
+                increment = 0
+            }
+                
+            else {
+                topButton.selected = false
+                bottomButton.selected = true
+            }
             
-            defaults.setInteger(-1, forKey: id)
+            deleteUpvoteByUser(PFUser.currentUser()!, toRecipe: object)
+
+            let num = -defaults.integerForKey(id) - increment
+            
+            defaults.setInteger(-increment, forKey: id)
             
             object.incrementKey("count", byAmount: num)
             object.saveInBackground()
@@ -113,6 +105,18 @@ class TableViewCell: PFTableViewCell {
             }
             
             NSLog("Top Index Path \(indexPath?.row)")
+        }
+    }
+    
+    
+    private func deleteUpvoteByUser(user: PFUser, toRecipe recipe: PFObject) {
+        let query = PFQuery(className: "UpvotedRecipe")
+        
+        query.whereKey("fromUser", equalTo: user)
+        query.whereKey("toRecipe", equalTo: recipe)
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            PFObject.deleteAllInBackground(objects)
         }
     }
 }
