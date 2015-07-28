@@ -85,10 +85,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         
         testObject["count"] = 0
         testObject.saveInBackground()
-//        let test = PFObject(className: "UploadedRecipes")
-//        test["toRecipe"] = self.postView.text
-//        test["fromUser"] = PFUser.currentUser()
-        
         self.navigationController?.popViewControllerAnimated(true)
     }
     

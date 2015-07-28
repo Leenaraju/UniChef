@@ -41,6 +41,9 @@ class TableViewCell: PFTableViewCell {
         test["fromUser"] = PFUser.currentUser()
         test.saveInBackground()
         
+       // if let upVoteIndex = find(self.recipe.upVotes, PFUser.currentUser()!.objectId!){
+    //   self.recipe.upvotes.removeatindex(upvoteINdex )
+        //}
         if topButton.selected == true {
             topButton.selected = false
             bottomButton.selected = false
@@ -80,6 +83,9 @@ class TableViewCell: PFTableViewCell {
     @IBAction func bottomButton(sender: AnyObject) {
         if bottomButton.selected == true{
             bottomButton.selected = false
+            println(bottomButton.selected)
+            
+            
             let countTotal = count.text?.toInt()
             if countTotal < 0
     
