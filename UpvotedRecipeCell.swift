@@ -9,9 +9,10 @@
 import UIKit
 
 class UpvotedRecipeCell: PFTableViewCell {
+    var recipe: PFObject?
 
     @IBOutlet weak var titleLabel: UILabel!
     var indexPath: NSIndexPath?
     
-    
+
 }

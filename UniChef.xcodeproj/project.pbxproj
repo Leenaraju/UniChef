@@ -34,6 +34,9 @@
 		63F83D8C1B62F7C700032B97 /* SearchRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */; };
 		63F83D8E1B66D2DC00032B97 /* Names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63F83D8D1B66D2DC00032B97 /* Names.plist */; };
 		63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */; };
+		63F83D941B68486100032B97 /* ImageCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D931B68486100032B97 /* ImageCollectionController.swift */; };
+		63F83D961B684BD200032B97 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D951B684BD200032B97 /* FlickrSearcher.swift */; };
+		63F83D991B6855BE00032B97 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D981B6855BE00032B97 /* PhotoCell.swift */; };
 		C017D4076A8F9748FEE0C398 /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3976520003147355DD782C8B /* libPods-UniChef.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		63F83D8B1B62F7C700032B97 /* SearchRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeCell.swift; sourceTree = "<group>"; };
 		63F83D8D1B66D2DC00032B97 /* Names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Names.plist; sourceTree = "<group>"; };
 		63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpvotedRecipeCell.swift; sourceTree = "<group>"; };
+		63F83D931B68486100032B97 /* ImageCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionController.swift; sourceTree = "<group>"; };
+		63F83D951B684BD200032B97 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrSearcher.swift; path = ../../../Downloads/FlickrSearcher.swift; sourceTree = "<group>"; };
+		63F83D981B6855BE00032B97 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = ../PhotoCell.swift; sourceTree = "<group>"; };
 		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +158,7 @@
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
 				6331BD491B59AA6F0036D13C /* NSDate */,
 				0EB26AB31B56CBC80018C41F /* Main.storyboard */,
+				63F83D971B68558900032B97 /* Photos */,
 				0EB26AB61B56CBC80018C41F /* Images.xcassets */,
 				0EB26AB81B56CBC80018C41F /* LaunchScreen.xib */,
 				6303F93A1B571AC40079DA16 /* UniChef-Bridging-Header.h */,
@@ -238,6 +245,16 @@
 			);
 			name = DetailView;
 			path = UniChef;
+			sourceTree = "<group>";
+		};
+		63F83D971B68558900032B97 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				63F83D931B68486100032B97 /* ImageCollectionController.swift */,
+				63F83D951B684BD200032B97 /* FlickrSearcher.swift */,
+				63F83D981B6855BE00032B97 /* PhotoCell.swift */,
+			);
+			name = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,10 +405,13 @@
 				6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */,
 				6303F93C1B571DDE0079DA16 /* DetailView.swift in Sources */,
 				0EB26AB01B56CBC80018C41F /* AppDelegate.swift in Sources */,
+				63F83D991B6855BE00032B97 /* PhotoCell.swift in Sources */,
 				63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */,
 				630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
 				63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */,
+				63F83D961B684BD200032B97 /* FlickrSearcher.swift in Sources */,
+				63F83D941B68486100032B97 /* ImageCollectionController.swift in Sources */,
 				63A540B41B617020001AFF99 /* InstructionsViewController.swift in Sources */,
 				63A540B21B604780001AFF99 /* PopUpViewController.swift in Sources */,
 				6303F93E1B571E0A0079DA16 /* CommentCell.swift in Sources */,

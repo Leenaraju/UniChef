@@ -11,7 +11,9 @@ import UIKit
 
 
 class ProfileViewController: PFQueryTableViewController {
-    
+   
+    var recipe: PFObject?
+
     @IBOutlet weak var upvotedCount: UILabel!
     
     @IBOutlet weak var uploadedCount: UILabel!
@@ -134,6 +136,15 @@ class ProfileViewController: PFQueryTableViewController {
         }
         
         return nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showQ" {
+            if let vc = segue.destinationViewController as? SegContainer, cell = sender as? UpvotedRecipeCell {
+                let recipe = objectAtIndexPath(cell.indexPath)
+                vc.recipe = recipe
+            }
+        }
     }
     
 }

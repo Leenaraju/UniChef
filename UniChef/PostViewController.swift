@@ -99,13 +99,11 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         return ingredients.count
     }
     
-    
-//    func textViewDidChange(textField: UITextField) {
-//        if(reset == false){
-//            self.postView.text = String(Array(self.postView.text)[0])
-//            reset = true
-//        }
-//    }
+   
+    func textField(postView: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let newLength = count(postView.text.utf16) + count(string.utf16) - range.length
+        return newLength <= 25 // Bool
+    }
 }
 
 extension PostViewController: UITextViewDelegate {
@@ -113,9 +111,11 @@ extension PostViewController: UITextViewDelegate {
         if textView.text == "How is this made?" {
             textView.font = UIFont (name: "Avenir-Book", size: 14)
             textView.text = "1.  "
+          
+            }
         }
 
-        
+    
     }
     
         func textViewDidEndEditing(textView: UITextView) {
@@ -123,5 +123,6 @@ extension PostViewController: UITextViewDelegate {
             textView.text = "How is this made?"
         }
     }
-}
+
+
 
