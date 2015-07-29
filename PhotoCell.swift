@@ -9,7 +9,8 @@
 import UIKit
 
 class PhotoCell: UICollectionViewCell {
-    
+    var indexPath: NSIndexPath?
+
     @IBOutlet weak var imageView: UIImageView!
     
     

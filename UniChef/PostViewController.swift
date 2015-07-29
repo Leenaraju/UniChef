@@ -9,7 +9,7 @@
 import UIKit
 
 class PostViewController: UITableViewController, UITextFieldDelegate {
-    
+
     var ingredients: [String] = []
     
     @IBOutlet weak var postView: UITextField!
@@ -104,8 +104,17 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         let newLength = count(postView.text.utf16) + count(string.utf16) - range.length
         return newLength <= 25 // Bool
     }
-}
 
+
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showPhoto" {
+        if let vc = segue.destinationViewController as? PhotoSearchController {
+            let title = self.postView.text
+            vc.searchWord = title
+        }
+    }
+}
+}
 extension PostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
         if textView.text == "How is this made?" {

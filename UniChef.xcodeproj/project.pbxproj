@@ -21,6 +21,7 @@
 		6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD431B59A64A0036D13C /* TableViewController.swift */; };
 		6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD451B59A9F10036D13C /* NSDate+Extension.swift */; };
 		6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */; };
+		634E93FE1B697E5800CDFDB4 /* PhotoSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E93FD1B697E5800CDFDB4 /* PhotoSearchController.swift */; };
 		63A540B01B604196001AFF99 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A540AF1B604195001AFF99 /* PopUp.swift */; };
 		63A540B21B604780001AFF99 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A540B11B604780001AFF99 /* PopUpViewController.swift */; };
 		63A540B41B617020001AFF99 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A540B31B61701F001AFF99 /* InstructionsViewController.swift */; };
@@ -72,6 +73,7 @@
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		634E93FD1B697E5800CDFDB4 /* PhotoSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchController.swift; sourceTree = "<group>"; };
 		63A540AF1B604195001AFF99 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopUp.swift; path = ../PopUp.swift; sourceTree = "<group>"; };
 		63A540B11B604780001AFF99 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		63A540B31B61701F001AFF99 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				63F83D981B6855BE00032B97 /* PhotoCell.swift */,
+				634E93FD1B697E5800CDFDB4 /* PhotoSearchController.swift */,
 			);
 			name = Photos;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				63F31D701B59C341007ED5E7 /* LoadMoreCell.swift in Sources */,
 				63A540B01B604196001AFF99 /* PopUp.swift in Sources */,
 				63F31D6E1B59C33C007ED5E7 /* CommentsViewController.swift in Sources */,
+				634E93FE1B697E5800CDFDB4 /* PhotoSearchController.swift in Sources */,
 				63A540B61B61B059001AFF99 /* SegContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
