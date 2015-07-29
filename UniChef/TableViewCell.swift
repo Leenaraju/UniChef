@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewCell: PFTableViewCell {
     
+
     weak var object : PFObject?
     
     @IBOutlet weak var recipeText: UILabel!
@@ -117,6 +118,18 @@ class TableViewCell: PFTableViewCell {
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             PFObject.deleteAllInBackground(objects)
+        }
+    }
+}
+
+extension UIView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
         }
     }
 }

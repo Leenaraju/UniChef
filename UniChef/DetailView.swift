@@ -15,15 +15,6 @@ class DetailView: UIView {
     @IBOutlet weak var recipeImage: UIImageView!
    // @IBOutlet weak var directions: UITextView!
 
-    @IBDesignable class DetailView: UISegmentedControl{
-        
-        @IBInspectable var cornerRadius: CGFloat = 0{
-            
-            didSet{
-                self.layer.cornerRadius = cornerRadius
-            }
-        }
-    }
     
     var recipe: PFObject? {
         didSet {
