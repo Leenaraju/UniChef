@@ -11,9 +11,9 @@ import UIKit
 
 
 class ProfileViewController: PFQueryTableViewController {
-   
+    
     var recipe: PFObject?
-
+    
     @IBOutlet weak var upvotedCount: UILabel!
     
     @IBOutlet weak var uploadedCount: UILabel!
@@ -125,6 +125,7 @@ class ProfileViewController: PFQueryTableViewController {
         
         if let object = object {
             let cell = tableView.dequeueReusableCellWithIdentifier("UpvotedRecipeCell", forIndexPath: indexPath) as! UpvotedRecipeCell
+            cell.indexPath = indexPath
             
             if savedRecipes.selectedSegmentIndex == 0 {
                 cell.titleLabel?.text = object["toRecipe"]?["text"] as? String
@@ -141,8 +142,14 @@ class ProfileViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showQ" {
             if let vc = segue.destinationViewController as? SegContainer, cell = sender as? UpvotedRecipeCell {
-                let recipe = objectAtIndexPath(cell.indexPath)
-                vc.recipe = recipe
+                
+                if savedRecipes.selectedSegmentIndex == 0 {
+                    if let recipe = objectAtIndexPath(cell.indexPath)?["toRecipe"] as? PFObject {
+                        vc.recipe = recipe
+                    }
+                } else {
+                    vc.recipe = objectAtIndexPath(cell.indexPath)
+                }
             }
         }
     }
