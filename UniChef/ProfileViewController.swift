@@ -52,13 +52,13 @@ class ProfileViewController: PFQueryTableViewController {
     }
     
     private func loadUpvotes() {
-        if let text = PFUser.currentUser()?["text"] as? String {
-            upvotedCount.text = text
-        }
+        //if let text = tab
+        //upvotedCount.text = text
+        
     }
     
     private func loadUploaded() {
-        if let text = PFUser.currentUser()?["text"] as? String {
+        if let text = PFUser.currentUser()?["count"] as? String {
             uploadedCount.text = text
         }
     }

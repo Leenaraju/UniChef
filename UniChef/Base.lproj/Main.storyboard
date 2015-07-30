@@ -319,7 +319,6 @@
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="directions" destination="kmV-nC-fS1" id="qD1-Wu-4uh"/>
-                        <outlet property="imagePost" destination="uZG-aa-vQK" id="oox-2L-v5f"/>
                         <outlet property="postView" destination="P0j-XL-6uI" id="cn9-3o-p75"/>
                     </connections>
                 </tableViewController>
@@ -331,7 +330,7 @@
         <scene sceneID="nPI-C2-1z9">
             <objects>
                 <tableViewController id="CRD-4D-6Ud" customClass="SearchController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="GdL-wd-dVL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="22" sectionFooterHeight="22" id="GdL-wd-dVL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -344,27 +343,67 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRecipeCell" rowHeight="94" id="7iq-77-XpB" customClass="SearchRecipeCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRecipeCell" rowHeight="123" id="7iq-77-XpB" customClass="SearchRecipeCell" customModule="UniChef" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7iq-77-XpB" id="Dcr-co-CGc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a9-Lj-1X3">
-                                            <rect key="frame" x="8" y="11" width="584" height="71"/>
+                                            <rect key="frame" x="8" y="25" width="584" height="86"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uq-O6-HAM">
+                                            <rect key="frame" x="549" y="17" width="20" height="22"/>
+                                            <state key="normal" image="UpDeselected">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="topButton:" destination="7iq-77-XpB" eventType="touchUpInside" id="WuJ-bA-Q1V"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlR-lu-LlJ">
+                                            <rect key="frame" x="549" y="83" width="20" height="22"/>
+                                            <state key="normal" image="DownDeselected">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="bottomButton:" destination="7iq-77-XpB" eventType="touchUpInside" id="S7Y-uq-cCE"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5D-86-Jq4">
+                                            <rect key="frame" x="554" y="50" width="10" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="C5D-86-Jq4" firstAttribute="top" secondItem="Dcr-co-CGc" secondAttribute="topMargin" constant="42" id="2YS-9p-Dzf"/>
+                                        <constraint firstItem="mlR-lu-LlJ" firstAttribute="leading" secondItem="Dcr-co-CGc" secondAttribute="leadingMargin" constant="486" id="Bu9-hf-UAb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4uq-O6-HAM" secondAttribute="trailing" constant="23" id="DQ4-HH-Ouz"/>
                                         <constraint firstItem="6a9-Lj-1X3" firstAttribute="top" secondItem="Dcr-co-CGc" secondAttribute="topMargin" constant="3" id="GhT-Kw-sSC"/>
                                         <constraint firstItem="6a9-Lj-1X3" firstAttribute="leading" secondItem="Dcr-co-CGc" secondAttribute="leadingMargin" id="HJg-Ux-nD3"/>
+                                        <constraint firstItem="4uq-O6-HAM" firstAttribute="top" secondItem="Dcr-co-CGc" secondAttribute="topMargin" constant="9" id="JVW-U9-TD5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mlR-lu-LlJ" secondAttribute="bottom" constant="9" id="Lvi-2v-Mkk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6a9-Lj-1X3" secondAttribute="trailing" id="PdI-4R-oG2"/>
+                                        <constraint firstItem="6a9-Lj-1X3" firstAttribute="top" secondItem="Dcr-co-CGc" secondAttribute="topMargin" constant="17" id="Tza-P8-zvZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mlR-lu-LlJ" secondAttribute="trailing" constant="23" id="YoR-NY-qwb"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="6a9-Lj-1X3" secondAttribute="bottom" constant="3" id="c8x-ln-Ub8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="C5D-86-Jq4" secondAttribute="trailing" constant="28" id="dce-3F-79L"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Bu9-hf-UAb"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomButton" destination="mlR-lu-LlJ" id="v8m-lv-eo9"/>
+                                    <outlet property="count" destination="C5D-86-Jq4" id="ct4-Bd-fUG"/>
                                     <outlet property="titleLabel" destination="6a9-Lj-1X3" id="ata-lc-hYZ"/>
+                                    <outlet property="topButton" destination="4uq-O6-HAM" id="6MJ-j5-6B0"/>
                                     <segue destination="KHd-zW-iTA" kind="show" identifier="showD" id="NL7-3v-Bu4"/>
                                 </connections>
                             </tableViewCell>
@@ -516,7 +555,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="4Vu-bE-F8d" id="J0f-bL-DZL"/>
-                                    <segue destination="uxj-P1-h9w" kind="show" identifier="uploadPhoto" id="iCv-bi-L6o"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -525,8 +563,12 @@
                             <outlet property="delegate" destination="NCg-H3-p8c" id="rpS-0s-Swf"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="Myt-VL-zYC" kind="unwind" identifier="popping" unwindAction="unwindToSegue:" id="Ffg-eA-EVH"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJr-NV-if8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Myt-VL-zYC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2901" y="-542"/>
         </scene>
@@ -570,7 +612,7 @@
         <scene sceneID="KMk-xP-ITE">
             <objects>
                 <tableViewController storyboardIdentifier="showIns" title="InstructionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
+                    <tableView key="view" clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -598,7 +640,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-bo-LWZ">
                                     <rect key="frame" x="21" y="29" width="83" height="25"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -606,7 +648,7 @@
                                     <rect key="frame" x="34" y="62" width="498" height="206"/>
                                     <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
@@ -621,7 +663,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingCell" textLabel="9K4-pd-TfR" style="IBUITableViewCellStyleDefault" id="3Vr-ZY-Sr6">
+                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingCell" textLabel="9K4-pd-TfR" rowHeight="47" style="IBUITableViewCellStyleDefault" id="3Vr-ZY-Sr6">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Vr-ZY-Sr6" id="rnY-cX-x2Q">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -903,8 +945,7 @@
         <image name="no image" width="592" height="444"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p8s-nZ-bTj"/>
-        <segue reference="iCv-bi-L6o"/>
+        <segue reference="Bic-sk-2CD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

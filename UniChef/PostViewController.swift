@@ -9,7 +9,7 @@
 import UIKit
 
 class PostViewController: UITableViewController, UITextFieldDelegate {
-
+    
     var ingredients: [String] = []
     
     @IBOutlet weak var postView: UITextField!
@@ -18,7 +18,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var imagePost: UIButton!
     
     
-   
+    
     
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")
@@ -27,12 +27,12 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
         
-//        tableView.reloadData()
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("popUpVC") as! UIViewController
-//        vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-//        self.presentViewController(vc, animated: true, completion: nil)
+        //        tableView.reloadData()
+        //
+        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let vc = storyboard.instantiateViewControllerWithIdentifier("popUpVC") as! UIViewController
+        //        vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        //        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     //var reset:Bool = false
@@ -41,8 +41,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.postView.delegate = self
         directions.delegate = self
-    
-      //  self.postView.becomeFirstResponder()
+        
+        //  self.postView.becomeFirstResponder()
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
@@ -61,8 +61,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-   
-   
+    
+    
     @IBAction func cancelPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -94,7 +94,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
-            
+        
         cell.ingredientField.text = ingredients[indexPath.row]
         return cell
     }
@@ -103,39 +103,48 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         return ingredients.count
     }
     
-   
+    
     func textField(postView: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let newLength = count(postView.text.utf16) + count(string.utf16) - range.length
         return newLength <= 25 // Bool
     }
-
-
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showPhoto" {
-        if let vc = segue.destinationViewController as? PhotoSearchController {
-            let title = self.postView.text
-            vc.searchWord = title
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showPhoto" {
+            if let vc = segue.destinationViewController as? PhotoSearchController {
+                let title = self.postView.text
+                vc.searchWord = title
+            }
         }
     }
-}
+    
+    @IBAction func unwindToSegue (segue : UIStoryboardSegue) {
+        if segue.identifier == "popping" {
+            if let vc = segue.sourceViewController as? PhotoSearchController {
+                let urlString = vc.selectedImage
+                // change image here to url
+            }
+        }
+    }
 }
 extension PostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
         if textView.text == "How is this made?" {
             textView.font = UIFont (name: "Avenir-Book", size: 14)
             textView.text = "1.  "
-          
-            }
+            
         }
+    }
+    
+    
+}
 
-    
+func textViewDidEndEditing(textView: UITextView) {
+    if textView.text == "" {
+        textView.text = "How is this made?"
     }
-    
-        func textViewDidEndEditing(textView: UITextView) {
-        if textView.text == "" {
-            textView.text = "How is this made?"
-        }
-    }
+}
 
 
 

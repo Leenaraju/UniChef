@@ -16,6 +16,8 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
     
     var indexPath: NSIndexPath?
     
+    var selectedImage = ""
+    
     let searchbar = UISearchBar(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 44))
     
     @IBOutlet weak var photoSearchBar: UISearchBar!
@@ -69,6 +71,11 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
                 cell.imageView.sd_setImageWithURL(url, placeholderImage: nil)
             }
             return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedImage = imagesURLs[indexPath.row]
+        self.performSegueWithIdentifier("popping", sender: nil)
     }
     
     private func loadImages() {

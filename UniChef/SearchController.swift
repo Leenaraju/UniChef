@@ -72,7 +72,9 @@ class SearchController: PFQueryTableViewController {
         
         if let object = object {
             let cell = tableView.dequeueReusableCellWithIdentifier("SearchRecipeCell", forIndexPath: indexPath) as! SearchRecipeCell
+            let score = object.valueForKey("count") as! Int
             
+            cell.count.text = "\(score)"
             cell.indexPath = indexPath
             cell.titleLabel?.text = object["text"] as? String
             
