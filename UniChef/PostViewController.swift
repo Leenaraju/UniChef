@@ -15,6 +15,10 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     
+    @IBOutlet weak var imagePost: UIButton!
+    
+    
+   
     
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")

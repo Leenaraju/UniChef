@@ -24,8 +24,12 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "uploadPhoto" {
             if let vc = segue.destinationViewController as? PostViewController, cell = sender as? PhotoCell {
-                // let recipe = objectAtIndexPath(cell.indexPath)
-                //vc.recipe = recipe
+                
+                let recipe = cell.imageView.image
+                let playButton  = vc.imagePost
+                playButton?.setImage(recipe, forState: .Normal)
+               
+                
             }
         }
     }

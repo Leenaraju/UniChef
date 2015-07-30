@@ -319,6 +319,7 @@
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="directions" destination="kmV-nC-fS1" id="qD1-Wu-4uh"/>
+                        <outlet property="imagePost" destination="uZG-aa-vQK" id="oox-2L-v5f"/>
                         <outlet property="postView" destination="P0j-XL-6uI" id="cn9-3o-p75"/>
                     </connections>
                 </tableViewController>
@@ -515,6 +516,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="4Vu-bE-F8d" id="J0f-bL-DZL"/>
+                                    <segue destination="uxj-P1-h9w" kind="show" identifier="uploadPhoto" id="iCv-bi-L6o"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -902,6 +904,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p8s-nZ-bTj"/>
+        <segue reference="iCv-bi-L6o"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
