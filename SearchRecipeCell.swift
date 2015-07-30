@@ -17,7 +17,7 @@ class SearchRecipeCell: PFTableViewCell {
     @IBOutlet weak var topButton: UIButton!
     
     var indexPath: NSIndexPath?
-    
+    weak var tableView: UITableView!
     weak var object : PFObject?
     
     override func setSelected(selected: Bool, animated: Bool) {

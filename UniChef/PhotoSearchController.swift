@@ -21,21 +21,7 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
     let searchbar = UISearchBar(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 44))
     
     @IBOutlet weak var photoSearchBar: UISearchBar!
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "uploadPhoto" {
-            if let vc = segue.destinationViewController as? PostViewController, cell = sender as? PhotoCell {
-                
-                let recipe = cell.imageView.image
-                let playButton  = vc.imagePost
-                playButton?.setImage(recipe, forState: .Normal)
-               
-                
-            }
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

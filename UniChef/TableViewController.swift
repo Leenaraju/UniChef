@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 class TableViewController: PFQueryTableViewController {
-    var recipes = ["Yo"]
     
     @IBOutlet weak var segControl: UISegmentedControl!
     
@@ -32,18 +31,6 @@ class TableViewController: PFQueryTableViewController {
         loadObjects()
     }
     
-    private func alert(message : String) {
-        let alert = UIAlertController(title: "Oops something went wrong.", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        let settings = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default) { (action) ->Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
-            return
-        }
-        alert.addAction(settings)
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
     
     
     override func viewDidLoad() {
@@ -54,11 +41,11 @@ class TableViewController: PFQueryTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-  
+    
     override func queryForTable() -> PFQuery {
         
         let query = PFQuery(className: "recipe")
-      
+        
         query.limit = 200
         
         if segControl.selectedSegmentIndex == 0 {
@@ -66,6 +53,8 @@ class TableViewController: PFQueryTableViewController {
         } else {
             query.orderByDescending("count")
         }
+        
+        query.includeKey("users")
         
         query.cachePolicy = PFCachePolicy.CacheThenNetwork
         
@@ -86,7 +75,6 @@ class TableViewController: PFQueryTableViewController {
             }
             cell.count.text = "\(score)"
             cell.indexPath = indexPath
-            cell.tableView = self.tableView
             cell.object = object
             
             

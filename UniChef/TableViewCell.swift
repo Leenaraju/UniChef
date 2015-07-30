@@ -11,23 +11,25 @@ import UIKit
 class TableViewCell: PFTableViewCell {
     
 
-    weak var object : PFObject?
+    weak var object : PFObject? {
+        didSet {
+            if let urlString = object?["photo"] as? String {
+                if let url = NSURL(string: urlString) {
+                    tableImage.sd_setImageWithURL(url, placeholderImage: nil)
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var recipeText: UILabel!
     @IBOutlet weak var count: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var bottomButton: UIButton!
-    
-    weak var tableView: UITableView!
+    @IBOutlet weak var tableImage: UIImageView!
     
     var indexPath: NSIndexPath?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        // Initialization code
-    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

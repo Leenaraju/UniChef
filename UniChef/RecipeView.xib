@@ -25,6 +25,15 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twJ-Bt-aOH">
+                    <rect key="frame" x="200" y="77" width="200" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="q4n-Gh-51k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -35,9 +44,11 @@
                 <constraint firstItem="OPB-wm-Owg" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="20" symbolic="YES" id="IoY-Hh-wCC"/>
                 <constraint firstItem="b4H-2Y-t9z" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" constant="40" id="N5Y-7P-PUT"/>
                 <constraint firstAttribute="trailing" secondItem="OPB-wm-Owg" secondAttribute="trailing" constant="20" symbolic="YES" id="Sxr-ch-mwo"/>
+                <constraint firstItem="twJ-Bt-aOH" firstAttribute="top" secondItem="b4H-2Y-t9z" secondAttribute="bottom" constant="4" id="cfc-Op-2hR"/>
                 <constraint firstItem="b4H-2Y-t9z" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="20" symbolic="YES" id="gQZ-Pb-x8X"/>
                 <constraint firstAttribute="bottom" secondItem="OPB-wm-Owg" secondAttribute="bottom" constant="20" symbolic="YES" id="h1B-mH-HSw"/>
                 <constraint firstItem="CLd-1U-2eA" firstAttribute="leading" secondItem="b4H-2Y-t9z" secondAttribute="leading" id="jfL-p4-5oE"/>
+                <constraint firstItem="twJ-Bt-aOH" firstAttribute="centerX" secondItem="b4H-2Y-t9z" secondAttribute="centerX" id="pYi-8e-TX3"/>
                 <constraint firstItem="OPB-wm-Owg" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" id="rda-bk-kep"/>
                 <constraint firstAttribute="trailing" secondItem="CLd-1U-2eA" secondAttribute="trailing" constant="487" id="uo8-OR-HP8"/>
             </constraints>
@@ -51,6 +62,7 @@
             <connections>
                 <outlet property="recipeImage" destination="OPB-wm-Owg" id="o6y-JX-ZAE"/>
                 <outlet property="recipeLabel" destination="b4H-2Y-t9z" id="XY6-cB-zIp"/>
+                <outlet property="username" destination="twJ-Bt-aOH" id="GhY-zm-z9w"/>
             </connections>
         </view>
     </objects>

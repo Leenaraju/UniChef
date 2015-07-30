@@ -12,10 +12,12 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     var ingredients: [String] = []
     
+    var imageString: String = ""
+    
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     
-    @IBOutlet weak var imagePost: UIButton!
+    @IBOutlet weak var imagePost: UIImageView!
     
     
     
@@ -81,6 +83,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         }
         
         testObject["directions"] = self.directions.text
+        testObject["photo"] = self.imageString
         testObject["text"] = self.postView.text
         testObject["users"] = PFUser.currentUser()
         testObject["ingredients"] = arrayOfIngredients
@@ -123,6 +126,10 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         if segue.identifier == "popping" {
             if let vc = segue.sourceViewController as? PhotoSearchController {
                 let urlString = vc.selectedImage
+                imageString = urlString
+                if let url = NSURL(string: urlString) {
+                    imagePost.sd_setImageWithURL(url, placeholderImage: nil)
+                }
                 // change image here to url
             }
         }
