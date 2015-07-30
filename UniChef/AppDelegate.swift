@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navbar.barTintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         //
         let tabbar = UITabBar.appearance()
-        //      tabbar.barTintColor = UIColor(red: 14.0/255, green: 134.0/255, blue: 171.0/255, alpha: 1)
         tabbar.tintColor = UIColor.whiteColor()
         Parse.setApplicationId("BrD0JFbqvvFnpCkC2THrrzF6moXHf0CAYSZaeGO4",clientKey: "IE9UjUtCoUE2gm9jLkvZSIJfOwgx8l5TLGMW6Dug")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
