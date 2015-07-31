@@ -13,6 +13,9 @@ class TableViewController: PFQueryTableViewController {
     
     @IBOutlet weak var segControl: UISegmentedControl!
     
+    
+    
+    
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
     }
@@ -31,11 +34,20 @@ class TableViewController: PFQueryTableViewController {
         loadObjects()
     }
     
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        performSegueWithIdentifier("showDetails", sender: cell)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.registerNib(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
+        self.segControl.layer.cornerRadius = 0.0
+        self.segControl.layer.borderWidth = 1.5
         
+        var myColor : UIColor = UIColor(white: 100, alpha: 1)
+        self.segControl.layer.borderColor = myColor.CGColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +75,7 @@ class TableViewController: PFQueryTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath) as! TableViewCell
         
         if let object = object, id = object.objectId {
             
@@ -95,7 +107,7 @@ class TableViewController: PFQueryTableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showDetails" {
             if let vc = segue.destinationViewController as? SegContainer, cell = sender as? TableViewCell {
                 let recipe = objectAtIndexPath(cell.indexPath)
                 vc.recipe = recipe

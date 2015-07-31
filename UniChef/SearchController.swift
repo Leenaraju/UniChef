@@ -26,7 +26,6 @@ class SearchController: PFQueryTableViewController {
         self.textKey = "text"
         self.pullToRefreshEnabled = true
         self.objectsPerPage = 200
-        
     }
     
     
@@ -38,6 +37,7 @@ class SearchController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.registerNib(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
         tableView.reloadData()
     }
     
@@ -79,22 +79,35 @@ class SearchController: PFQueryTableViewController {
             }
         }
         
+        query.includeKey("users")
+        
         return query
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        performSegueWithIdentifier("showDetails", sender: cell)
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath) as! TableViewCell
         
-        if let object = object, id = object.objectId{
-            let cell = tableView.dequeueReusableCellWithIdentifier("SearchRecipeCell", forIndexPath: indexPath) as! SearchRecipeCell
-            let score = object.valueForKey("count") as! Int
+        if let object = object, id = object.objectId {
             
+            cell.recipeText.text = object.valueForKey("text") as? String
+            cell.recipeText.numberOfLines = 0
+            let score = object.valueForKey("count") as! Int
+            if let timeAgo = object.createdAt?.timeAgoSimple {
+                cell.time.text = timeAgo + " ago"
+            }
             cell.count.text = "\(score)"
             cell.indexPath = indexPath
-            cell.tableView = self.tableView
-            cell.titleLabel?.text = object["text"] as? String
-            let defaults = NSUserDefaults.standardUserDefaults()
+            cell.object = object
             
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
             if defaults.integerForKey(id) == -1 {
                 cell.topButton.selected = false
                 cell.bottomButton.selected = true
@@ -105,16 +118,14 @@ class SearchController: PFQueryTableViewController {
                 cell.topButton.selected = false
                 cell.bottomButton.selected = false
             }
- 
-            return cell
+            
         }
-        
-        return nil
+        return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showD" {
-            if let vc = segue.destinationViewController as? SegContainer, cell = sender as? SearchRecipeCell {
+        if segue.identifier == "showDetails" {
+            if let vc = segue.destinationViewController as? SegContainer, cell = sender as? TableViewCell {
                 let recipe = objectAtIndexPath(cell.indexPath)
                 vc.recipe = recipe
             }
