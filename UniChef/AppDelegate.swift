@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navbar = UINavigationBar.appearance()
         navbar.barTintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         //
+        if let font = UIFont(name: "Avenir Next", size: 28) {
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        }
         let tabbar = UITabBar.appearance()
         tabbar.tintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         Parse.setApplicationId("BrD0JFbqvvFnpCkC2THrrzF6moXHf0CAYSZaeGO4",clientKey: "IE9UjUtCoUE2gm9jLkvZSIJfOwgx8l5TLGMW6Dug")

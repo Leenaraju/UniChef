@@ -96,7 +96,7 @@ class ProfileViewController: PFQueryTableViewController {
         loadUsername()
         
         var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
-        profilePic.addGestureRecognizer(tgr)
+        //profilePic.addGestureRecognizer(tgr)
         
     }
     
