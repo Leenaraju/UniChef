@@ -32,6 +32,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-id-BDI">
                                             <rect key="frame" x="547" y="79" width="53" height="41"/>
+                                            <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="DownDeselected"/>
                                             <state key="selected" image="DownSelected"/>
                                             <connections>
@@ -44,6 +45,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="53" id="kS9-Tz-6X9"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="UpDeselected">
                                                 <color key="titleColor" red="0.046984977089999998" green="0.46484373960000003" blue="0.59244791669999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -352,7 +354,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search" id="huE-jW-BeJ">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search by Recipe or Ingredients" id="huE-jW-BeJ">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -378,6 +380,7 @@
                                                 <constraint firstAttribute="width" constant="73" id="9Q6-Yb-Jj7"/>
                                                 <constraint firstAttribute="height" constant="51" id="eNp-eC-Xf1"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="UpDeselected">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -391,6 +394,7 @@
                                                 <constraint firstAttribute="height" constant="51" id="foF-pI-ia2"/>
                                                 <constraint firstAttribute="width" constant="73" id="p7m-8i-JKA"/>
                                             </constraints>
+                                            <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="DownDeselected">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -400,6 +404,7 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a9-Lj-1X3">
                                             <rect key="frame" x="18" y="11" width="574" height="100"/>
+                                            <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -497,12 +502,14 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsS-AS-LiZ" userLabel="ComContainer View">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="tintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="cyn-IP-8xY" kind="embed" identifier="showComments" id="MKN-e2-x00"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15c-x5-9r1" userLabel="InsContainer View">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="tintColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="Ldd-we-SHm" kind="embed" identifier="showIngredients" id="Bnd-jD-wQg"/>
                                 </connections>
