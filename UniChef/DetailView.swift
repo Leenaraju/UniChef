@@ -26,7 +26,7 @@ class DetailView: UIView {
            
             if let url = recipe?["photo"] as? String {
                 if let urlString = NSURL(string: url) {
-                    recipeImage.sd_setImageWithURL(urlString)
+                    recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
                 }
             }
             

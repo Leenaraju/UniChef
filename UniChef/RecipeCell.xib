@@ -59,8 +59,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-So-c8h">
-                        <rect key="frame" x="8" y="28" width="75" height="75"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-So-c8h">
+                        <rect key="frame" x="8" y="23" width="75" height="75"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="75" id="17y-Dt-pCx"/>
                             <constraint firstAttribute="width" constant="75" id="lfs-rP-BGd"/>
@@ -72,7 +72,7 @@
                     <constraint firstItem="UhP-Ia-Gsh" firstAttribute="trailing" secondItem="dyr-jx-ItU" secondAttribute="trailing" id="0Sl-Bk-0Ki"/>
                     <constraint firstItem="UhP-Ia-Gsh" firstAttribute="top" secondItem="9TQ-WR-cgz" secondAttribute="bottom" constant="1" id="0or-bG-Rv4"/>
                     <constraint firstItem="dyr-jx-ItU" firstAttribute="top" secondItem="UhP-Ia-Gsh" secondAttribute="bottom" id="1gM-ZT-lIJ"/>
-                    <constraint firstItem="gTV-So-c8h" firstAttribute="top" secondItem="PbQ-dh-UFV" secondAttribute="topMargin" constant="20" id="4GM-Pk-JDq"/>
+                    <constraint firstItem="gTV-So-c8h" firstAttribute="top" secondItem="PbQ-dh-UFV" secondAttribute="topMargin" constant="15" id="4GM-Pk-JDq"/>
                     <constraint firstItem="9TQ-WR-cgz" firstAttribute="centerX" secondItem="UhP-Ia-Gsh" secondAttribute="centerX" id="4by-48-KLc"/>
                     <constraint firstItem="bwj-Mr-Ndt" firstAttribute="top" secondItem="ooL-AA-Thz" secondAttribute="bottom" constant="17" id="6HA-6L-uPa"/>
                     <constraint firstItem="ooL-AA-Thz" firstAttribute="leading" secondItem="PbQ-dh-UFV" secondAttribute="leadingMargin" constant="175" id="8ap-J4-Llb"/>
@@ -125,5 +125,6 @@
         <image name="DownSelected" width="20" height="12"/>
         <image name="UpDeselected" width="20" height="12"/>
         <image name="UpSelected" width="20" height="12"/>
+        <image name="no image" width="592" height="444"/>
     </resources>
 </document>

@@ -91,6 +91,20 @@ class ProfileViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         let query : PFQuery!
+        query = PFQuery(className: "UpvotedRecipe")
+        query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+        query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
+            if error == nil {
+                if let num = count as? String {
+                    self.upvotedCount.text = num
+                }
+            }
+        }
+        if let usernameString = PFUser.currentUser()?["name"] as? String {
+            username.text = usernameString
+        }
+
         loadUpvotes()
         loadUploaded()
         loadUsername()
