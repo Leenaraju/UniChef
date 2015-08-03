@@ -14,6 +14,36 @@ class SegContainer: UIViewController {
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
+    @IBOutlet weak var flaggedContent: UIBarButtonItem!
+    
+    @IBOutlet weak var flagButton: UIBarButtonItem!
+    @IBAction func flaggedContent(sender: AnyObject) {
+        
+        let alertController = UIAlertController(
+            title: "Report Content",
+            message: "Would you like to flag this recipe as inappropriate?",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let ok = UIAlertAction(
+            title: "Yes",
+            style: UIAlertActionStyle.Default){ (action) in
+                self.recipe?.incrementKey("flaggedCount")
+                let flagCount = self.recipe?.valueForKey("flaggedCount") as! Int
+                self.flagButton.enabled = false
+        }
+            
+            let no = UIAlertAction(
+                title: "No",
+                style: UIAlertActionStyle.Default) { (action) in
+        }
+        
+        alertController.addAction(ok)
+        alertController.addAction(no)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+
+    
     @IBAction func segChanged(sender: AnyObject) {
         switch segControl.selectedSegmentIndex
         {

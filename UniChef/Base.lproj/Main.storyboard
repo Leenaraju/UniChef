@@ -308,7 +308,7 @@
             </objects>
             <point key="canvasLocation" x="589" y="369"/>
         </scene>
-        <!--Seg Container-->
+        <!--Recipe-->
         <scene sceneID="Etc-Og-XgJ">
             <objects>
                 <viewController id="KHd-zW-iTA" customClass="SegContainer" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
@@ -327,9 +327,24 @@
                                     <segue destination="cyn-IP-8xY" kind="embed" identifier="showComments" id="MKN-e2-x00"/>
                                 </connections>
                             </containerView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGk-PG-kSi">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-Lx-l03">
+                                <rect key="frame" x="11" y="71" width="568" height="30"/>
+                                <segments>
+                                    <segment title="Overview"/>
+                                    <segment title="Instructions"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segChanged:" destination="KHd-zW-iTA" eventType="valueChanged" id="OiI-IZ-evT"/>
+                                    <action selector="segControlChanged:" destination="fiq-0V-YuK" eventType="valueChanged" id="yIZ-N6-vtD"/>
+                                </connections>
+                            </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15c-x5-9r1" userLabel="InsContainer View">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="tintColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Ldd-we-SHm" kind="embed" identifier="showIngredients" id="Bnd-jD-wQg"/>
                                 </connections>
@@ -338,33 +353,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GsS-AS-LiZ" firstAttribute="top" secondItem="q1G-C2-mY2" secondAttribute="bottom" id="0Vj-b3-K8t"/>
-                            <constraint firstItem="15c-x5-9r1" firstAttribute="top" secondItem="q1G-C2-mY2" secondAttribute="bottom" id="B0s-ax-iNi"/>
+                            <constraint firstItem="15c-x5-9r1" firstAttribute="top" secondItem="3rA-Lx-l03" secondAttribute="bottom" constant="8" symbolic="YES" id="5OJ-Gp-v2u"/>
+                            <constraint firstItem="15c-x5-9r1" firstAttribute="top" secondItem="q1G-C2-mY2" secondAttribute="bottom" constant="44" id="B0s-ax-iNi"/>
+                            <constraint firstItem="3rA-Lx-l03" firstAttribute="top" secondItem="q1G-C2-mY2" secondAttribute="bottom" constant="7" id="C42-fO-L1o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3rA-Lx-l03" secondAttribute="trailing" constant="5" id="IVy-yS-u0T"/>
                             <constraint firstItem="GsS-AS-LiZ" firstAttribute="leading" secondItem="ftN-BN-Kvd" secondAttribute="leading" id="JiJ-Uk-cCa"/>
                             <constraint firstAttribute="trailing" secondItem="15c-x5-9r1" secondAttribute="trailing" id="Rzc-4f-hIQ"/>
                             <constraint firstItem="6m7-Re-f0F" firstAttribute="top" secondItem="15c-x5-9r1" secondAttribute="bottom" id="Si8-Sf-vss"/>
+                            <constraint firstItem="3rA-Lx-l03" firstAttribute="leading" secondItem="ftN-BN-Kvd" secondAttribute="leadingMargin" constant="-5" id="Stk-j5-yUy"/>
                             <constraint firstItem="6m7-Re-f0F" firstAttribute="top" secondItem="GsS-AS-LiZ" secondAttribute="bottom" id="Zyd-z8-L2w"/>
                             <constraint firstAttribute="trailing" secondItem="GsS-AS-LiZ" secondAttribute="trailing" id="mMN-34-uUv"/>
                             <constraint firstItem="15c-x5-9r1" firstAttribute="leading" secondItem="ftN-BN-Kvd" secondAttribute="leading" id="oru-gS-e7l"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="y5t-lU-aoS">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3rA-Lx-l03">
-                            <rect key="frame" x="16" y="7" width="568" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Overview"/>
-                                <segment title="Instructions"/>
-                            </segments>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <navigationItem key="navigationItem" title="Recipe" id="y5t-lU-aoS">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="NTv-ht-Zrp"/>
+                        <barButtonItem key="rightBarButtonItem" image="New Flag" id="JDP-MS-Kxs">
                             <connections>
-                                <action selector="segChanged:" destination="KHd-zW-iTA" eventType="valueChanged" id="OiI-IZ-evT"/>
-                                <action selector="segControlChanged:" destination="fiq-0V-YuK" eventType="valueChanged" id="yIZ-N6-vtD"/>
+                                <action selector="flaggedContent:" destination="KHd-zW-iTA" id="miQ-7d-8o1"/>
                             </connections>
-                        </segmentedControl>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="commentContainer" destination="GsS-AS-LiZ" id="Mry-bj-QyD"/>
+                        <outlet property="flagButton" destination="JDP-MS-Kxs" id="6B1-zH-9Es"/>
+                        <outlet property="flaggedContent" destination="JDP-MS-Kxs" id="4bk-51-7rB"/>
                         <outlet property="instructionContainer" destination="15c-x5-9r1" id="ITM-m3-0oV"/>
                         <outlet property="segControl" destination="3rA-Lx-l03" id="cX3-nX-2xc"/>
                     </connections>
@@ -467,7 +480,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="showIns" title="InstructionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="443"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -489,7 +502,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="Dvj-Wr-VqI">
-                            <rect key="frame" x="0.0" y="159" width="600" height="287"/>
+                            <rect key="frame" x="0.0" y="69" width="600" height="243"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-bo-LWZ">
@@ -512,7 +525,7 @@
                                 <constraint firstItem="7Jf-bo-LWZ" firstAttribute="top" secondItem="Dvj-Wr-VqI" secondAttribute="top" constant="29" id="RSo-Rt-6rA"/>
                                 <constraint firstItem="vNw-NL-Xgo" firstAttribute="leading" secondItem="Dvj-Wr-VqI" secondAttribute="leading" constant="34" id="UXc-ZW-kga"/>
                                 <constraint firstItem="vNw-NL-Xgo" firstAttribute="top" secondItem="7Jf-bo-LWZ" secondAttribute="bottom" constant="8" id="mr7-Oz-Ruh"/>
-                                <constraint firstAttribute="bottom" secondItem="vNw-NL-Xgo" secondAttribute="bottom" constant="19" id="q3Y-1D-UpP"/>
+                                <constraint firstAttribute="bottom" secondItem="vNw-NL-Xgo" secondAttribute="bottom" constant="-25" id="q3Y-1D-UpP"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -799,13 +812,14 @@
     <resources>
         <image name="1438405434_maturewoman" width="512" height="512"/>
         <image name="Home" width="28" height="26"/>
+        <image name="New Flag" width="16" height="16"/>
         <image name="Profile" width="23" height="26"/>
         <image name="Search" width="23" height="25"/>
         <image name="blurred_background" width="954" height="550"/>
         <image name="no image" width="592" height="444"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p8s-nZ-bTj"/>
+        <segue reference="0mB-6h-CPz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
