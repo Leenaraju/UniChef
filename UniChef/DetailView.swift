@@ -19,6 +19,7 @@ class DetailView: UIView {
     var recipe: PFObject? {
         didSet {
             recipeLabel.text = recipe?["text"] as? String
+            recipeImage.image = nil
             
             if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
                 username.text = "By: \(name)"

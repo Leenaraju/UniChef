@@ -47,6 +47,8 @@ class ProfileViewController: PFQueryTableViewController {
         query.limit = 20
         query.cachePolicy = PFCachePolicy.CacheThenNetwork
         
+        loadLikesCount()
+        loadUploadCount()
         
         return query
     }
@@ -91,20 +93,11 @@ class ProfileViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         let query : PFQuery!
-        query = PFQuery(className: "UpvotedRecipe")
-        query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
-        query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
-            if error == nil {
-                if let num = count as? String {
-                    self.upvotedCount.text = num
-                }
-            }
-        }
+        
         if let usernameString = PFUser.currentUser()?["name"] as? String {
             username.text = usernameString
         }
-
+        
         loadUpvotes()
         loadUploaded()
         loadUsername()
@@ -112,6 +105,29 @@ class ProfileViewController: PFQueryTableViewController {
         var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
         //profilePic.addGestureRecognizer(tgr)
         
+    }
+    
+    private func loadLikesCount() {
+        let query : PFQuery!
+        query = PFQuery(className: "UpvotedRecipe")
+        query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+        query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
+            if error == nil {
+                self.upvotedCount.text = String(count)
+                
+            }
+        }
+    }
+        private func loadUploadCount() {
+            let query : PFQuery!
+            query = PFQuery(className: "recipe")
+            query.whereKey("users", equalTo: PFUser.currentUser()!)
+            query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
+                if error == nil {
+                    self.uploadedCount.text = String(count)
+                    
+                }
+            }
     }
     
     override func didReceiveMemoryWarning() {
@@ -160,6 +176,7 @@ class ProfileViewController: PFQueryTableViewController {
                 if savedRecipes.selectedSegmentIndex == 0 {
                     if let recipe = objectAtIndexPath(cell.indexPath)?["toRecipe"] as? PFObject {
                         vc.recipe = recipe
+                        
                     }
                 } else {
                     vc.recipe = objectAtIndexPath(cell.indexPath)

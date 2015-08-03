@@ -11,45 +11,42 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4H-2Y-t9z">
-                    <rect key="frame" x="20" y="40" width="560" height="33"/>
-                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="20" y="58" width="560" height="33"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="OPB-wm-Owg">
-                    <rect key="frame" x="20" y="0.0" width="560" height="580"/>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLd-1U-2eA">
                     <rect key="frame" x="20" y="540" width="93" height="26"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twJ-Bt-aOH">
-                    <rect key="frame" x="200" y="77" width="200" height="24"/>
+                    <rect key="frame" x="200" y="95" width="200" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="q4n-Gh-51k"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="OPB-wm-Owg">
+                    <rect key="frame" x="100" y="84" width="401" height="394"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="OPB-wm-Owg" firstAttribute="top" secondItem="b4H-2Y-t9z" secondAttribute="bottom" constant="8" symbolic="YES" id="0Yr-YM-JHN"/>
                 <constraint firstItem="CLd-1U-2eA" firstAttribute="top" secondItem="OPB-wm-Owg" secondAttribute="bottom" constant="-40" id="AQT-h3-59j"/>
                 <constraint firstAttribute="bottom" secondItem="CLd-1U-2eA" secondAttribute="bottom" constant="34" id="EX1-7N-G5I"/>
                 <constraint firstAttribute="trailing" secondItem="b4H-2Y-t9z" secondAttribute="trailing" constant="20" symbolic="YES" id="IQN-qz-uXB"/>
-                <constraint firstItem="OPB-wm-Owg" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="20" symbolic="YES" id="IoY-Hh-wCC"/>
-                <constraint firstItem="b4H-2Y-t9z" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" constant="40" id="N5Y-7P-PUT"/>
-                <constraint firstAttribute="trailing" secondItem="OPB-wm-Owg" secondAttribute="trailing" constant="20" symbolic="YES" id="Sxr-ch-mwo"/>
+                <constraint firstItem="OPB-wm-Owg" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="100" id="IoY-Hh-wCC"/>
+                <constraint firstItem="b4H-2Y-t9z" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" constant="58" id="N5Y-7P-PUT"/>
+                <constraint firstAttribute="trailing" secondItem="OPB-wm-Owg" secondAttribute="trailing" constant="99" id="Sxr-ch-mwo"/>
                 <constraint firstItem="twJ-Bt-aOH" firstAttribute="top" secondItem="b4H-2Y-t9z" secondAttribute="bottom" constant="4" id="cfc-Op-2hR"/>
                 <constraint firstItem="b4H-2Y-t9z" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="20" symbolic="YES" id="gQZ-Pb-x8X"/>
-                <constraint firstAttribute="bottom" secondItem="OPB-wm-Owg" secondAttribute="bottom" constant="20" symbolic="YES" id="h1B-mH-HSw"/>
+                <constraint firstAttribute="bottom" secondItem="OPB-wm-Owg" secondAttribute="bottom" constant="122" id="h1B-mH-HSw"/>
                 <constraint firstItem="CLd-1U-2eA" firstAttribute="leading" secondItem="b4H-2Y-t9z" secondAttribute="leading" id="jfL-p4-5oE"/>
                 <constraint firstItem="twJ-Bt-aOH" firstAttribute="centerX" secondItem="b4H-2Y-t9z" secondAttribute="centerX" id="pYi-8e-TX3"/>
-                <constraint firstItem="OPB-wm-Owg" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" id="rda-bk-kep"/>
+                <constraint firstItem="OPB-wm-Owg" firstAttribute="top" secondItem="qW9-sW-84M" secondAttribute="top" constant="84" id="rda-bk-kep"/>
                 <constraint firstAttribute="trailing" secondItem="CLd-1U-2eA" secondAttribute="trailing" constant="487" id="uo8-OR-HP8"/>
             </constraints>
             <variation key="default">
@@ -64,6 +61,7 @@
                 <outlet property="recipeLabel" destination="b4H-2Y-t9z" id="XY6-cB-zIp"/>
                 <outlet property="username" destination="twJ-Bt-aOH" id="GhY-zm-z9w"/>
             </connections>
+            <point key="canvasLocation" x="270" y="306"/>
         </view>
     </objects>
     <resources>
