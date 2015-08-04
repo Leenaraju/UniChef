@@ -37,6 +37,7 @@ class ProfileViewController: PFQueryTableViewController {
             query = PFQuery(className: "UpvotedRecipe")
             query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
             query.includeKey("toRecipe")
+            query.includeKey("toRecipe.users")
             query.includeKey("fromUser")
         } else {
             query = PFQuery(className: "recipe")
@@ -91,15 +92,26 @@ class ProfileViewController: PFQueryTableViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        PFUser.currentUser()?.fetchInBackground()
+        
+        
+        if let bPoints = PFUser.currentUser()?["points"] as? NSNumber {
+            browniePoints.text = "\(bPoints)"
+        }
         
         if let usernameString = PFUser.currentUser()?["name"] as? String {
             username.text = usernameString
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         loadUpvotes()
         loadUploaded()
+        
         loadUsername()
         
         var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
@@ -118,16 +130,26 @@ class ProfileViewController: PFQueryTableViewController {
             }
         }
     }
-        private func loadUploadCount() {
-            let query : PFQuery!
-            query = PFQuery(className: "recipe")
-            query.whereKey("users", equalTo: PFUser.currentUser()!)
-            query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
-                if error == nil {
-                    self.uploadedCount.text = String(count)
-                    
-                }
+    
+    //    private func loadBP() {
+    ////        let query : PFQuery!
+    ////        query = PFQuery(className: "User")
+    ////        query.whereKey("username", equalTo: PFUser.currentUser()!)
+    //
+    //        let BPtext = PFUser.currentUser()?["points"] as? String
+    //        browniePoints.text = BPtext
+    //    }
+    
+    private func loadUploadCount() {
+        let query : PFQuery!
+        query = PFQuery(className: "recipe")
+        query.whereKey("users", equalTo: PFUser.currentUser()!)
+        query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
+            if error == nil {
+                self.uploadedCount.text = String(count)
+                
             }
+        }
     }
     
     override func didReceiveMemoryWarning() {
