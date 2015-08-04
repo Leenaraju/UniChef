@@ -140,8 +140,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
             testObject["users"] = PFUser.currentUser()
             testObject["ingredients"] = arrayOfIngredients
             testObject["ingredientsString"] = " ".join(arrayOfIngredients)
-            // Andrew did this
-            
+            testObject["flaggedCount"] = 0
             testObject["count"] = 0
             testObject.saveInBackground()
             self.navigationController?.popViewControllerAnimated(true)

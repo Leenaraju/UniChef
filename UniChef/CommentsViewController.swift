@@ -89,7 +89,8 @@ class CommentsViewController: SLKTextViewController {
         }
         
         query.includeKey("fromUser")
-        
+    
+        //andrew did this
         query.limit = perPage
         query.skip = perPage * curPage
         

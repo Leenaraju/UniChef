@@ -17,6 +17,9 @@ class SegContainer: UIViewController {
     @IBOutlet weak var flaggedContent: UIBarButtonItem!
     
     @IBOutlet weak var flagButton: UIBarButtonItem!
+    
+   
+    
     @IBAction func flaggedContent(sender: AnyObject) {
         
         let alertController = UIAlertController(
@@ -28,7 +31,7 @@ class SegContainer: UIViewController {
             title: "Yes",
             style: UIAlertActionStyle.Default){ (action) in
                 self.recipe?.incrementKey("flaggedCount")
-                let flagCount = self.recipe?.valueForKey("flaggedCount") as! Int
+                self.recipe?.saveInBackground()
                 self.flagButton.enabled = false
         }
             
@@ -59,6 +62,7 @@ class SegContainer: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         commentContainer.hidden = false

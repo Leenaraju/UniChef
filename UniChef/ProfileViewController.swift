@@ -119,7 +119,7 @@ class ProfileViewController: PFQueryTableViewController {
         
         self.savedRecipes.layer.borderWidth = 1.5
         self.savedRecipes.layer.cornerRadius = 0.0
-        var myColor : UIColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        var myColor : UIColor = UIColor(red: 240/255, green: 245/255, blue: 245/255, alpha: 1)
         self.savedRecipes.layer.borderColor = myColor.CGColor
 
 
@@ -186,7 +186,7 @@ class ProfileViewController: PFQueryTableViewController {
             if(indexPath.row % 2 == 0){
                 cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
             } else{
-                cell.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+                cell.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
             }
             
             if savedRecipes.selectedSegmentIndex == 0 {

@@ -1,11 +1,13 @@
 class CommentCell: PFTableViewCell {
     weak var viewController : CommentsViewController?
     
+    
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var username: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
+
     var data : PFObject? {
         didSet {
             loadContentLabel()
@@ -28,8 +30,9 @@ class CommentCell: PFTableViewCell {
     }
     
     private func loadUsername() {
-        if let usernameString = PFUser.currentUser()?["name"] as? String {
-            username.setTitle(usernameString, forState: UIControlState.Normal)
+        println(data?["fromUser"])
+        if let usernameString = data?["fromUser"] as? PFUser, name = data?["name"] as? String{
+            username.setTitle(name, forState: UIControlState.Normal)
         }
     }
     
