@@ -50,9 +50,6 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="usernameTapped:" destination="Ux9-Vd-sxH" eventType="touchUpInside" id="0On-ER-95Z"/>
-                        </connections>
                     </button>
                 </subviews>
                 <animations/>

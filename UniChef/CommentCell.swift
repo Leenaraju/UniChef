@@ -12,9 +12,6 @@ class CommentCell: PFTableViewCell {
             loadTimeLabel()
             loadUsername()
             loadProfilePic()
-            
-            var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
-            profilePic.addGestureRecognizer(tgr)
         }
     }
     
