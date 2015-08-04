@@ -13,7 +13,7 @@ class SearchController: PFQueryTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var segControl: UISegmentedControl!
+   
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -66,18 +66,13 @@ class SearchController: PFQueryTableViewController {
     
     override func queryForTable() -> PFQuery {
         let query = PFQuery(className: "recipe")
+        query.whereKey("text", matchesRegex: searchText, modifiers: "i")
         
-        if segControl.selectedSegmentIndex == 0 {
-            // search based on title
-            query.whereKey("text", matchesRegex: searchText, modifiers: "i")
-        }
-        else{
-            //search by ingredients
-            let ingredients = searchText.componentsSeparatedByString(" ")
-            for ingredient in ingredients {
-                query.whereKey("ingredientsString", matchesRegex: ingredient, modifiers: "i")
-            }
-        }
+//            let ingredients = searchText.componentsSeparatedByString(" ")
+//            for ingredient in ingredients {
+//                query.whereKey("ingredientsString", matchesRegex: ingredient, searchText, modifiers: "i")
+//            }
+        
         
         query.includeKey("users")
         

@@ -60,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="729-Lu-WsY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="369"/>
+            <point key="canvasLocation" x="977" y="377"/>
         </scene>
         <!--Add New Recipe-->
         <scene sceneID="Byz-E3-kVg">
@@ -265,27 +265,11 @@
                             <outlet property="delegate" destination="CRD-4D-6Ud" id="VY4-gr-PjM"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" id="FtM-kW-ffV">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="H86-Wx-MCe">
-                                <rect key="frame" x="16" y="7" width="568" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Recipe"/>
-                                    <segment title="Ingredients"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="segControl:" destination="CRD-4D-6Ud" eventType="valueChanged" id="bKA-JJ-UMo"/>
-                                </connections>
-                            </segmentedControl>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Search" id="zVN-Ir-TNw"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="huE-jW-BeJ" id="248-g9-whM"/>
-                        <outlet property="segControl" destination="H86-Wx-MCe" id="cBz-ev-4Qz"/>
                         <segue destination="KHd-zW-iTA" kind="show" identifier="showDetails" id="Qyy-kh-enO"/>
                     </connections>
                 </tableViewController>
@@ -321,10 +305,10 @@
                         <viewControllerLayoutGuide type="bottom" id="6m7-Re-f0F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ftN-BN-Kvd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsS-AS-LiZ" userLabel="ComContainer View">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsS-AS-LiZ" userLabel="ComContainer View">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="tintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -346,7 +330,7 @@
                                     <action selector="segControlChanged:" destination="fiq-0V-YuK" eventType="valueChanged" id="yIZ-N6-vtD"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15c-x5-9r1" userLabel="InsContainer View">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15c-x5-9r1" userLabel="InsContainer View">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1023,8 +1007,8 @@
         <image name="no image" width="592" height="444"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qyy-kh-enO"/>
         <segue reference="F4n-dK-Wcz"/>
+        <segue reference="0mB-6h-CPz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
