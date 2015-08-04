@@ -43,12 +43,8 @@ class TableViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerNib(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
-        self.segControl.layer.cornerRadius = 0.0
-        self.segControl.layer.borderWidth = 1.5
-        
-        var myColor : UIColor = UIColor(white: 100, alpha: 1)
-        self.segControl.layer.borderColor = myColor.CGColor
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
