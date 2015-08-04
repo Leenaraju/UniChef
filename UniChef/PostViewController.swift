@@ -69,31 +69,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func postPressed(sender: AnyObject) {
-        var arrayOfIngredients = [String]()
-        let count = tableView.numberOfRowsInSection(0)
-        
-        let testObject = PFObject(className: "recipe")
-        
-        for i in 0..<count {
-            let indexPath = NSIndexPath(forRow: i, inSection: 0)
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
-            
-            arrayOfIngredients.append(cell.ingredientText)
-        }
-        
-        testObject["directions"] = self.directions.text
-        testObject["photo"] = self.imageString
-        testObject["text"] = self.postView.text
-        testObject["users"] = PFUser.currentUser()
-        testObject["ingredients"] = arrayOfIngredients
-        testObject["ingredientsString"] = " ".join(arrayOfIngredients)
-        // Andrew did this
-        
-        testObject["count"] = 0
-        testObject.saveInBackground()
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
@@ -134,6 +109,45 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    @IBAction func postPressed(sender: AnyObject) {
+        if (self.postView.text.isEmpty) || (self.directions.text == "How is this made?"){
+            
+            let alert = UIAlertView()
+            alert.title = "No Text"
+            alert.message = "Please complete all fields before submitting your recipe."
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+        }
+            
+        else {
+            
+            var arrayOfIngredients = [String]()
+            let count = tableView.numberOfRowsInSection(0)
+            
+            let testObject = PFObject(className: "recipe")
+            
+            for i in 0..<count {
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
+                
+                arrayOfIngredients.append(cell.ingredientText)
+            }
+            
+            testObject["directions"] = self.directions.text
+            testObject["photo"] = self.imageString
+            testObject["text"] = self.postView.text
+            testObject["users"] = PFUser.currentUser()
+            testObject["ingredients"] = arrayOfIngredients
+            testObject["ingredientsString"] = " ".join(arrayOfIngredients)
+            // Andrew did this
+            
+            testObject["count"] = 0
+            testObject.saveInBackground()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
 }
 extension PostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
@@ -147,11 +161,10 @@ extension PostViewController: UITextViewDelegate {
     
 }
 
-func textViewDidEndEditing(textView: UITextView) {
-    if textView.text == "" {
-        textView.text = "How is this made?"
-    }
-}
-
+//func textViewDidEndEditing(textView: UITextView) {
+//    if textView.text == "" {
+//        textView.text = "How is this made?"
+//    }
+//}
 
 
