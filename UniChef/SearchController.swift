@@ -13,7 +13,7 @@ class SearchController: PFQueryTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-   
+    
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -68,15 +68,23 @@ class SearchController: PFQueryTableViewController {
         let query = PFQuery(className: "recipe")
         query.whereKey("text", matchesRegex: searchText, modifiers: "i")
         
-//            let ingredients = searchText.componentsSeparatedByString(" ")
-//            for ingredient in ingredients {
-//                query.whereKey("ingredientsString", matchesRegex: ingredient, searchText, modifiers: "i")
-//            }
+        var allQueries = [query]
         
+        let ingredients = searchText.componentsSeparatedByString(" ")
         
-        query.includeKey("users")
+        for ingredient in ingredients {
+            let insideQuery = PFQuery(className: "recipe")
+            
+            insideQuery.whereKey("ingredientsString", matchesRegex: ingredient, modifiers: "i")
+            
+            allQueries.append(insideQuery)
+        }
         
-        return query
+        let finalQuery = PFQuery.orQueryWithSubqueries(allQueries)
+        
+        finalQuery.includeKey("users")
+        
+        return finalQuery
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

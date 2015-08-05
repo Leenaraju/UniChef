@@ -65,10 +65,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     
     
-    @IBAction func cancelPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
+  
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell

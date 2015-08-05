@@ -43,14 +43,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let randomIndex = Int(arc4random_uniform(UInt32(names!.count)))
             if let randomName = names?[randomIndex] as? String {
                 PFUser.currentUser()?["name"] = randomName
-                PFUser.currentUser()?.saveInBackground()
             }
         }
-       
+        
+        if PFUser.currentUser()?["profilePic"] == nil {
+            var images = ["Average Joe", "Blonde Girl", "Boy", "Female with headset", "Grandpa", "Granny", "Headset Man", "Man with glasses", "Man with Suit", "Mature Man", "Pigtail Girl", "Young Boy"]
+            let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
+            if let randomImage = images[randomIndex] as? String{
+                let data = UIImageJPEGRepresentation(UIImage(named:randomImage), 0.7)
+                let file = PFFile(name: "image.jpg", data: data)
+                PFUser.currentUser()?["profilePic"] = file
+                
+            }
+        }
+
+        PFUser.currentUser()?.saveInBackground()
         
     }
-        
-
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

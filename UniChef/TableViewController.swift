@@ -13,6 +13,7 @@ class TableViewController: PFQueryTableViewController {
     
     @IBOutlet weak var segControl: UISegmentedControl!
     
+    var selectedIndex = 0
     
     
     
@@ -42,7 +43,13 @@ class TableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerNib(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
+        
+        
+    }
+    
+    func changedSegIndexTo(index: Int) {
+        selectedIndex = index
+        loadObjects()
     }
     
     
@@ -56,7 +63,7 @@ class TableViewController: PFQueryTableViewController {
         
         query.limit = 200
         
-        if segControl.selectedSegmentIndex == 0 {
+        if selectedIndex == 0 {
             query.orderByDescending("createdAt")
         } else {
             query.orderByDescending("count")

@@ -50,7 +50,7 @@ class ProfileViewController: PFQueryTableViewController {
         
         loadLikesCount()
         loadUploadCount()
-        
+        loadProfilePic()
         return query
     }
     
@@ -74,22 +74,15 @@ class ProfileViewController: PFQueryTableViewController {
     }
     
     private func loadProfilePic() {
-        let imageName = "defaultProfilePic.png"
-        
-        profilePic.image = UIImage(named: imageName)
-        profilePic.layer.cornerRadius = profilePic.frame.width / 2
-        
-        if let profilePicThumb = PFUser.currentUser()?["fromUser"]?["profilePicThumb"] as? PFFile {
-            if let url = profilePicThumb.url {
-                profilePic.sd_setImageWithURL(NSURL(string: url), placeholderImage: UIImage(named: imageName))
-            }
-        } else {
-            if let profilePicStringUrl = PFUser.currentUser()?["fromUser"]?["profilePic"] as? String {
-                if let url = NSURL(string: profilePicStringUrl) {
-                    profilePic.sd_setImageWithURL(url, placeholderImage: UIImage(named: imageName))
-                }
-            }
+
+        if let file = PFUser.currentUser()?["profilePic"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
+            profilePic.sd_setImageWithURL(url)
+            
         }
+    
+        profilePic.layer.cornerRadius = profilePic.frame.width / 2
+            
+
     }
     
     override func viewDidAppear(animated: Bool) {

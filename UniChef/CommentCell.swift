@@ -31,28 +31,19 @@ class CommentCell: PFTableViewCell {
     
     private func loadUsername() {
         println(data?["fromUser"])
-        if let usernameString = data?["fromUser"] as? PFUser, name = data?["name"] as? String{
+        if let user = data?["fromUser"] as? PFUser, name = user["name"] as? String {
             username.setTitle(name, forState: UIControlState.Normal)
         }
     }
     
     private func loadProfilePic() {
-        let imageName = "defaultProfilePic.png"
         
-        profilePic.image = UIImage(named: imageName)
-        profilePic.layer.cornerRadius = profilePic.frame.width / 2
-        
-        if let profilePicThumb = data?["fromUser"]?["profilePicThumb"] as? PFFile {
-            if let url = profilePicThumb.url {
-                profilePic.sd_setImageWithURL(NSURL(string: url), placeholderImage: UIImage(named: imageName))
-            }
-        } else {
-            if let profilePicStringUrl = data?["fromUser"]?["profilePic"] as? String {
-                if let url = NSURL(string: profilePicStringUrl) {
-                    profilePic.sd_setImageWithURL(url, placeholderImage: UIImage(named: imageName))
-                }
-            }
+        if let file = data?["fromUser"] as? PFUser, image = file["profilePic"] as? PFFile, urlString = image.url, url = NSURL(string: urlString) {
+            profilePic.sd_setImageWithURL(url)
         }
-}
+  
+        
+        profilePic.layer.cornerRadius = profilePic.frame.width / 2
+    }
 
 }
