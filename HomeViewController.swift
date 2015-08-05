@@ -11,6 +11,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UISearchBarDelegate {
+    
     @IBAction func segChanged(sender: AnyObject) {
         tableViewController.changedSegIndexTo(segControl.selectedSegmentIndex)
     }
@@ -20,40 +21,93 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     var tableViewController: TableViewController!
     
+    lazy var searchBars:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 297, 20))
+    
+    var searchText = ""
+    
+    @IBAction func searchButton(sender: AnyObject) {
+        var rightNavBarButton = UIBarButtonItem(customView: searchBars)
+        searchBars.delegate = self
+        searchBars.becomeFirstResponder()
+        self.navigationItem.rightBarButtonItem = rightNavBarButton
+        searchBars.placeholder = "Search by recipe or ingredients"
+        searchBars.searchBarStyle = UISearchBarStyle.Prominent
+        searchBars.autocorrectionType = UITextAutocorrectionType.Yes
+        searchBars.tintColor = UIColor.blackColor()
+        searchBars.barTintColor = UIColor.whiteColor()
+        
+        
+    }
+    
+    enum State {
+        case DefaultMode
+        
+        case SearchMode
+    }
+    
+    var state: State = .DefaultMode {
+        didSet {
+            switch (state) {
+            case .DefaultMode:
+                searchBars.resignFirstResponder()
+                searchBars.showsCancelButton = false
+                self.navigationItem.rightBarButtonItem = searchBarButtonItem
+                
+            case .SearchMode:
+                let searchText = searchBars.text ?? ""
 
-    @IBOutlet var searchBar : UISearchBar? = UISearchBar()
-
+                searchBars.setShowsCancelButton(true, animated: true) //4
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        searchBar!.delegate = self;
-        
-        searchBar!.searchBarStyle = UISearchBarStyle.Minimal
-                searchBarButtonItem = navigationItem.rightBarButtonItem
-                //        searchBar.showsCancelButton = true
-                searchBar.barTintColor = UIColor(red: 0.5, green: 0.5, blue: 0.431, alpha: 1)
-                searchBar.tintColor = UIColor(red: 0.137, green: 0.408, blue: 0.431, alpha: 1)
-                searchBar.backgroundImage = UIImage(named: "bgimage.png")
-                searchBar.placeholder = "Find the events!"
-                searchBar.autocorrectionType = UITextAutocorrectionType.Yes
-                searchBar.autocapitalizationType = UITextAutocapitalizationType.Sentences
-
     }
-
+    //        searchBar!.delegate = self;
+    //
+    //        searchBar!.searchBarStyle = UISearchBarStyle.Minimal
+    //                searchBarButtonItem = navigationItem.rightBarButtonItem
+    //                //        searchBar.showsCancelButton = true
+    //                searchBar.barTintColor = UIColor(red: 0.5, green: 0.5, blue: 0.431, alpha: 1)
+    //                searchBar.tintColor = UIColor(red: 0.137, green: 0.408, blue: 0.431, alpha: 1)
+    //                searchBar.placeholder = "Find the events!"
+    //                searchBar.autocorrectionType = UITextAutocorrectionType.Yes
+    //                searchBar.autocapitalizationType = UITextAutocapitalizationType.Sentences
+    
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showTable" {
             tableViewController = segue.destinationViewController as! TableViewController
         }
     }
-
-
+    
+    
+}
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        //loadObjects()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        state = .SearchMode
+    }
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        state = .DefaultMode
+        
+    }
+    
 }

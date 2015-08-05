@@ -8,45 +8,38 @@
 
 import UIKit
 
-class SegContainer: UIViewController {
-    var recipe: PFObject?
+class SegContainer: UITableViewController {
+    
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
-    @IBOutlet weak var flaggedContent: UIBarButtonItem!
+    @IBOutlet weak var recipeLabel: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
     
-    @IBOutlet weak var flagButton: UIBarButtonItem!
+    @IBOutlet weak var username: UILabel!
     
-   
-    
-    @IBAction func flaggedContent(sender: AnyObject) {
-        
-        let alertController = UIAlertController(
-            title: "Report Content",
-            message: "Would you like to flag this recipe as inappropriate?",
-            preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let ok = UIAlertAction(
-            title: "Yes",
-            style: UIAlertActionStyle.Default){ (action) in
-                self.recipe?.incrementKey("flaggedCount")
-                self.recipe?.saveInBackground()
-                self.flagButton.enabled = false
-        }
+    var recipe: PFObject? {
+        didSet {
+            recipeLabel.text = recipe?["text"] as? String
+            recipeImage.image = nil
             
-            let no = UIAlertAction(
-                title: "No",
-                style: UIAlertActionStyle.Default) { (action) in
+            if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
+                username.text = "By: \(name)"
+            }
+            
+            if let url = recipe?["photo"] as? String {
+                if let urlString = NSURL(string: url) {
+                    recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
+                }
+            }
+            
         }
         
-        alertController.addAction(ok)
-        alertController.addAction(no)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
 
 
-    
     @IBAction func segChanged(sender: AnyObject) {
         switch segControl.selectedSegmentIndex
         {

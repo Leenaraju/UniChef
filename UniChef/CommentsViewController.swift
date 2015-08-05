@@ -64,7 +64,7 @@ class CommentsViewController: SLKTextViewController {
         super.viewWillLayoutSubviews()
         if tableView.tableHeaderView == nil {
             if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
-                header.recipe = recipe
+//                header.recipe = recipe
                 
                 header.setNeedsUpdateConstraints()
                 header.frame = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGFloat.max)

@@ -112,10 +112,14 @@ class ProfileViewController: PFQueryTableViewController {
         
         self.savedRecipes.layer.borderWidth = 1.5
         self.savedRecipes.layer.cornerRadius = 0.0
-        var myColor : UIColor = UIColor(red: 240/255, green: 245/255, blue: 245/255, alpha: 1)
-        self.savedRecipes.layer.borderColor = myColor.CGColor
+        var grey : UIColor = UIColor(red: 240/255, green: 245/255, blue: 245/255, alpha: 1)
+        self.savedRecipes.layer.borderColor = grey.CGColor
 
-
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
+        self.profilePic.clipsToBounds = true
+        self.profilePic.layer.borderWidth = 3.0
+        var white : UIColor = UIColor.whiteColor()
+        self.profilePic.layer.borderColor = white.CGColor
     }
     
     private func loadLikesCount() {

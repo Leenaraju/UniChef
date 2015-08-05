@@ -33,7 +33,35 @@ class InstructionsViewController: UITableViewController {
         
         return cell
     }
+    @IBOutlet weak var flagButton: UIBarButtonItem!
     
+    
+    
+    @IBAction func flaggedContent(sender: AnyObject) {
+        
+        let alertController = UIAlertController(
+            title: "Report Content",
+            message: "Would you like to flag this recipe as inappropriate?",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let ok = UIAlertAction(
+            title: "Yes",
+            style: UIAlertActionStyle.Default){ (action) in
+                self.recipe?.incrementKey("flaggedCount")
+                self.recipe?.saveInBackground()
+                self.flagButton.enabled = false
+        }
+        
+        let no = UIAlertAction(
+            title: "No",
+            style: UIAlertActionStyle.Default) { (action) in
+        }
+        
+        alertController.addAction(ok)
+        alertController.addAction(no)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients?.count ?? 0
     }
