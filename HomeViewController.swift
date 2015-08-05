@@ -99,15 +99,17 @@ extension HomeViewController: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+        tableViewController.searchWithText(searchText)
         //loadObjects()
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         state = .SearchMode
+        tableViewController.isSearching = true
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         state = .DefaultMode
-        
+        tableViewController.isSearching = false
     }
     
 }

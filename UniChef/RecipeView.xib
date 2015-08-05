@@ -11,15 +11,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLd-1U-2eA">
-                    <rect key="frame" x="185" y="268" width="230" height="65"/>
-                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="47"/>
+                    <rect key="frame" x="21" y="282" width="122" height="35"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="25"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="CLd-1U-2eA" secondAttribute="centerY" id="Atk-ib-tvP"/>
-                <constraint firstAttribute="centerX" secondItem="CLd-1U-2eA" secondAttribute="centerX" id="CtK-yQ-e9f"/>
+                <constraint firstAttribute="centerY" secondItem="CLd-1U-2eA" secondAttribute="centerY" id="YXo-Sn-hBH"/>
+                <constraint firstItem="CLd-1U-2eA" firstAttribute="leading" secondItem="qW9-sW-84M" secondAttribute="leading" constant="21" id="l0O-D8-JfD"/>
                 <constraint firstAttribute="trailing" secondItem="CLd-1U-2eA" secondAttribute="trailing" constant="487" id="uo8-OR-HP8"/>
             </constraints>
             <variation key="default">

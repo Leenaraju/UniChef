@@ -19,36 +19,20 @@ class SegContainer: UITableViewController {
     
     @IBOutlet weak var username: UILabel!
     
-    var recipe: PFObject? {
-        didSet {
-            recipeLabel.text = recipe?["text"] as? String
-            recipeImage.image = nil
-            
-            if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
-                username.text = "By: \(name)"
-            }
-            
-            if let url = recipe?["photo"] as? String {
-                if let urlString = NSURL(string: url) {
-                    recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
-                }
-            }
-            
-        }
-        
-        
-    }
-
+    var recipe: PFObject?
+    
 
     @IBAction func segChanged(sender: AnyObject) {
         switch segControl.selectedSegmentIndex
         {
         case 0:
-            commentContainer.hidden = false
-            instructionContainer.hidden = true
-        case 1:
             commentContainer.hidden = true
             instructionContainer.hidden = false
+        case 1:
+            commentContainer.hidden = false
+            instructionContainer.hidden = true
+
+            
         default:
             break;
         }
@@ -58,9 +42,21 @@ class SegContainer: UITableViewController {
         
         super.viewDidLoad()
         
-        commentContainer.hidden = false
-        instructionContainer.hidden = true
-        // Do any additional setup after loading the view.
+        commentContainer.hidden = true
+        instructionContainer.hidden = false
+        recipeLabel.text = recipe?["text"] as? String
+        recipeImage.image = nil
+        
+        if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
+            username.text = "By: \(name)"
+        }
+        
+        if let url = recipe?["photo"] as? String {
+            if let urlString = NSURL(string: url) {
+                recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

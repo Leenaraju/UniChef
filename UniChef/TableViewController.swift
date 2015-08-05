@@ -14,7 +14,12 @@ class TableViewController: PFQueryTableViewController {
     @IBOutlet weak var segControl: UISegmentedControl!
     
     var selectedIndex = 0
-    
+    var isSearching = false {
+        didSet {
+            loadObjects()
+        }
+    }
+    var searchText = ""
     
     
     override init(style: UITableViewStyle, className: String!) {
@@ -37,8 +42,8 @@ class TableViewController: PFQueryTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        performSegueWithIdentifier("showDetails", sender: cell)
+        //        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        //        performSegueWithIdentifier("showDetails", sender: cell)
     }
     
     override func viewDidLoad() {
@@ -51,6 +56,10 @@ class TableViewController: PFQueryTableViewController {
         selectedIndex = index
         loadObjects()
     }
+    func searchWithText(searchWord: String) {
+        self.searchText = searchWord
+        loadObjects()
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -58,21 +67,39 @@ class TableViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-        
-        let query = PFQuery(className: "recipe")
+        var query = PFQuery(className: "recipe")
         
         query.limit = 200
         
-        if selectedIndex == 0 {
-            query.orderByDescending("createdAt")
+        if isSearching  {
+            var genQuery = PFQuery(className: "recipe")
+            
+            genQuery.whereKey("text", matchesRegex: searchText, modifiers: "i")
+            
+            var allQueries = [genQuery]
+            
+            let ingredients = searchText.componentsSeparatedByString(" ")
+            
+            for ingredient in ingredients {
+                let insideQuery = PFQuery(className: "recipe")
+                
+                insideQuery.whereKey("ingredientsString", matchesRegex: ingredient, modifiers: "i")
+                
+                allQueries.append(insideQuery)
+            }
+            
+            query = PFQuery.orQueryWithSubqueries(allQueries)
         } else {
-            query.orderByDescending("count")
+            if selectedIndex == 0 {
+                query.orderByDescending("createdAt")
+            } else {
+                query.orderByDescending("count")
+            }
+            
+            query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
         
         query.includeKey("users")
-        
-        query.cachePolicy = PFCachePolicy.CacheThenNetwork
-        
         
         return query
     }
