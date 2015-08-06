@@ -20,6 +20,7 @@
 		630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */; };
 		6305A8C11B7022CA00F47E02 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305A8C01B7022CA00F47E02 /* SettingsController.swift */; };
 		6305A8C31B70273500F47E02 /* ImportantStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305A8C21B70273500F47E02 /* ImportantStuff.swift */; };
+		630FE6361B73D5CC00092D90 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630FE6351B73D5CC00092D90 /* ShareViewController.swift */; };
 		6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD431B59A64A0036D13C /* TableViewController.swift */; };
 		6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD451B59A9F10036D13C /* NSDate+Extension.swift */; };
 		6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */; };
@@ -74,6 +75,7 @@
 		630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = UniChef/ProfileViewController.swift; sourceTree = "<group>"; };
 		6305A8C01B7022CA00F47E02 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = UniChef/SettingsController.swift; sourceTree = "<group>"; };
 		6305A8C21B70273500F47E02 /* ImportantStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantStuff.swift; sourceTree = "<group>"; };
+		630FE6351B73D5CC00092D90 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				63A540B51B61B059001AFF99 /* SegContainer.swift */,
 				6303F93B1B571DDD0079DA16 /* DetailView.swift */,
+				630FE6351B73D5CC00092D90 /* ShareViewController.swift */,
 				63F31D6D1B59C33C007ED5E7 /* CommentsViewController.swift */,
 				63A540B31B61701F001AFF99 /* InstructionsViewController.swift */,
 				63F31D6B1B59C32F007ED5E7 /* CommentCell.xib */,
@@ -413,6 +416,7 @@
 				63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */,
 				630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */,
 				0EDAFD251B56E601009A2513 /* PostViewController.swift in Sources */,
+				630FE6361B73D5CC00092D90 /* ShareViewController.swift in Sources */,
 				63F60E801B5EF85400C04D4E /* IngredientCell.swift in Sources */,
 				63A540B41B617020001AFF99 /* InstructionsViewController.swift in Sources */,
 				63A540B21B604780001AFF99 /* PopUpViewController.swift in Sources */,

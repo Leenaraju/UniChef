@@ -14,7 +14,7 @@ class SegContainer: UIViewController {
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
-    
+ 
     var recipe: PFObject?
     
 
@@ -40,7 +40,7 @@ class SegContainer: UIViewController {
         
         commentContainer.hidden = false
         instructionContainer.hidden = true
-//             
+        
     }
     
     override func didReceiveMemoryWarning() {

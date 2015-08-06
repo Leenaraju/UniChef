@@ -49,8 +49,9 @@ class TableViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
+   
+
     
     func changedSegIndexTo(index: Int) {
         selectedIndex = index

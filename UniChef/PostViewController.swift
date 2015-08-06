@@ -16,11 +16,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
-    
     @IBOutlet weak var imagePost: UIImageView!
-    
-    
-    
     
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")
@@ -28,23 +24,14 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
-        
-        //        tableView.reloadData()
-        //
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let vc = storyboard.instantiateViewControllerWithIdentifier("popUpVC") as! UIViewController
-        //        vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        //        self.presentViewController(vc, animated: true, completion: nil)
-    }
+           }
     
-    //var reset:Bool = false
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postView.delegate = self
         directions.delegate = self
         
-        //  self.postView.becomeFirstResponder()
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
@@ -63,14 +50,11 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    
-    
-  
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
         
         cell.ingredientField.text = ingredients[indexPath.row]
+        cell.ingredientField.becomeFirstResponder()
         return cell
     }
     
@@ -102,7 +86,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
                 if let url = NSURL(string: urlString) {
                     imagePost.sd_setImageWithURL(url, placeholderImage: nil)
                 }
-                // change image here to url
             }
         }
     }
@@ -127,7 +110,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
             for i in 0..<count {
                 let indexPath = NSIndexPath(forRow: i, inSection: 0)
                 let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
-                
+    
                 arrayOfIngredients.append(cell.ingredientText)
             }
             
@@ -140,7 +123,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
             testObject["flaggedCount"] = 0
             testObject["count"] = 0
             testObject.saveInBackground()
-            self.navigationController?.popViewControllerAnimated(true)
+            
+            self.tabBarController?.selectedIndex = 0
         }
         
     }

@@ -32,10 +32,9 @@ class InstructionsViewController: UITableViewController {
         cell.textLabel?.text = ingredients?[indexPath.row]
         
         return cell
-    }
-    @IBOutlet weak var flagButton: UIBarButtonItem!
+    }    
     
-    
+    @IBOutlet weak var flagButton: UIButton!
     
     @IBAction func flaggedContent(sender: AnyObject) {
         

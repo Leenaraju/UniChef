@@ -33,7 +33,26 @@ class SettingsController: UITableViewController {
                 vc.importantStr = title
             }
         }
+        if segue.identifier == "showAbout" {
+            if let vc = segue.destinationViewController as? ImportantStuff {
+                let title = "We are two SEC college students who came up with this idea upon discovering that one of us knows how to cook while the other is clueless - which tends to be a common divide among college students. We wanted a way for those who can to share their own personal recipes with those who cannot."
+                vc.importantStr = title
+            }
+        }
+        if segue.identifier == "showContact" {
+            if let vc = segue.destinationViewController as? ImportantStuff {
+                let title = "Feel free to contact us if you have any questions, feedback, or concerns about our app. \n\nAndrew Samole: samole@live.com \n\nLeena Annamraju: leenaraju1994@gmail.com"
+                vc.importantStr = title
+            }
+        }
+        if segue.identifier == "showAttribution" {
+            if let vc = segue.destinationViewController as? ImportantStuff {
+                let title = "Photo API provided by pixabay.com. \n\nFlatflow profile icons provided by Anna Litviniuk. https://www.iconfinder.com/Naf_Naf\n\nSpecial thanks to our boy Abdul for making this all happen."
+                vc.importantStr = title
+            }
+        }
 
     }
+    
 
 }

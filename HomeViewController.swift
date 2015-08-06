@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchBars.placeholder = "Search by recipe or ingredients"
         searchBars.searchBarStyle = UISearchBarStyle.Prominent
         searchBars.autocorrectionType = UITextAutocorrectionType.Yes
-        searchBars.tintColor = UIColor.blackColor()
+        searchBars.tintColor = UIColor.grayColor()
         searchBars.barTintColor = UIColor.whiteColor()
         
         
