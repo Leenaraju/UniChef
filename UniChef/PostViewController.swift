@@ -13,7 +13,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     var ingredients: [String] = []
     
     var imageString: String = ""
-   // var ingredientCell = IngredientCell()
+    // var ingredientCell = IngredientCell()
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
@@ -25,8 +25,17 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
-           }
-   
+    }
+    
+    func resetUI(){
+        view.endEditing(true)
+        directions.text = "How is this made?"
+        postView.text = ""
+        ingredients = []
+        imagePost.image = UIImage(named: "AddPhoto")
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postView.delegate = self
@@ -36,6 +45,11 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         tableView.reloadData()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     func DismissKeyboard(){
@@ -51,7 +65,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
-        
+        cell.postViewController = self
         cell.ingredientField.text = ingredients[indexPath.row]
         return cell
     }
@@ -100,28 +114,18 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
             
         else {
             
-            var arrayOfIngredients = [String]()
-            let count = tableView.numberOfRowsInSection(0)
-            
             let testObject = PFObject(className: "recipe")
-            
-            for i in 0..<count {
-                let indexPath = NSIndexPath(forRow: i, inSection: 0)
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! IngredientCell
-    
-                arrayOfIngredients.append(cell.ingredientText)
-            }
             
             testObject["directions"] = self.directions.text
             testObject["photo"] = self.imageString
             testObject["text"] = self.postView.text
             testObject["users"] = PFUser.currentUser()
-            testObject["ingredients"] = arrayOfIngredients
-            testObject["ingredientsString"] = " ".join(arrayOfIngredients)
+            testObject["ingredients"] = ingredients
+            testObject["ingredientsString"] = " ".join(ingredients)
             testObject["flaggedCount"] = 0
             testObject["count"] = 0
             testObject.saveInBackground()
-            
+            resetUI()
             self.tabBarController?.selectedIndex = 0
         }
         
