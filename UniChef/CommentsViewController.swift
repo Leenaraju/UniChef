@@ -58,29 +58,23 @@ class CommentsViewController: SLKTextViewController {
         self.refreshControl = UIRefreshControl()
         self.tableView.addSubview(refreshControl!)
         self.refreshControl?.beginRefreshing()
+        
+        if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
+            header.recipe = recipe
+
+            header.setTranslatesAutoresizingMaskIntoConstraints(false)
+            self.tableView.tableHeaderView = header
+            
+            let views = [ "header" : header ]
+            let metrics = [ "headerWidth" : UIScreen.mainScreen().bounds.width, "headerHeight" : 286 ]
+            var constraints = [NSLayoutConstraint]()
+            constraints.extend(NSLayoutConstraint.constraintsWithVisualFormat("H:[header(headerWidth)]", options: .allZeros, metrics: metrics, views: views) as! [NSLayoutConstraint])
+            constraints.extend(NSLayoutConstraint.constraintsWithVisualFormat("V:[header(headerHeight)]", options: .allZeros, metrics: metrics, views: views) as! [NSLayoutConstraint])
+
+            header.addConstraints(constraints)
+        }
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-////        if tableView.tableHeaderView == nil {
-////            if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
-//////                header.recipe = recipe
-////                
-////                header.setNeedsUpdateConstraints()
-////                header.frame = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), CGFloat.max)
-////                var newFrame = header.frame
-////                header.setNeedsLayout()
-////                header.layoutIfNeeded()
-////                let newSize = header.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-////                newFrame.size.height = newSize.height
-////                header.frame = newFrame
-////                self.tableView.tableHeaderView = header
-////                
-////                
-////            }
-////        }
-//    }
-//    
     func loadObjects() {
         let query = PFQuery(className: parseClassName ?? "")
         
@@ -118,7 +112,7 @@ class CommentsViewController: SLKTextViewController {
                     self.tableView.reloadData()
                     // self.refreshControl?.endRefreshing()
                     if self.curPage == 0 {
-                        self.scrollToBottom()
+//                        self.scrollToBottom()
                     } else {
                         self.scrollToRowAtIndex(newObjects.count)
                     }
@@ -130,13 +124,13 @@ class CommentsViewController: SLKTextViewController {
         }
     }
     
-    func scrollToBottom() {
-        if tableView.contentSize.height > tableView.frame.size.height && !objects.isEmpty {
-            //            let offset = CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height)
-            //            tableView.setContentOffset(offset, animated: false)
-            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: tableView(tableView, numberOfRowsInSection: 0) - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
-        }
-    }
+//    func scrollToBottom() {
+//        if tableView.contentSize.height > tableView.frame.size.height && !objects.isEmpty {
+//            //            let offset = CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height)
+//            //            tableView.setContentOffset(offset, animated: false)
+//            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: tableView(tableView, numberOfRowsInSection: 0) - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
+//        }
+//    }
     
     func scrollToRowAtIndex(index : Int) {
         self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
@@ -188,7 +182,7 @@ class CommentsViewController: SLKTextViewController {
         objects.insert(object, atIndex: 0)
         tableView.reloadData()
         self.textView.text = ""
-        self.scrollToBottom()
+//        self.scrollToBottom()
         
         object.saveInBackground()
     }

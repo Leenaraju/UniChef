@@ -20,7 +20,6 @@
 		630512BF1B5DBCF100A86FBF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */; };
 		6305A8C11B7022CA00F47E02 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305A8C01B7022CA00F47E02 /* SettingsController.swift */; };
 		6305A8C31B70273500F47E02 /* ImportantStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305A8C21B70273500F47E02 /* ImportantStuff.swift */; };
-		631F5A661B6BFDAA00613D9B /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631F5A651B6BFDAA00613D9B /* RecipeCell.xib */; };
 		6331BD441B59A64A0036D13C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD431B59A64A0036D13C /* TableViewController.swift */; };
 		6331BD471B59A9F10036D13C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BD451B59A9F10036D13C /* NSDate+Extension.swift */; };
 		6331BD481B59A9F10036D13C /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */; };
@@ -75,7 +74,6 @@
 		630512BE1B5DBCF100A86FBF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = UniChef/ProfileViewController.swift; sourceTree = "<group>"; };
 		6305A8C01B7022CA00F47E02 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = UniChef/SettingsController.swift; sourceTree = "<group>"; };
 		6305A8C21B70273500F47E02 /* ImportantStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantStuff.swift; sourceTree = "<group>"; };
-		631F5A651B6BFDAA00613D9B /* RecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		6331BD431B59A64A0036D13C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6331BD451B59A9F10036D13C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6331BD461B59A9F10036D13C /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				0EDAFD081B56D36F009A2513 /* TableViewCell.swift */,
 				6331BD491B59AA6F0036D13C /* NSDate */,
 				0EB26AB31B56CBC80018C41F /* Main.storyboard */,
-				631F5A651B6BFDAA00613D9B /* RecipeCell.xib */,
 				63F83D971B68558900032B97 /* Photos */,
 				0EB26AB61B56CBC80018C41F /* Images.xcassets */,
 				0EB26AB81B56CBC80018C41F /* LaunchScreen.xib */,
@@ -347,7 +344,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F31D721B59C347007ED5E7 /* LoadMoreCell.xib in Resources */,
-				631F5A661B6BFDAA00613D9B /* RecipeCell.xib in Resources */,
 				63D204541B5DACF80042A095 /* RecipeView.xib in Resources */,
 				63F31D6C1B59C32F007ED5E7 /* CommentCell.xib in Resources */,
 				0EB26AB51B56CBC80018C41F /* Main.storyboard in Resources */,

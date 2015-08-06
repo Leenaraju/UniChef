@@ -8,16 +8,12 @@
 
 import UIKit
 
-class SegContainer: UITableViewController {
+class SegContainer: UIViewController {
     
     @IBOutlet weak var segControl: UISegmentedControl!
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
-    @IBOutlet weak var recipeLabel: UILabel!
-    @IBOutlet weak var recipeImage: UIImageView!
-    
-    @IBOutlet weak var username: UILabel!
     
     var recipe: PFObject?
     
@@ -26,11 +22,11 @@ class SegContainer: UITableViewController {
         switch segControl.selectedSegmentIndex
         {
         case 0:
-            commentContainer.hidden = true
-            instructionContainer.hidden = false
-        case 1:
             commentContainer.hidden = false
             instructionContainer.hidden = true
+        case 1:
+            commentContainer.hidden = true
+            instructionContainer.hidden = false
 
             
         default:
@@ -42,21 +38,9 @@ class SegContainer: UITableViewController {
         
         super.viewDidLoad()
         
-        commentContainer.hidden = true
-        instructionContainer.hidden = false
-        recipeLabel.text = recipe?["text"] as? String
-        recipeImage.image = nil
-        
-        if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
-            username.text = "By: \(name)"
-        }
-        
-        if let url = recipe?["photo"] as? String {
-            if let urlString = NSURL(string: url) {
-                recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
-            }
-        }
-        
+        commentContainer.hidden = false
+        instructionContainer.hidden = true
+//             
     }
     
     override func didReceiveMemoryWarning() {
