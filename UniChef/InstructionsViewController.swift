@@ -17,8 +17,6 @@ class InstructionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         directions.text = recipe?["directions"] as? String
-        
-        
         tableView.reloadData()
     }
     

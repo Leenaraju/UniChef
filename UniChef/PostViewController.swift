@@ -13,6 +13,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     var ingredients: [String] = []
     
     var imageString: String = ""
+   // var ingredientCell = IngredientCell()
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
@@ -25,8 +26,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
            }
-    
- 
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postView.delegate = self
@@ -35,7 +35,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         tableView.reloadData()
-        
         
     }
     
@@ -54,7 +53,6 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
         
         cell.ingredientField.text = ingredients[indexPath.row]
-        cell.ingredientField.becomeFirstResponder()
         return cell
     }
     

@@ -37,7 +37,8 @@ class SegContainer: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        var black : UIColor = UIColor.blackColor()
+        segControl.layer.borderColor = black.CGColor
         commentContainer.hidden = false
         instructionContainer.hidden = true
         
