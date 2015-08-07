@@ -14,10 +14,19 @@ class SegContainer: UIViewController {
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
- 
     var recipe: PFObject?
     
-
+//    var testText = "\(name). Check out Edible to view this recipe."
+//    var name = recipe?["text"] as? String
+//    
+//    
+//    @IBAction func shareText(sender: UIBarButtonItem) {
+//        let activityViewController = UIActivityViewController(
+//            activityItems: [testText as NSString],
+//            applicationActivities: nil)
+//        
+//        presentViewController(activityViewController, animated: true, completion: nil)
+//    }
     @IBAction func segChanged(sender: AnyObject) {
         switch segControl.selectedSegmentIndex
         {
@@ -37,8 +46,8 @@ class SegContainer: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        var black : UIColor = UIColor.blackColor()
-        segControl.layer.borderColor = black.CGColor
+        var white : UIColor = UIColor.whiteColor()
+        segControl.layer.borderColor = white.CGColor
         commentContainer.hidden = false
         instructionContainer.hidden = true
         

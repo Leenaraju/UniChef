@@ -77,7 +77,6 @@ class ProfileViewController: PFQueryTableViewController {
 
         if let file = PFUser.currentUser()?["profilePic"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
             profilePic.sd_setImageWithURL(url)
-            
         }
     
         profilePic.layer.cornerRadius = profilePic.frame.width / 2
@@ -87,8 +86,10 @@ class ProfileViewController: PFQueryTableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PFUser.currentUser()?.fetchInBackground()
         
+        if let id = PFUser.currentUser()?.objectId {
+            PFUser.currentUser()?.fetchInBackground()
+        }
         
         if let bPoints = PFUser.currentUser()?["points"] as? NSNumber {
             browniePoints.text = "\(bPoints)"

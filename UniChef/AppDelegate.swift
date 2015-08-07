@@ -30,20 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("BrD0JFbqvvFnpCkC2THrrzF6moXHf0CAYSZaeGO4",clientKey: "IE9UjUtCoUE2gm9jLkvZSIJfOwgx8l5TLGMW6Dug")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        //PFUser.enableAutomaticUser()
-       
-
-        PFAnonymousUtils.logInWithBlock {
-            (user: PFUser?, error: NSError?) -> Void in
-            if error != nil || user == nil {
-                println("Anonymous login failed.")
-            } else {
-                println("Anonymous user logged in.")
-                self.getRandomName()
-            }
+        if PFUser.currentUser() == nil{
+             PFUser.enableAutomaticUser()
+            self.getRandomName()
         }
-        
-        
         
         return true
     }
@@ -66,10 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let file = PFFile(name: "image.jpg", data: data)
                 PFUser.currentUser()?["profilePic"] = file
                 
+                file.saveInBackgroundWithBlock({ (success, error) -> Void in
+                        PFUser.currentUser()?.saveInBackground()
+                })
+                
+                
             }
         }
-
-        PFUser.currentUser()?.saveInBackground()
         
     }
     
@@ -90,7 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        PFUser.currentUser()?.fetchInBackground()
+        if let id = PFUser.currentUser()?.objectId {
+            PFUser.currentUser()?.fetchInBackground()
+        }
     }
     
     func applicationWillTerminate(application: UIApplication) {

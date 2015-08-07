@@ -13,12 +13,15 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     var ingredients: [String] = []
     
     var imageString: String = ""
-    // var ingredientCell = IngredientCell()
     
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     @IBOutlet weak var imagePost: UIImageView!
     
+    @IBAction func clearButton(sender: AnyObject) {
+        resetUI()
+    }
+ 
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")
         

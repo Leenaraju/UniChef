@@ -74,7 +74,7 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
                     if error == nil {
                         let body = response?.body
                         
-                        if let images = body?.JSONObject()["hits"] as? [[String: AnyObject]] {
+                        if let images = body?.JSONObject()?["hits"] as? [[String: AnyObject]] {
                             self.imagesURLs = []
                             
                             for image in images {
@@ -83,7 +83,7 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
                                 }
                             }
                             dispatch_async(dispatch_get_main_queue(),{
-                                self.collectionView?.reloadData()
+//                                self.collectionView?.reloadData()
                                 })
                         }
                     }
