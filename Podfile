@@ -1,6 +1,6 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '6.0'
-target 'UniChef' do
+target 'Edible' do
     
 
     
@@ -13,6 +13,6 @@ pod 'Unirest'
 
 end
 
-target 'UniChefTests' do
+target 'EdibleTests' do
 
 end

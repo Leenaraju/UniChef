@@ -10,13 +10,13 @@
         <!--Table View Controller-->
         <scene sceneID="4xg-ho-tem">
             <objects>
-                <tableViewController id="uhn-cA-ZfG" customClass="TableViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uhn-cA-ZfG" customClass="TableViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="aNt-WS-PQd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="100" id="GST-bd-Dej" customClass="TableViewCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="100" id="GST-bd-Dej" customClass="TableViewCell" customModule="Edible" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="226" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GST-bd-Dej" id="rNS-S4-xZ0">
@@ -159,14 +159,6 @@
                                             <exclude reference="6UD-qb-Sn0"/>
                                             <exclude reference="GEG-FB-Zz1"/>
                                             <exclude reference="wS8-jf-eXS"/>
-                                            <exclude reference="2i1-xR-nt4"/>
-                                            <exclude reference="5g9-eH-kvP"/>
-                                            <exclude reference="Ef2-By-kgP"/>
-                                            <exclude reference="KKk-9p-ITw"/>
-                                            <exclude reference="cuY-7u-eFM"/>
-                                            <exclude reference="ix9-qb-ww2"/>
-                                            <exclude reference="oeM-vo-dJR"/>
-                                            <exclude reference="tDm-hU-0iY"/>
                                             <exclude reference="2wQ-Qq-TLb"/>
                                             <exclude reference="47T-yb-MxZ"/>
                                             <exclude reference="750-BN-RW0"/>
@@ -181,6 +173,14 @@
                                             <exclude reference="dDU-9l-so7"/>
                                             <exclude reference="fik-J8-TLT"/>
                                             <exclude reference="jzH-E1-3uj"/>
+                                            <exclude reference="2i1-xR-nt4"/>
+                                            <exclude reference="5g9-eH-kvP"/>
+                                            <exclude reference="Ef2-By-kgP"/>
+                                            <exclude reference="KKk-9p-ITw"/>
+                                            <exclude reference="cuY-7u-eFM"/>
+                                            <exclude reference="ix9-qb-ww2"/>
+                                            <exclude reference="oeM-vo-dJR"/>
+                                            <exclude reference="tDm-hU-0iY"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -208,7 +208,7 @@
         <!--Edible-->
         <scene sceneID="v9s-Bb-cYe">
             <objects>
-                <viewController id="ypI-wq-cDN" customClass="HomeViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ypI-wq-cDN" customClass="HomeViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qra-Yo-8op"/>
                         <viewControllerLayoutGuide type="bottom" id="bLp-lJ-Zu5"/>
@@ -261,7 +261,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edible" id="yb0-ew-LCD">
-                        <barButtonItem key="rightBarButtonItem" image="Search" id="TNy-aR-fFo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="TNy-aR-fFo">
                             <connections>
                                 <action selector="searchButton:" destination="ypI-wq-cDN" id="L0C-aV-Dqw"/>
                             </connections>
@@ -279,7 +279,7 @@
         <!--Add New Recipe-->
         <scene sceneID="Byz-E3-kVg">
             <objects>
-                <tableViewController storyboardIdentifier="postVC" id="uxj-P1-h9w" customClass="PostViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="postVC" id="uxj-P1-h9w" customClass="PostViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lJz-CG-NGI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +377,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3I-11-wTv">
-                                    <rect key="frame" x="20" y="216" width="94" height="24"/>
+                                    <rect key="frame" x="20" y="211" width="94" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="94" id="M55-g7-MXA"/>
                                         <constraint firstAttribute="height" constant="24" id="Maq-Ai-yp8"/>
@@ -400,19 +400,21 @@
                                 <constraint firstItem="D3I-11-wTv" firstAttribute="top" secondItem="fI9-Ad-L1C" secondAttribute="bottom" constant="10" id="Z65-du-XGT"/>
                                 <constraint firstItem="sUJ-42-cc6" firstAttribute="top" secondItem="KsC-PA-a1G" secondAttribute="bottom" constant="200" id="bjO-9U-RJQ"/>
                                 <constraint firstItem="fI9-Ad-L1C" firstAttribute="top" secondItem="i0S-rl-X2z" secondAttribute="bottom" constant="8" id="gkK-KF-IJ1"/>
+                                <constraint firstItem="D3I-11-wTv" firstAttribute="top" secondItem="fI9-Ad-L1C" secondAttribute="bottom" constant="-10" id="ptZ-f1-EZn"/>
                                 <constraint firstItem="D3I-11-wTv" firstAttribute="leading" secondItem="oaY-8x-14Q" secondAttribute="leading" constant="20" id="sXx-DF-DAb"/>
                                 <constraint firstItem="fI9-Ad-L1C" firstAttribute="leading" secondItem="oaY-8x-14Q" secondAttribute="leading" constant="30" id="umZ-9I-NeF"/>
-                                <constraint firstItem="sUJ-42-cc6" firstAttribute="top" secondItem="D3I-11-wTv" secondAttribute="bottom" constant="5" id="zAH-fb-Aue"/>
+                                <constraint firstItem="sUJ-42-cc6" firstAttribute="top" secondItem="D3I-11-wTv" secondAttribute="bottom" constant="10" id="zAH-fb-Aue"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="IrA-xO-2HM"/>
                                     <exclude reference="Z65-du-XGT"/>
+                                    <exclude reference="bjO-9U-RJQ"/>
                                 </mask>
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ingredient" id="8th-8s-uZA" customClass="IngredientCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ingredient" id="8th-8s-uZA" customClass="IngredientCell" customModule="Edible" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8th-8s-uZA" id="wZb-91-yX1">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -496,16 +498,16 @@
         <!--Title-->
         <scene sceneID="rcc-DB-L8g">
             <objects>
-                <viewController id="Xt6-eF-lWT" customClass="SegContainer" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xt6-eF-lWT" customClass="SegContainer" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m8p-uv-HzZ"/>
                         <viewControllerLayoutGuide type="bottom" id="DJx-S0-DVV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NDH-7T-MKg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="497"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-lF-1HM">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-lF-1HM">
                                 <rect key="frame" x="0.0" y="44" width="600" height="41"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.23000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -520,13 +522,13 @@
                                     <action selector="segChanged:" destination="Xt6-eF-lWT" eventType="valueChanged" id="hPq-mw-mFo"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3M-fU-0N9" userLabel="ComContainer View">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y3M-fU-0N9" userLabel="ComContainer View">
                                 <rect key="frame" x="0.0" y="84" width="600" height="369"/>
                                 <connections>
                                     <segue destination="cyn-IP-8xY" kind="embed" identifier="showComments" id="tcc-iU-0qT"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-73-Tvo" userLabel="InsContainer">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-73-Tvo" userLabel="InsContainer">
                                 <rect key="frame" x="0.0" y="84" width="600" height="369"/>
                                 <connections>
                                     <segue destination="Ldd-we-SHm" kind="embed" identifier="showIngredients" id="TC9-aH-usu"/>
@@ -583,7 +585,7 @@
         <!--Photo Search Controller-->
         <scene sceneID="z2N-Wg-Fkd">
             <objects>
-                <collectionViewController id="NCg-H3-p8c" customClass="PhotoSearchController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="NCg-H3-p8c" customClass="PhotoSearchController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cPQ-3a-PUf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,7 +597,7 @@
                             <inset key="sectionInset" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="4df-l7-qWM" customClass="PhotoCell" customModule="UniChef" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="4df-l7-qWM" customClass="PhotoCell" customModule="Edible" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -636,7 +638,7 @@
         <!--Comments View Controller-->
         <scene sceneID="YXZ-kN-ac3">
             <objects>
-                <viewController id="cyn-IP-8xY" customClass="CommentsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cyn-IP-8xY" customClass="CommentsViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KgZ-FR-4R1"/>
                         <viewControllerLayoutGuide type="bottom" id="SV2-R3-j4a"/>
@@ -736,7 +738,7 @@
         <!--InstructionVC-->
         <scene sceneID="KMk-xP-ITE">
             <objects>
-                <tableViewController storyboardIdentifier="showIns" title="InstructionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="showIns" title="InstructionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ldd-we-SHm" customClass="InstructionsViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="Umf-qu-Be2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="369"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -856,7 +858,7 @@
         <!--Profile-->
         <scene sceneID="pOV-g7-deR">
             <objects>
-                <tableViewController id="wTF-2A-iUZ" customClass="ProfileViewController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wTF-2A-iUZ" customClass="ProfileViewController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="uSP-7g-7N7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,22 +895,17 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="132" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHx-J6-RpQ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHx-J6-RpQ">
                                     <rect key="frame" x="279" y="233" width="42" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="ZXF-9a-F9J"/>
+                                        <constraint firstAttribute="height" constant="35" id="c87-eZ-IC0"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="25"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLT-Ls-PyT">
-                                    <rect key="frame" x="178" y="237" width="20" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="20" id="CbW-Vx-kuy"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxq-MO-s4N">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxq-MO-s4N">
                                     <rect key="frame" x="405" y="234" width="20" height="28"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="UTJ-mw-46o"/>
@@ -935,6 +932,15 @@
                                         <action selector="savedRecipesChanged:" destination="wTF-2A-iUZ" eventType="valueChanged" id="rDj-PE-G4k"/>
                                     </connections>
                                 </segmentedControl>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLT-Ls-PyT">
+                                    <rect key="frame" x="178" y="237" width="20" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="CbW-Vx-kuy"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -981,7 +987,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UpvotedRecipeCell" rowHeight="64" id="S15-a6-UsP" customClass="UpvotedRecipeCell" customModule="UniChef" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UpvotedRecipeCell" rowHeight="64" id="S15-a6-UsP" customClass="UpvotedRecipeCell" customModule="Edible" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="254" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S15-a6-UsP" id="K7w-qW-G45">
@@ -1043,7 +1049,7 @@
         <!--Settings Controller-->
         <scene sceneID="yox-NS-JmO">
             <objects>
-                <tableViewController id="KEK-kO-kyH" customClass="SettingsController" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KEK-kO-kyH" customClass="SettingsController" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="odL-gK-4fZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1229,7 +1235,7 @@
         <!--Important Stuff-->
         <scene sceneID="h8m-YH-xcA">
             <objects>
-                <viewController title="Important Stuff" id="n2w-br-chR" customClass="ImportantStuff" customModule="UniChef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Important Stuff" id="n2w-br-chR" customClass="ImportantStuff" customModule="Edible" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="58M-7d-DRZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Awd-yS-u6R"/>
@@ -1273,6 +1279,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.29411764709999999" green="0.70588235290000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.20784313730000001" green="0.58039215690000001" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -1290,7 +1297,7 @@
         <scene sceneID="KTs-mX-SNw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3M-HZ-QtU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create" image="Plus" selectedImage="Plus" id="9yd-Rd-nUs"/>
+                    <tabBarItem key="tabBarItem" title="Create" image="Add139" id="9yd-Rd-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hGt-Vb-nPz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1327,13 +1334,13 @@
     </scenes>
     <resources>
         <image name="1438405434_maturewoman" width="512" height="512"/>
+        <image name="Add139" width="24" height="24"/>
         <image name="AddPhoto" width="242" height="251"/>
         <image name="DownDeselected" width="20" height="12"/>
         <image name="DownSelected" width="20" height="12"/>
         <image name="Home" width="28" height="26"/>
         <image name="Plus" width="24" height="24"/>
         <image name="Profile" width="23" height="26"/>
-        <image name="Search" width="23" height="25"/>
         <image name="Settings" width="24" height="24"/>
         <image name="UpDeselected" width="20" height="12"/>
         <image name="UpSelected" width="20" height="12"/>
@@ -1341,7 +1348,7 @@
         <image name="no image" width="592" height="444"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fhf-l4-jyk"/>
+        <segue reference="WQ6-GC-69H"/>
         <segue reference="o4o-tf-Syd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

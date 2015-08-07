@@ -30,8 +30,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("BrD0JFbqvvFnpCkC2THrrzF6moXHf0CAYSZaeGO4",clientKey: "IE9UjUtCoUE2gm9jLkvZSIJfOwgx8l5TLGMW6Dug")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        PFUser.enableAutomaticUser()
-        getRandomName()
+        //PFUser.enableAutomaticUser()
+       
+
+        PFAnonymousUtils.logInWithBlock {
+            (user: PFUser?, error: NSError?) -> Void in
+            if error != nil || user == nil {
+                println("Anonymous login failed.")
+            } else {
+                println("Anonymous user logged in.")
+                self.getRandomName()
+            }
+        }
+        
+        
         
         return true
     }

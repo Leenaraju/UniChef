@@ -39,7 +39,7 @@
 		63F83D8E1B66D2DC00032B97 /* Names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63F83D8D1B66D2DC00032B97 /* Names.plist */; };
 		63F83D901B66DEFC00032B97 /* UpvotedRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */; };
 		63F83D991B6855BE00032B97 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F83D981B6855BE00032B97 /* PhotoCell.swift */; };
-		C017D4076A8F9748FEE0C398 /* libPods-UniChef.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3976520003147355DD782C8B /* libPods-UniChef.a */; };
+		7D765B9F4C4790FB01D74E4D /* libPods-Edible.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39590865A1D82C91FA63D70 /* libPods-Edible.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,18 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EB26AAA1B56CBC80018C41F /* UniChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EB26AAA1B56CBC80018C41F /* Edible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB26AAE1B56CBC80018C41F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB26AAF1B56CBC80018C41F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EB26AB41B56CBC80018C41F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EB26AB61B56CBC80018C41F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0EB26AB91B56CBC80018C41F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0EB26ABF1B56CBC80018C41F /* UniChefTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniChefTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EB26ABF1B56CBC80018C41F /* EdibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB26AC41B56CBC80018C41F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB26AC51B56CBC80018C41F /* UniChefTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniChefTests.swift; sourceTree = "<group>"; };
 		0EDAFD081B56D36F009A2513 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0EDAFD241B56E601009A2513 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		3976520003147355DD782C8B /* libPods-UniChef.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniChef.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6303F9341B5717D00079DA16 /* libPods-UniChef-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UniChef-Parse.a"; path = "Pods/../build/Debug-iphoneos/libPods-UniChef-Parse.a"; sourceTree = "<group>"; };
 		6303F9361B5717D60079DA16 /* libPods-UniChef-ParseUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UniChef-ParseUI.a"; path = "Pods/../build/Debug-iphoneos/libPods-UniChef-ParseUI.a"; sourceTree = "<group>"; };
 		6303F9381B5717DA0079DA16 /* libPods-UniChef-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UniChef-Bolts.a"; path = "Pods/../build/Debug-iphoneos/libPods-UniChef-Bolts.a"; sourceTree = "<group>"; };
@@ -94,8 +93,9 @@
 		63F83D8D1B66D2DC00032B97 /* Names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Names.plist; sourceTree = "<group>"; };
 		63F83D8F1B66DEFC00032B97 /* UpvotedRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpvotedRecipeCell.swift; sourceTree = "<group>"; };
 		63F83D981B6855BE00032B97 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = ../PhotoCell.swift; sourceTree = "<group>"; };
-		9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.debug.xcconfig"; sourceTree = "<group>"; };
-		AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniChef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniChef/Pods-UniChef.release.xcconfig"; sourceTree = "<group>"; };
+		A39590865A1D82C91FA63D70 /* libPods-Edible.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Edible.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61766BBBA13E316B4A055DD /* Pods-Edible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Edible/Pods-Edible.debug.xcconfig"; sourceTree = "<group>"; };
+		F896B990374134C3D8A6CE2B /* Pods-Edible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Edible/Pods-Edible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C017D4076A8F9748FEE0C398 /* libPods-UniChef.a in Frameworks */,
+				7D765B9F4C4790FB01D74E4D /* libPods-Edible.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 				6303F9381B5717DA0079DA16 /* libPods-UniChef-Bolts.a */,
 				6303F9361B5717D60079DA16 /* libPods-UniChef-ParseUI.a */,
 				6303F9341B5717D00079DA16 /* libPods-UniChef-Parse.a */,
-				3976520003147355DD782C8B /* libPods-UniChef.a */,
+				A39590865A1D82C91FA63D70 /* libPods-Edible.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,16 +137,16 @@
 				63DF9CF61B62BC5F0017857C /* SearchView */,
 				0EB26AC21B56CBC80018C41F /* UniChefTests */,
 				0EB26AAB1B56CBC80018C41F /* Products */,
-				29BD2E7AE30328B90B1FCF6B /* Pods */,
 				0BF9C0DA69C953A1E2CBF08B /* Frameworks */,
+				7F6588E18F59769923830AB7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		0EB26AAB1B56CBC80018C41F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0EB26AAA1B56CBC80018C41F /* UniChef.app */,
-				0EB26ABF1B56CBC80018C41F /* UniChefTests.xctest */,
+				0EB26AAA1B56CBC80018C41F /* Edible.app */,
+				0EB26ABF1B56CBC80018C41F /* EdibleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,15 +195,6 @@
 				0EB26AC41B56CBC80018C41F /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		29BD2E7AE30328B90B1FCF6B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */,
-				AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		6331BD491B59AA6F0036D13C /* NSDate */ = {
@@ -263,31 +254,40 @@
 			name = Photos;
 			sourceTree = "<group>";
 		};
+		7F6588E18F59769923830AB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C61766BBBA13E316B4A055DD /* Pods-Edible.debug.xcconfig */,
+				F896B990374134C3D8A6CE2B /* Pods-Edible.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0EB26AA91B56CBC80018C41F /* UniChef */ = {
+		0EB26AA91B56CBC80018C41F /* Edible */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0EB26AC91B56CBC80018C41F /* Build configuration list for PBXNativeTarget "UniChef" */;
+			buildConfigurationList = 0EB26AC91B56CBC80018C41F /* Build configuration list for PBXNativeTarget "Edible" */;
 			buildPhases = (
-				5DFCD9476DF89550C46E3C99 /* Check Pods Manifest.lock */,
+				23D06154CC2520E7735A59D2 /* Check Pods Manifest.lock */,
 				0EB26AA61B56CBC80018C41F /* Sources */,
 				0EB26AA71B56CBC80018C41F /* Frameworks */,
 				0EB26AA81B56CBC80018C41F /* Resources */,
-				E992EF69B3F3BB07335B03C0 /* Copy Pods Resources */,
+				88F10A6BD311852AC096CFBD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = UniChef;
+			name = Edible;
 			productName = UniChef;
-			productReference = 0EB26AAA1B56CBC80018C41F /* UniChef.app */;
+			productReference = 0EB26AAA1B56CBC80018C41F /* Edible.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0EB26ABE1B56CBC80018C41F /* UniChefTests */ = {
+		0EB26ABE1B56CBC80018C41F /* EdibleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0EB26ACC1B56CBC80018C41F /* Build configuration list for PBXNativeTarget "UniChefTests" */;
+			buildConfigurationList = 0EB26ACC1B56CBC80018C41F /* Build configuration list for PBXNativeTarget "EdibleTests" */;
 			buildPhases = (
 				0EB26ABB1B56CBC80018C41F /* Sources */,
 				0EB26ABC1B56CBC80018C41F /* Frameworks */,
@@ -298,9 +298,9 @@
 			dependencies = (
 				0EB26AC11B56CBC80018C41F /* PBXTargetDependency */,
 			);
-			name = UniChefTests;
+			name = EdibleTests;
 			productName = UniChefTests;
-			productReference = 0EB26ABF1B56CBC80018C41F /* UniChefTests.xctest */;
+			productReference = 0EB26ABF1B56CBC80018C41F /* EdibleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -322,7 +322,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0EB26AA51B56CBC70018C41F /* Build configuration list for PBXProject "UniChef" */;
+			buildConfigurationList = 0EB26AA51B56CBC70018C41F /* Build configuration list for PBXProject "Edible" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -335,8 +335,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0EB26AA91B56CBC80018C41F /* UniChef */,
-				0EB26ABE1B56CBC80018C41F /* UniChefTests */,
+				0EB26AA91B56CBC80018C41F /* Edible */,
+				0EB26ABE1B56CBC80018C41F /* EdibleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -367,7 +367,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5DFCD9476DF89550C46E3C99 /* Check Pods Manifest.lock */ = {
+		23D06154CC2520E7735A59D2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,7 +382,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E992EF69B3F3BB07335B03C0 /* Copy Pods Resources */ = {
+		88F10A6BD311852AC096CFBD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,7 +394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniChef/Pods-UniChef-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Edible/Pods-Edible-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -443,7 +443,7 @@
 /* Begin PBXTargetDependency section */
 		0EB26AC11B56CBC80018C41F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0EB26AA91B56CBC80018C41F /* UniChef */;
+			target = 0EB26AA91B56CBC80018C41F /* Edible */;
 			targetProxy = 0EB26AC01B56CBC80018C41F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -504,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -543,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -553,7 +553,7 @@
 		};
 		0EB26ACA1B56CBC80018C41F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9533705060B8FD43D5235637 /* Pods-UniChef.debug.xcconfig */;
+			baseConfigurationReference = C61766BBBA13E316B4A055DD /* Pods-Edible.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -573,7 +573,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Edible;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UniChef/UniChef-Bridging-Header.h";
 			};
@@ -581,7 +581,7 @@
 		};
 		0EB26ACB1B56CBC80018C41F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF8688BF30BC0A4233EC0447 /* Pods-UniChef.release.xcconfig */;
+			baseConfigurationReference = F896B990374134C3D8A6CE2B /* Pods-Edible.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -601,7 +601,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Edible;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UniChef/UniChef-Bridging-Header.h";
 			};
@@ -621,7 +621,7 @@
 				);
 				INFOPLIST_FILE = UniChefTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EdibleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniChef.app/UniChef";
 			};
 			name = Debug;
@@ -636,7 +636,7 @@
 				);
 				INFOPLIST_FILE = UniChefTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EdibleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniChef.app/UniChef";
 			};
 			name = Release;
@@ -644,7 +644,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0EB26AA51B56CBC70018C41F /* Build configuration list for PBXProject "UniChef" */ = {
+		0EB26AA51B56CBC70018C41F /* Build configuration list for PBXProject "Edible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EB26AC71B56CBC80018C41F /* Debug */,
@@ -653,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EB26AC91B56CBC80018C41F /* Build configuration list for PBXNativeTarget "UniChef" */ = {
+		0EB26AC91B56CBC80018C41F /* Build configuration list for PBXNativeTarget "Edible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EB26ACA1B56CBC80018C41F /* Debug */,
@@ -662,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EB26ACC1B56CBC80018C41F /* Build configuration list for PBXNativeTarget "UniChefTests" */ = {
+		0EB26ACC1B56CBC80018C41F /* Build configuration list for PBXNativeTarget "EdibleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EB26ACD1B56CBC80018C41F /* Debug */,
