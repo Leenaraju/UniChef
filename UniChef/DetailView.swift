@@ -24,15 +24,16 @@ class DetailView: UIView {
             if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
                 username.text = "By: \(name)"
             }
-           
+            
             if let url = recipe?["photo"] as? String {
                 if let urlString = NSURL(string: url) {
-                    recipeImage.sd_setImageWithURL(urlString, placeholderImage: nil)
+                    let pImage = UIImage(named: "cutlery")
+                    recipeImage.sd_setImageWithURL(urlString, placeholderImage: pImage)
+                    
                 }
             }
             
+            
         }
-        
-        
     }
 }

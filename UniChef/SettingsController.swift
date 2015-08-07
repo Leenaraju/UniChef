@@ -47,7 +47,8 @@ class SettingsController: UITableViewController {
         }
         if segue.identifier == "showAttribution" {
             if let vc = segue.destinationViewController as? ImportantStuff {
-                let title = "Photo API provided by pixabay.com. \n\nFlatflow profile icons provided by Anna Litviniuk. https://www.iconfinder.com/Naf_Naf\n\nApp Icon made with graphics by Okan Benn and Stefan Parnarov.\n\nSpecial thanks to our boy Abdul for making this all happen."
+                let title = "Photo API provided by pixabay.com. \n\nFlatflow profile icons provided by Anna Litviniuk. www.iconfinder.com/Naf_Naf\n\nApp Icon made with graphics by Okan Benn and Stefan Parnarov.\n Cutlery placeholder Icon made by www.freepik.com\nFreepik from www.flaticon.com\nFlaticon is licensed under creativecommons.org/licenses/by/3.0/\nCreative Commons BY 3.0\n\n\nSpecial thanks to our boy Abdul for making this all happen."
+                
                 vc.importantStr = title
             }
         }

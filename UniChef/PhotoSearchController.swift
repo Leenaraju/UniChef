@@ -21,7 +21,7 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
     let searchbar = UISearchBar(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 44))
     
     @IBOutlet weak var photoSearchBar: UISearchBar!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +31,9 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
         searchbar.text = searchWord
         
         loadImages()
-        
+
     }
+    
     
     override func numberOfSectionsInCollectionView(collectionView:
         UICollectionView) -> Int {
@@ -79,12 +80,14 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
                             
                             for image in images {
                                 if let url = image["previewURL"] as? String {
-                                self.imagesURLs.append(url)
+                                    self.imagesURLs.append(url)
                                 }
                             }
                             dispatch_async(dispatch_get_main_queue(),{
-//                                self.collectionView?.reloadData()
-                                })
+                                    self.collectionView?.reloadData()
+                                    self.searchbar.becomeFirstResponder()
+
+                            })
                         }
                     }
             }
@@ -94,7 +97,7 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
 
 extension PhotoSearchController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    self.searchWord = searchText
-    loadImages()
+        self.searchWord = searchText
+        loadImages()
     }
 }

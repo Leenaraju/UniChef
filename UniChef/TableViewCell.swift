@@ -13,7 +13,7 @@ class TableViewCell: PFTableViewCell {
 
     weak var object : PFObject? {
         didSet {
-             var noImage = UIImage(named: "no image")!
+             var noImage = UIImage(named: "cutlery")!
             if let urlString = object?["photo"] as? String {
                 if let url = NSURL(string: urlString) {
                     tableImage.sd_setImageWithURL(url, placeholderImage: noImage)

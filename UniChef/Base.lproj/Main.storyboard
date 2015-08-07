@@ -33,7 +33,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-kX-3Ex">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cutlery" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-kX-3Ex">
                                             <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="99" id="3nl-ML-imL"/>
@@ -508,10 +508,10 @@
                         <viewControllerLayoutGuide type="bottom" id="DJx-S0-DVV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NDH-7T-MKg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-lF-1HM">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-lF-1HM">
                                 <rect key="frame" x="0.0" y="64" width="600" height="41"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.23000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -526,13 +526,13 @@
                                     <action selector="segChanged:" destination="Xt6-eF-lWT" eventType="valueChanged" id="hPq-mw-mFo"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3M-fU-0N9" userLabel="ComContainer View">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y3M-fU-0N9" userLabel="ComContainer View">
                                 <rect key="frame" x="0.0" y="104" width="600" height="452"/>
                                 <connections>
                                     <segue destination="cyn-IP-8xY" kind="embed" identifier="showComments" id="tcc-iU-0qT"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-73-Tvo" userLabel="InsContainer">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-73-Tvo" userLabel="InsContainer">
                                 <rect key="frame" x="0.0" y="97" width="600" height="459"/>
                                 <connections>
                                     <segue destination="Ldd-we-SHm" kind="embed" identifier="showIngredients" id="TC9-aH-usu"/>
@@ -1376,10 +1376,10 @@
         <image name="UpDeselected" width="20" height="12"/>
         <image name="UpSelected" width="20" height="12"/>
         <image name="blurred_background" width="954" height="550"/>
-        <image name="no image" width="592" height="444"/>
+        <image name="cutlery" width="381" height="381"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WQ6-GC-69H"/>
+        <segue reference="Fhf-l4-jyk"/>
         <segue reference="o4o-tf-Syd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

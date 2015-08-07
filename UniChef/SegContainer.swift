@@ -14,19 +14,31 @@ class SegContainer: UIViewController {
     @IBOutlet weak var commentContainer: UIView!
     @IBOutlet weak var instructionContainer: UIView!
     
+   
     var recipe: PFObject?
     
-//    var testText = "\(name). Check out Edible to view this recipe."
-//    var name = recipe?["text"] as? String
-//    
-//    
-//    @IBAction func shareText(sender: UIBarButtonItem) {
-//        let activityViewController = UIActivityViewController(
-//            activityItems: [testText as NSString],
-//            applicationActivities: nil)
-//        
-//        presentViewController(activityViewController, animated: true, completion: nil)
-//    }
+   
+    
+    @IBAction func shareText(sender: UIBarButtonItem) {
+        
+        var nameText = PFUser.currentUser()?["name"] as! String
+        if PFUser.currentUser()?["name"] == nil{
+            nameText = "Someone"
+        }
+        
+        var name = recipe?["text"] as! String
+        if recipe?["text"] == nil{
+            name = ""
+        }
+        var testText = "\(nameText) sent you the recipe: \(name). Check out the app Edible to view this recipe."
+        
+        
+        let activityViewController = UIActivityViewController(
+            activityItems: [testText as NSString],
+            applicationActivities: nil)
+        
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
     @IBAction func segChanged(sender: AnyObject) {
         switch segControl.selectedSegmentIndex
         {
