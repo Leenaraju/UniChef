@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+
         let navbar = UINavigationBar.appearance()
         navbar.barTintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         //

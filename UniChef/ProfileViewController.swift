@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ProfileViewController: PFQueryTableViewController {
+class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     
     var recipe: PFObject?
     
@@ -20,7 +20,8 @@ class ProfileViewController: PFQueryTableViewController {
     
     @IBOutlet weak var browniePoints: UILabel!
     
-    @IBOutlet weak var username: UILabel!
+    
+    @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var profilePic: UIImageView!
     
@@ -84,6 +85,13 @@ class ProfileViewController: PFQueryTableViewController {
 
     }
     
+    func textFieldShouldReturn(username: UITextField) -> Bool {
+        PFUser.currentUser()?["name"] = username.text
+        PFUser.currentUser()?.saveInBackground()
+        username.resignFirstResponder()
+        return true;
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -102,7 +110,7 @@ class ProfileViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        username.delegate = self
         loadUpvotes()
         loadUploaded()
         

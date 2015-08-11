@@ -25,15 +25,15 @@ class CommentsViewController: SLKTextViewController {
             self.view.viewWithTag(2)?.hidden = true
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-          let vc = self.storyboard?.instantiateViewControllerWithIdentifier("showIns") as! UINavigationController
-          self.presentViewController(vc, animated: true, completion: nil)
+            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("showIns") as! UINavigationController
+            self.presentViewController(vc, animated: true, completion: nil)
         default:
             break;
         }
     }
     
-
+    
     let parseClassName = "Comment"
     var curPage = 0
     var perPage = 15
@@ -61,7 +61,7 @@ class CommentsViewController: SLKTextViewController {
         
         if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
             header.recipe = recipe
-
+            
             header.setTranslatesAutoresizingMaskIntoConstraints(false)
             self.tableView.tableHeaderView = header
             
@@ -70,7 +70,7 @@ class CommentsViewController: SLKTextViewController {
             var constraints = [NSLayoutConstraint]()
             constraints.extend(NSLayoutConstraint.constraintsWithVisualFormat("H:[header(headerWidth)]", options: .allZeros, metrics: metrics, views: views) as! [NSLayoutConstraint])
             constraints.extend(NSLayoutConstraint.constraintsWithVisualFormat("V:[header(headerHeight)]", options: .allZeros, metrics: metrics, views: views) as! [NSLayoutConstraint])
-
+            
             header.addConstraints(constraints)
         }
     }
@@ -83,7 +83,7 @@ class CommentsViewController: SLKTextViewController {
         }
         
         query.includeKey("fromUser")
-    
+        
         //andrew did this
         query.limit = perPage
         query.skip = perPage * curPage
@@ -112,7 +112,7 @@ class CommentsViewController: SLKTextViewController {
                     self.tableView.reloadData()
                     // self.refreshControl?.endRefreshing()
                     if self.curPage == 0 {
-//                        self.scrollToBottom()
+                        //                        self.scrollToBottom()
                     } else {
                         self.scrollToRowAtIndex(newObjects.count)
                     }
@@ -124,13 +124,13 @@ class CommentsViewController: SLKTextViewController {
         }
     }
     
-//    func scrollToBottom() {
-//        if tableView.contentSize.height > tableView.frame.size.height && !objects.isEmpty {
-//            //            let offset = CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height)
-//            //            tableView.setContentOffset(offset, animated: false)
-//            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: tableView(tableView, numberOfRowsInSection: 0) - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
-//        }
-//    }
+    //    func scrollToBottom() {
+    //        if tableView.contentSize.height > tableView.frame.size.height && !objects.isEmpty {
+    //            //            let offset = CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height)
+    //            //            tableView.setContentOffset(offset, animated: false)
+    //            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: tableView(tableView, numberOfRowsInSection: 0) - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
+    //        }
+    //    }
     
     func scrollToRowAtIndex(index : Int) {
         self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), atScrollPosition: UITableViewScrollPosition.None, animated: false)
@@ -182,7 +182,7 @@ class CommentsViewController: SLKTextViewController {
         objects.insert(object, atIndex: 0)
         tableView.reloadData()
         self.textView.text = ""
-//        self.scrollToBottom()
+        //        self.scrollToBottom()
         
         object.saveInBackground()
     }
@@ -240,23 +240,57 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle ==  UITableViewCellEditingStyle.Delete {
-            if let row = objectForRowAtIndex(indexPath.row) {
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        // 1
+        var flagAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Flag" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            // 2
+            
+            let alertController = UIAlertController(
+                title: "Report Comment",
+                message: "Would you like to flag this comment as inappropriate?",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let ok = UIAlertAction(
+                title: "Yes",
+                style: UIAlertActionStyle.Default){ (action) in
+                    self.recipe?.incrementKey("flaggedCount")
+                    self.recipe?.saveInBackground()
+            }
+            
+            let no = UIAlertAction(
+                title: "No",
+                style: UIAlertActionStyle.Default) { (action) in
+            }
+            
+            alertController.addAction(ok)
+            alertController.addAction(no)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        })
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            if let row = self.objectForRowAtIndex(indexPath.row) {
                 tableView.beginUpdates()
-                if showLoadMoreButton {
-                    objects.removeAtIndex(objects.count - indexPath.row)
+                if self.showLoadMoreButton {
+                    self.objects.removeAtIndex(self.objects.count - indexPath.row)
                 } else {
-                    objects.removeAtIndex(objects.count - indexPath.row - 1)
+                    self.objects.removeAtIndex(self.objects.count - indexPath.row - 1)
                 }
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 tableView.endUpdates()
                 row.deleteInBackground()
                 
-                recipe?.incrementKey("commentsCount", byAmount: -1)
-                recipe?.saveInBackground()
+                self.recipe?.incrementKey("commentsCount", byAmount: -1)
+                self.recipe?.saveInBackground()
             }
-        }
+        })
+        flagAction.backgroundColor = UIColor.orangeColor()
+
+        return [flagAction,deleteAction]
+        
     }
+    
+    
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if let row = objectForRowAtIndex(indexPath.row), fromUser = row["fromUser"] as? PFUser, curUser = PFUser.currentUser() {

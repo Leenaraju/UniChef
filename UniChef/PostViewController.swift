@@ -14,6 +14,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     var imageString: String = ""
     
+    var theCell: IngredientCell?
+
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     @IBOutlet weak var imagePost: UIImageView!
@@ -83,6 +85,15 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         return newLength <= 25 // Bool
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        ingredients.append("")
+        var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        theCell?.ingredientField.becomeFirstResponder()
+
+        return true;
+    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPhoto" {
@@ -146,10 +157,5 @@ extension PostViewController: UITextViewDelegate {
     
 }
 
-//func textViewDidEndEditing(textView: UITextView) {
-//    if textView.text == "" {
-//        textView.text = "How is this made?"
-//    }
-//}
 
 

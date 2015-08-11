@@ -22,6 +22,8 @@ class IngredientCell: UITableViewCell {
     var postViewController: PostViewController?
     
     @IBOutlet weak var ingredientField: UITextField!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

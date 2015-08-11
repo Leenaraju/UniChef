@@ -30,11 +30,20 @@ class SegContainer: UIViewController {
         if recipe?["text"] == nil{
             name = ""
         }
+        let image = UIImageView()
+        if let url = recipe?["photo"] as? String {
+            if let urlString = NSURL(string: url) {
+                let pImage = UIImage(named: "cutlery")
+                image.sd_setImageWithURL(urlString, placeholderImage: pImage)
+                
+            }
+        }
+
         var testText = "\(nameText) sent you the recipe: \(name). Check out the app Edible to view this recipe."
         
         
         let activityViewController = UIActivityViewController(
-            activityItems: [testText as NSString],
+            activityItems: [testText as NSString,image as UIImageView],
             applicationActivities: nil)
         
         presentViewController(activityViewController, animated: true, completion: nil)
