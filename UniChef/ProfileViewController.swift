@@ -126,6 +126,8 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
         loadUpvotes()
         loadUploaded()
         
+        sizeHeaderToFit()
+        
         loadUsername()
         
         var tgr = UITapGestureRecognizer(target:self, action:Selector("usernameTapped:"))
@@ -241,6 +243,20 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
                 }
             }
         }
+    }
+    
+    func sizeHeaderToFit() {
+        let headerView = tableView.tableHeaderView!
+        
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        
+        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        var frame = headerView.frame
+        frame.size.height = 364
+        headerView.frame = frame
+        
+        tableView.tableHeaderView = headerView
     }
     
 }

@@ -154,6 +154,18 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         headerView.frame = frame
         
         tableView.tableHeaderView = headerView
+        
+        let footerView = tableView.tableFooterView!
+        
+        footerView.setNeedsLayout()
+        footerView.layoutIfNeeded()
+        
+        let height1 = footerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        var frame1 = footerView.frame
+        frame1.size.height = 491
+        footerView.frame = frame1
+        
+        tableView.tableFooterView = footerView
     }
 }
 //extension PostViewController: UITextViewDelegate {
