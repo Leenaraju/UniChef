@@ -53,6 +53,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         tableView.reloadData()
         
+        sizeHeaderToFit()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -140,104 +141,118 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         }
         
     }
+    
+    func sizeHeaderToFit() {
+        let headerView = tableView.tableHeaderView!
+        
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        
+        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        var frame = headerView.frame
+        frame.size.height = 153
+        headerView.frame = frame
+        
+        tableView.tableHeaderView = headerView
+    }
 }
-extension PostViewController: UITextViewDelegate {
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if range.location == 0 && textView.text == "" {
-            if text == ("\n") {
-                textView.text = ("1 ")
-                var cursor: NSRange = NSMakeRange(range.location + 3, 0)
-                textView.selectedRange = cursor
-                return false
-            }
-            else {
-                textView.text = ("1 \(text)")
-            }
-        }
-        var goBackOneLine: Bool = false
-        var stringPrecedingReplacement: String = textView.text.substringToIndex(range.location)
-        var yo = stringPrecedingReplacement.componentsSeparatedByString("\n").count+1
-        var currentLine: String = "\(yo)"
-        if text.rangeOfString("\n").location == 0 || range.length == 1 {
-            var combinedText: String = textView.text.stringByReplacingCharactersInRange(range, withString: text)
-            var lines: [AnyObject] = combinedText.componentsSeparatedByString("\n").mutableCopy()
-            if range.length == 1 {
-                if textView.text.characterAtIndex(range.location) >= "0" && textView.text.characterAtIndex(range.location) <= "9" {
-                    var index: UInt = 1
-                    var c: Character = textView.text.characterAtIndex(range.location)
-                    while c >= "0" && c <= "9" {
-                        c = textView.text.characterAtIndex(range.location - index)
-                        if c == "\n" {
-                            combinedText = textView.text.stringByReplacingCharactersInRange(NSMakeRange(range.location - index, range.length + index), withString: text)
-                            lines = combinedText.componentsSeparatedByString("\n").mutableCopy()
-                            goBackOneLine = true
-                        }
-                        index++
-                    }
-                }
-                if range.location == 1 {
-                    var firstRow: String = lines.objectAtIndex(0)
-                    if firstRow.length > 3 {
-                        return false
-                    }
-                    else {
-                        if lines.count == 1 {
-                            return false
-                        }
-                        else {
-                            if lines.count > 1 {
-                                lines.removeObjectAtIndex(0)
-                            }
-                        }
-                    }
-                }
-            }
-            var linesWithoutLeadingNumbers: [AnyObject] = NSMutableArray
-            for string: String in lines {
-                var stringWithoutLeadingNumbers: String = string.copy()
-                for var i = 0; i < string.length; i++ {
-                    var c: Character = string.characterAtIndex(i)
-                    if c >= "0" && c <= "9" {
-                        stringWithoutLeadingNumbers = stringWithoutLeadingNumbers.stringByReplacingCharactersInRange(NSMakeRange(0, 1), withString: "")
-                    }
-                    else {
-                        
-                    }
-                }
-                stringWithoutLeadingNumbers = stringWithoutLeadingNumbers.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                linesWithoutLeadingNumbers.addObject(stringWithoutLeadingNumbers)
-            }
-            var linesWithUpdatedNumbers: [AnyObject] = NSMutableArray
-            for var i = 0; i < linesWithoutLeadingNumbers.count; i++ {
-                var updatedString: String = linesWithoutLeadingNumbers.objectAtIndex(i)
-                var lineNumberString: String = "\(i + 1) "
-                updatedString = lineNumberString.stringByAppendingString(updatedString)
-                linesWithUpdatedNumbers.addObject(updatedString)
-            }
-            var combinedString: String = ""
-            for var i = 0; i < linesWithUpdatedNumbers.count; i++ {
-                combinedString = combinedString.stringByAppendingString(linesWithUpdatedNumbers.objectAtIndex(i))
-                if i < linesWithUpdatedNumbers.count - 1 {
-                    combinedString = combinedString.stringByAppendingString("\n")
-                }
-            }
-            var cursor: NSRange
-            if text.isEqualToString("\n") {
-                cursor = NSMakeRange(range.location + currentLine.length + 2, 0)
-            }
-            else {
-                if goBackOneLine {
-                    cursor = NSMakeRange(range.location - 1, 0)
-                }
-                else {
-                    cursor = NSMakeRange(range.location, 0)
-                }
-            }
-            textView.selectedRange = cursor
-            textView.setText(combinedString)
-            return false
-        }
-        return true
-}
-
-}
+//extension PostViewController: UITextViewDelegate {
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if range.location == 0 && textView.text == "" {
+//            if text == ("\n") {
+//                textView.text = ("1 ")
+//                var cursor: NSRange = NSMakeRange(range.location + 3, 0)
+//                textView.selectedRange = cursor
+//                return false
+//            }
+//            else {
+//                textView.text = ("1 \(text)")
+//            }
+//        }
+//        var goBackOneLine: Bool = false
+//        var stringPrecedingReplacement: String = textView.text.substringToIndex(range.location)
+//        var yo = stringPrecedingReplacement.componentsSeparatedByString("\n").count+1
+//        var currentLine: String = "\(yo)"
+//        if text.rangeOfString("\n").location == 0 || range.length == 1 {
+//            var combinedText: String = textView.text.stringByReplacingCharactersInRange(range, withString: text)
+//            var lines: [AnyObject] = combinedText.componentsSeparatedByString("\n").mutableCopy()
+//            if range.length == 1 {
+//                if textView.text.characterAtIndex(range.location) >= "0" && textView.text.characterAtIndex(range.location) <= "9" {
+//                    var index: UInt = 1
+//                    var c: Character = textView.text.characterAtIndex(range.location)
+//                    while c >= "0" && c <= "9" {
+//                        c = textView.text.characterAtIndex(range.location - index)
+//                        if c == "\n" {
+//                            combinedText = textView.text.stringByReplacingCharactersInRange(NSMakeRange(range.location - index, range.length + index), withString: text)
+//                            lines = combinedText.componentsSeparatedByString("\n").mutableCopy()
+//                            goBackOneLine = true
+//                        }
+//                        index++
+//                    }
+//                }
+//                if range.location == 1 {
+//                    var firstRow: String = lines.objectAtIndex(0)
+//                    if firstRow.length > 3 {
+//                        return false
+//                    }
+//                    else {
+//                        if lines.count == 1 {
+//                            return false
+//                        }
+//                        else {
+//                            if lines.count > 1 {
+//                                lines.removeObjectAtIndex(0)
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            var linesWithoutLeadingNumbers: [AnyObject] = NSMutableArray
+//            for string: String in lines {
+//                var stringWithoutLeadingNumbers: String = string.copy()
+//                for var i = 0; i < string.length; i++ {
+//                    var c: Character = string.characterAtIndex(i)
+//                    if c >= "0" && c <= "9" {
+//                        stringWithoutLeadingNumbers = stringWithoutLeadingNumbers.stringByReplacingCharactersInRange(NSMakeRange(0, 1), withString: "")
+//                    }
+//                    else {
+//                        
+//                    }
+//                }
+//                stringWithoutLeadingNumbers = stringWithoutLeadingNumbers.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+//                linesWithoutLeadingNumbers.addObject(stringWithoutLeadingNumbers)
+//            }
+//            var linesWithUpdatedNumbers: [AnyObject] = NSMutableArray
+//            for var i = 0; i < linesWithoutLeadingNumbers.count; i++ {
+//                var updatedString: String = linesWithoutLeadingNumbers.objectAtIndex(i)
+//                var lineNumberString: String = "\(i + 1) "
+//                updatedString = lineNumberString.stringByAppendingString(updatedString)
+//                linesWithUpdatedNumbers.addObject(updatedString)
+//            }
+//            var combinedString: String = ""
+//            for var i = 0; i < linesWithUpdatedNumbers.count; i++ {
+//                combinedString = combinedString.stringByAppendingString(linesWithUpdatedNumbers.objectAtIndex(i))
+//                if i < linesWithUpdatedNumbers.count - 1 {
+//                    combinedString = combinedString.stringByAppendingString("\n")
+//                }
+//            }
+//            var cursor: NSRange
+//            if text.isEqualToString("\n") {
+//                cursor = NSMakeRange(range.location + currentLine.length + 2, 0)
+//            }
+//            else {
+//                if goBackOneLine {
+//                    cursor = NSMakeRange(range.location - 1, 0)
+//                }
+//                else {
+//                    cursor = NSMakeRange(range.location, 0)
+//                }
+//            }
+//            textView.selectedRange = cursor
+//            textView.setText(combinedString)
+//            return false
+//        }
+//        return true
+//}
+//
+//}
