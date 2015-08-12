@@ -67,7 +67,7 @@ class SegContainer: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        var white : UIColor = UIColor.whiteColor()
+        var white : UIColor = UIColor.blackColor()
         segControl.layer.borderColor = white.CGColor
         commentContainer.hidden = false
         instructionContainer.hidden = true

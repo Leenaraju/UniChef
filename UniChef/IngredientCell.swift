@@ -11,6 +11,7 @@ import UIKit
 class IngredientCell: UITableViewCell {
     
     @IBAction func changedTextValue(sender: AnyObject) {
+        
         if let textField = sender as? UITextField where !textField.text.isEmpty {
             if let indexPath = postViewController?.tableView.indexPathForCell(self) {
                 let row = indexPath.row

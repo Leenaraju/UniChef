@@ -14,8 +14,8 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     
     var imageString: String = ""
     
-    var theCell: IngredientCell?
-
+    var cell: IngredientCell?
+    
     @IBOutlet weak var postView: UITextField!
     @IBOutlet weak var directions: UITextView!
     @IBOutlet weak var imagePost: UIImageView!
@@ -23,13 +23,16 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func clearButton(sender: AnyObject) {
         resetUI()
     }
- 
+    
     @IBAction func addIngredient(sender: AnyObject) {
         ingredients.append("")
         
         var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? IngredientCell {
+            cell.ingredientField.becomeFirstResponder()
+        }
     }
     
     func resetUI(){
@@ -72,6 +75,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("Ingredient", forIndexPath: indexPath) as! IngredientCell
         cell.postViewController = self
         cell.ingredientField.text = ingredients[indexPath.row]
+        
         return cell
     }
     
@@ -85,15 +89,7 @@ class PostViewController: UITableViewController, UITextFieldDelegate {
         return newLength <= 25 // Bool
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        ingredients.append("")
-        var indexPath = NSIndexPath(forRow: ingredients.count-1, inSection: 0)
-        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-        theCell?.ingredientField.becomeFirstResponder()
-
-        return true;
-    }
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPhoto" {

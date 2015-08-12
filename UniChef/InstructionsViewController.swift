@@ -8,8 +8,8 @@
 
 import UIKit
 
-class InstructionsViewController: UITableViewController {
-    
+class InstructionsViewController: UITableViewController{
+
     @IBOutlet weak var directions: UITextView!
     
     var recipe: PFObject?
@@ -62,5 +62,25 @@ class InstructionsViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients?.count ?? 0
     }
-    
 }
+//    @IBAction func editPressed(sender: AnyObject) {
+//        directions.editable = true
+//        directions.becomeFirstResponder()
+//        
+//    }
+//    
+//    func saveRecipe(){
+//        recipe?["directions"] = directions.text
+//        recipe?.saveInBackground()
+//    }
+//    
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if(text == "\n") {
+//            textView.resignFirstResponder()
+//            saveRecipe()
+//            return false
+//        }
+//        return true
+//    }
+
+    

@@ -7,7 +7,11 @@ class CommentCell: PFTableViewCell {
     @IBOutlet weak var username: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBAction func username(sender: AnyObject) {
+        viewController?.performSegueWithIdentifier("openProfile", sender: data?["fromUser"] as? PFUser)
+    }
 
+    
     var data : PFObject? {
         didSet {
             loadContentLabel()
@@ -16,7 +20,7 @@ class CommentCell: PFTableViewCell {
             loadProfilePic()
         }
     }
-    
+
     private func loadContentLabel() {
         if let text = data?["text"] as? String {
             contentLabel.text = text
@@ -45,5 +49,6 @@ class CommentCell: PFTableViewCell {
         
         profilePic.layer.cornerRadius = profilePic.frame.width / 2
     }
+
 
 }

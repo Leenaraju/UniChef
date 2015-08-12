@@ -12,7 +12,7 @@ import UIKit
 
 class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     
-    var recipe: PFObject?
+    var user: PFUser?
     
     @IBOutlet weak var upvotedCount: UILabel!
     
@@ -27,6 +27,13 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var savedRecipes: UISegmentedControl!
     
+    private func getUser() -> PFUser? {
+        if let user = user {
+            return user
+        } else {
+            return PFUser.currentUser()
+        }
+    }
     
     @IBAction func savedRecipesChanged(sender: AnyObject) {
         loadObjects()
@@ -36,13 +43,13 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
         let query : PFQuery!
         if savedRecipes.selectedSegmentIndex == 0 {
             query = PFQuery(className: "UpvotedRecipe")
-            query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+            query.whereKey("fromUser", equalTo: getUser()!)
             query.includeKey("toRecipe")
             query.includeKey("toRecipe.users")
             query.includeKey("fromUser")
         } else {
             query = PFQuery(className: "recipe")
-            query.whereKey("users", equalTo: PFUser.currentUser()!)
+            query.whereKey("users", equalTo: getUser()!)
             query.includeKey("users")
         }
         
@@ -62,27 +69,27 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     }
     
     private func loadUploaded() {
-        if let text = PFUser.currentUser()?["count"] as? String {
+        if let text = getUser()?["count"] as? String {
             uploadedCount.text = text
         }
     }
     
     
     private func loadUsername() {
-        if let usernameString = PFUser.currentUser()?["name"] as? String {
+        if let usernameString = getUser()?["name"] as? String {
             username.text = usernameString
         }
     }
     
     private func loadProfilePic() {
-
-        if let file = PFUser.currentUser()?["profilePic"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
+        
+        if let file = getUser()?["profilePic"] as? PFFile, urlString = file.url, url = NSURL(string: urlString) {
             profilePic.sd_setImageWithURL(url)
         }
-    
+        
         profilePic.layer.cornerRadius = profilePic.frame.width / 2
-            
-
+        
+        
     }
     
     func textFieldShouldReturn(username: UITextField) -> Bool {
@@ -92,18 +99,23 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
         return true;
     }
     
+    func textField(postView: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let newLength = count(postView.text.utf16) + count(string.utf16) - range.length
+        return newLength <= 22 // Bool
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let id = PFUser.currentUser()?.objectId {
-            PFUser.currentUser()?.fetchInBackground()
+        if let id = getUser()?.objectId {
+            getUser()?.fetchInBackground()
         }
         
-        if let bPoints = PFUser.currentUser()?["points"] as? NSNumber {
+        if let bPoints = getUser()?["points"] as? NSNumber {
             browniePoints.text = "\(bPoints)"
         }
         
-        if let usernameString = PFUser.currentUser()?["name"] as? String {
+        if let usernameString = getUser()?["name"] as? String {
             username.text = usernameString
         }
     }
@@ -123,18 +135,22 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
         self.savedRecipes.layer.cornerRadius = 0.0
         var grey : UIColor = UIColor(red: 240/255, green: 245/255, blue: 245/255, alpha: 1)
         self.savedRecipes.layer.borderColor = grey.CGColor
-
+        
         self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width / 2
         self.profilePic.clipsToBounds = true
         self.profilePic.layer.borderWidth = 3.0
         var white : UIColor = UIColor.whiteColor()
         self.profilePic.layer.borderColor = white.CGColor
+        
+        if PFUser.currentUser()?.objectId != getUser()?.objectId {
+            username.enabled = false
+        }
     }
     
     private func loadLikesCount() {
         let query : PFQuery!
         query = PFQuery(className: "UpvotedRecipe")
-        query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+        query.whereKey("fromUser", equalTo: getUser()!)
         query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
             if error == nil {
                 self.upvotedCount.text = String(count)
@@ -155,7 +171,7 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     private func loadUploadCount() {
         let query : PFQuery!
         query = PFQuery(className: "recipe")
-        query.whereKey("users", equalTo: PFUser.currentUser()!)
+        query.whereKey("users", equalTo: getUser()!)
         query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
             if error == nil {
                 self.uploadedCount.text = String(count)
@@ -172,7 +188,10 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
     
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        if PFUser.currentUser()?.objectId == getUser()?.objectId {
+            return true
+        }
+        return false
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -184,6 +203,7 @@ class ProfileViewController: PFQueryTableViewController, UITextFieldDelegate  {
             }
         }
     }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         if let object = object {

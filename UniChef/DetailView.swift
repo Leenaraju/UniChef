@@ -11,10 +11,16 @@ import UIKit
 
 class DetailView: UIView {
     
+    weak var viewController : UIViewController?
+    
     @IBOutlet weak var recipeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var username: UIButton!
     
-    @IBOutlet weak var username: UILabel!
+    @IBAction func username(sender: AnyObject) {
+        viewController?.performSegueWithIdentifier("openProfile", sender: recipe?["users"] as? PFUser)
+        
+    }
     
     var recipe: PFObject? {
         didSet {
@@ -22,7 +28,7 @@ class DetailView: UIView {
             recipeImage.image = nil
             
             if let user = recipe?["users"] as? PFUser, name = user["name"] as? String {
-                username.text = "By: \(name)"
+                username.setTitle("By: \(name)", forState: .Normal)
             }
             
             if let url = recipe?["photo"] as? String {

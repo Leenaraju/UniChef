@@ -15,10 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-
+        
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         let navbar = UINavigationBar.appearance()
         navbar.barTintColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
+        navbar.barStyle = UIBarStyle.Black
         //
         
         var attributes = [
@@ -33,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         if PFUser.currentUser() == nil{
-             PFUser.enableAutomaticUser()
+            PFUser.enableAutomaticUser()
             self.getRandomName()
         }
         
@@ -59,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 PFUser.currentUser()?["profilePic"] = file
                 
                 file.saveInBackgroundWithBlock({ (success, error) -> Void in
-                        PFUser.currentUser()?.saveInBackground()
+                    PFUser.currentUser()?.saveInBackground()
                 })
                 
                 

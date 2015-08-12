@@ -71,22 +71,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    //        searchBar!.delegate = self;
-    //
-    //        searchBar!.searchBarStyle = UISearchBarStyle.Minimal
-    //                searchBarButtonItem = navigationItem.rightBarButtonItem
-    //                //        searchBar.showsCancelButton = true
-    //                searchBar.barTintColor = UIColor(red: 0.5, green: 0.5, blue: 0.431, alpha: 1)
-    //                searchBar.tintColor = UIColor(red: 0.137, green: 0.408, blue: 0.431, alpha: 1)
-    //                searchBar.placeholder = "Find the events!"
-    //                searchBar.autocorrectionType = UITextAutocorrectionType.Yes
-    //                searchBar.autocapitalizationType = UITextAutocapitalizationType.Sentences
-    
-    
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+ 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showTable" {
             tableViewController = segue.destinationViewController as! TableViewController

@@ -61,6 +61,7 @@ class CommentsViewController: SLKTextViewController {
         
         if let header = UIView.loadFromNibNamed("RecipeView", bundle: NSBundle.mainBundle()) as? DetailView {
             header.recipe = recipe
+            header.viewController = self
             
             header.setTranslatesAutoresizingMaskIntoConstraints(false)
             self.tableView.tableHeaderView = header
@@ -192,6 +193,10 @@ class CommentsViewController: SLKTextViewController {
             if let vc = segue.destinationViewController as? InstructionsViewController {
                 vc.recipe = recipe
             }
+        } else if segue.identifier == "openProfile" {
+            if let vc = segue.destinationViewController as? ProfileViewController, user = sender as? PFUser {
+                vc.user = user
+            }
         }
     }
 }
@@ -255,6 +260,7 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
             let ok = UIAlertAction(
                 title: "Yes",
                 style: UIAlertActionStyle.Default){ (action) in
+                    
                     self.recipe?.incrementKey("flaggedCount")
                     self.recipe?.saveInBackground()
             }
@@ -285,21 +291,30 @@ extension CommentsViewController : UITableViewDataSource, UITableViewDelegate {
             }
         })
         flagAction.backgroundColor = UIColor.orangeColor()
+        
+        var isCurUser = false
+        
+        if let row = objectForRowAtIndex(indexPath.row), fromUser = row["fromUser"] as? PFUser, curUser = PFUser.currentUser() {
+            if fromUser.objectId == curUser.objectId {
+                isCurUser = true
+            }
+        }
+        
+        if isCurUser {
+            return [deleteAction]
+        } else {
+            return [flagAction]
+        }
 
-        return [flagAction,deleteAction]
+        
         
     }
     
     
     
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let row = objectForRowAtIndex(indexPath.row), fromUser = row["fromUser"] as? PFUser, curUser = PFUser.currentUser() {
-            if fromUser.objectId == curUser.objectId {
-                return true
-            }
-        }
-        
-        return false
+        return true
     }
 }
 
