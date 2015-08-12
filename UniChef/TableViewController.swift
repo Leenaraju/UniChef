@@ -112,7 +112,9 @@ class TableViewController: PFQueryTableViewController {
             
             cell.recipeText.text = object.valueForKey("text") as? String
             cell.recipeText.numberOfLines = 0
-            let score = object.valueForKey("count") as! Int
+            
+         let score = object.valueForKey("count") as? Int ?? 0
+            
             if let timeAgo = object.createdAt?.timeAgoSimple {
                 cell.time.text = timeAgo + " ago"
             }

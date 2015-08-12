@@ -150,6 +150,15 @@ extension PostViewController: UITextViewDelegate {
         }
     }
     
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        var step = 1
+//        if(textView.text == "\n") {
+//            step++
+//            textView.text = "\(step).  "
+//        }
+//        return true
+//    }
+//    
     
 }
 
