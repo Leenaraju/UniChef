@@ -175,6 +175,8 @@ class CommentsViewController: SLKTextViewController {
         let object = PFObject(className: "Comment")
         
         object["fromUser"] = PFUser.currentUser()
+        object["flaggedCount"] = 0
+
         object["toRecipe"] = recipe
         object["text"] = self.textView.text
         object["postedAt"] = NSDate()

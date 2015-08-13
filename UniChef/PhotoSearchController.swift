@@ -29,7 +29,9 @@ class PhotoSearchController: UICollectionViewController, UICollectionViewDataSou
         self.collectionView?.addSubview(searchbar)
         
         searchbar.text = searchWord
-        
+        if (searchbar.text == ""){
+            searchbar.placeholder = "Search photos for your recipe"
+        }
         loadImages()
 
     }
